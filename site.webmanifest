@@ -1,0 +1,22 @@
+{
+  "name": "CMF 2026 學習筆記",
+  "short_name": "CMF 筆記",
+  "description": "CMF 2026 課程學習筆記，供課後複習與小組討論使用。",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f2e8",
+  "theme_color": "#d8f0f8",
+  "icons": [
+    {
+      "src": "android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

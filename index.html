@@ -1,1 +1,644 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CMF 2026 學習筆記</title>
+  <meta name="description" content="CMF 2026 課程學習筆記：課表、重點整理、金句、案例與小組討論。">
+  <meta name="theme-color" content="#d8f0f8">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <style>
+    :root {
+      --ink: #17211f;
+      --muted: #66736f;
+      --paper: #f7f2e8;
+      --card: #fffdf7;
+      --jade: #14594e;
+      --lake: #25788d;
+      --gold: #c49b52;
+      --terra: #bd6238;
+      --line: rgba(23, 33, 31, .12);
+      --shadow: 0 18px 48px rgba(23, 33, 31, .12);
+      --radius: 22px;
+      --radius-sm: 15px;
+    }
 
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #0d1718;
+      font-family: "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", system-ui, sans-serif;
+      line-height: 1.68;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    section { scroll-margin-top: 86px; }
+
+    .app {
+      width: min(100%, 430px);
+      min-height: 100svh;
+      margin: 0 auto;
+      padding-bottom: 34px;
+      background:
+        radial-gradient(circle at 18% -8%, rgba(196, 155, 82, .28), transparent 32%),
+        linear-gradient(180deg, rgba(20, 89, 78, .08), rgba(247, 242, 232, .98) 360px),
+        var(--paper);
+      box-shadow: 0 0 60px rgba(0, 0, 0, .28);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 0 14px;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(23, 33, 31, .1);
+      background: linear-gradient(180deg, rgba(248, 246, 239, .94), rgba(236, 231, 218, .86));
+      backdrop-filter: blur(18px) saturate(1.08);
+      -webkit-backdrop-filter: blur(18px) saturate(1.08);
+    }
+
+    .header-brand {
+      flex: 1 1 auto;
+      min-width: 0;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      overflow: hidden;
+    }
+
+    .brand-mark {
+      flex: 0 0 auto;
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      object-position: center;
+      filter: drop-shadow(0 4px 8px rgba(23, 33, 31, .08));
+    }
+
+    .brand-title {
+      flex: 0 1 auto;
+      min-width: 0;
+      color: #073f3c;
+      font-family: "Songti TC", "PingFang TC", "Microsoft JhengHei", serif;
+      font-size: 27px;
+      font-weight: 900;
+      line-height: .92;
+      letter-spacing: .035em;
+      transform: translateY(1px) scaleX(1.02);
+      transform-origin: left center;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, .45), .35px 0 0 #073f3c;
+      white-space: nowrap;
+    }
+
+    .brand-divider {
+      flex: 0 0 auto;
+      width: 1px;
+      height: 30px;
+      margin: 0 1px 0 2px;
+      background: linear-gradient(180deg, transparent, rgba(196, 155, 82, .98), transparent);
+    }
+
+    .brand-event {
+      flex: 0 0 auto;
+      display: grid;
+      justify-items: center;
+      gap: 1px;
+      color: var(--jade);
+      line-height: 1;
+      white-space: nowrap;
+      transform: translateY(4px);
+    }
+
+    .brand-event b {
+      color: #c69a50;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: .02em;
+      line-height: .95;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, .56);
+    }
+
+    .brand-event small {
+      color: #14594e;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      line-height: 1;
+    }
+
+    .return-btn {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 0 13px;
+      border: 1px solid rgba(196, 155, 82, .28);
+      border-radius: 999px;
+      color: var(--ink);
+      background: linear-gradient(180deg, rgba(255, 255, 255, .9), rgba(255, 253, 247, .62));
+      box-shadow: 0 8px 22px rgba(23, 33, 31, .09);
+      font-size: 12.5px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .hero {
+      padding: 22px 14px 14px;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      padding: 24px 22px;
+      border-radius: 30px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(196, 155, 82, .45), transparent 30%),
+        linear-gradient(135deg, #14594e 0%, #25788d 54%, #6d395f 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card::after {
+      content: "學";
+      position: absolute;
+      right: -8px;
+      bottom: -48px;
+      color: rgba(255, 255, 255, .08);
+      font-family: "Songti TC", serif;
+      font-size: 190px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .kicker {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      padding: 5px 9px;
+      border: 1px solid rgba(255, 255, 255, .26);
+      border-radius: 999px;
+      color: rgba(255, 255, 255, .82);
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      position: relative;
+      z-index: 1;
+      margin: 16px 0 8px;
+      font-size: 42px;
+      line-height: 1.05;
+      letter-spacing: -.05em;
+    }
+
+    .hero-card p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: rgba(255, 255, 255, .78);
+      font-size: 15px;
+      font-weight: 850;
+      line-height: 1.6;
+    }
+
+    .summary-row {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .summary-row div {
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, .16);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .1);
+    }
+
+    .summary-row span {
+      display: block;
+      color: rgba(255, 255, 255, .62);
+      font-size: 10px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .summary-row b {
+      display: block;
+      margin-top: 2px;
+      font-size: 16px;
+      line-height: 1.2;
+    }
+
+    .jump {
+      position: sticky;
+      top: 64px;
+      z-index: 30;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin: 0 14px 16px;
+      padding: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(23, 33, 31, .1);
+      border-radius: 999px;
+      background: rgba(255, 253, 247, .86);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 12px 30px rgba(23, 33, 31, .08);
+      scrollbar-width: none;
+    }
+
+    .jump::-webkit-scrollbar { display: none; }
+
+    .jump a {
+      min-width: 0;
+      padding: 8px 6px;
+      border-radius: 999px;
+      color: var(--jade);
+      background: rgba(20, 89, 78, .07);
+      font-size: 13px;
+      font-weight: 950;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .wrap {
+      padding: 0 14px;
+    }
+
+    .day {
+      margin-bottom: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 253, 247, .94);
+      box-shadow: 0 16px 42px rgba(23, 33, 31, .08);
+      overflow: hidden;
+    }
+
+    .day-head {
+      padding: 17px 18px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(196, 155, 82, .32), transparent 30%),
+        linear-gradient(135deg, var(--jade), #245f68);
+    }
+
+    .day-head span {
+      display: inline-flex;
+      margin-bottom: 5px;
+      color: rgba(255, 255, 255, .72);
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .day-head h2 {
+      margin: 0;
+      font-size: 23px;
+      line-height: 1.24;
+    }
+
+    .course-list {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+    }
+
+    .session {
+      padding: 14px;
+      border: 1px solid rgba(20, 89, 78, .1);
+      border-radius: var(--radius-sm);
+      background: rgba(237, 247, 244, .72);
+    }
+
+    .session.break {
+      background: rgba(247, 232, 196, .38);
+      border-color: rgba(196, 155, 82, .22);
+    }
+
+    .session-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .time {
+      flex: 0 0 auto;
+      color: var(--terra);
+      font-size: 13px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .status {
+      flex: 0 0 auto;
+      padding: 4px 8px;
+      border-radius: 999px;
+      color: var(--jade);
+      background: rgba(255, 255, 255, .78);
+      font-size: 11px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .topic {
+      margin: 0;
+      color: var(--ink);
+      font-size: 17px;
+      font-weight: 950;
+      line-height: 1.42;
+    }
+
+    .speaker {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 750;
+      line-height: 1.55;
+    }
+
+    .note-slot {
+      display: grid;
+      gap: 6px;
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .58);
+    }
+
+    .note-slot b {
+      color: var(--jade);
+      font-size: 13px;
+      line-height: 1.3;
+    }
+
+    .featured {
+      border-color: rgba(196, 155, 82, .42);
+      background:
+        linear-gradient(135deg, rgba(255, 253, 247, .98), rgba(247, 232, 196, .6));
+      box-shadow: 0 12px 28px rgba(196, 155, 82, .16);
+    }
+
+    .featured .status {
+      color: #fff;
+      background: linear-gradient(135deg, var(--gold), var(--terra));
+    }
+
+    .footer-space { height: 18px; }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="header-brand" href="index.html" aria-label="返回學習筆記主頁">
+        <img class="brand-mark" src="assets/images/user-src/logo-cmf-official.png" alt="" width="512" height="512">
+        <span class="brand-title">逐浪泉城</span>
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-event">
+          <b>CMF 2026</b>
+          <small>07.14 - 07.21</small>
+        </span>
+      </a>
+      <a class="return-btn" href="index.html">返回主頁</a>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <span class="kicker">Learning Notes</span>
+        <h1>課程學習筆記</h1>
+        <p>先以課表建立學習筆記架構。</p>
+        <div class="summary-row">
+          <div><span>日期</span><b>7/18-7/20</b></div>
+          <div><span>課程</span><b>22 堂</b></div>
+          <div><span>狀態</span><b>待補筆記</b></div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="jump" aria-label="快速跳轉">
+      <a href="#day1">7/18 開篇</a>
+      <a href="#day2">7/19 中篇</a>
+      <a href="#day3">7/20 尾篇</a>
+    </nav>
+
+    <div class="wrap">
+      <section class="day" id="day1">
+        <div class="day-head">
+          <span>DAY 5 · 2026.07.18</span>
+          <h2>開篇：探秘保險新生態</h2>
+        </div>
+        <div class="course-list">
+          <article class="session">
+            <div class="session-head"><span class="time">10:20-12:00</span><span class="status">筆記待補</span></div>
+            <h3 class="topic">百歲時代：生命科學重構健康與財富的底層邏輯</h3>
+            <div class="speaker">尹燁｜華大集團 CEO、生命科學科普領軍人</div>
+            <div class="note-slot"><b>待整理</b></div>
+          </article>
+          <article class="session break">
+            <div class="session-head"><span class="time">12:00-13:30</span><span class="status">午餐</span></div>
+            <h3 class="topic">午餐休息</h3>
+          </article>
+          <article class="session">
+            <div class="session-head"><span class="time">13:30-14:20</span><span class="status">筆記待補</span></div>
+            <h3 class="topic">時代趨勢：自媒體事件營銷</h3>
+            <div class="speaker">張一凡｜自媒體事件營銷第一人，頭條熱搜事件幕後策劃人</div>
+            <div class="note-slot"><b>待整理</b></div>
+          </article>
+          <article class="session">
+            <div class="session-head"><span class="time">14:20-15:10</span><span class="status">筆記待補</span></div>
+            <h3 class="topic">壽險常青樹 - 超高淨值客戶銷售解析</h3>
+            <div class="speaker">褚東東｜中國保險件數王，中國人壽頂尖營銷精英</div>
+            <div class="note-slot"><b>待整理</b></div>
+          </article>
+          <article class="session break">
+            <div class="session-head"><span class="time">15:10-15:30</span><span class="status">休息</span></div>
+            <h3 class="topic">休息</h3>
+          </article>
+          <article class="session">
+            <div class="session-head"><span class="time">15:30-16:20</span><span class="status">筆記待補</span></div>
+            <h3 class="topic">用家辦思維撬動超高淨值客戶</h3>
+            <div class="speaker">余巧琴｜平安高質量轉型代言人、高客服務典範、精兵團隊標桿</div>
+            <div class="note-slot"><b>待整理</b></div>
+          </article>
+          <article class="session">
+            <div class="session-head"><span class="time">16:20-17:10</span><span class="status">筆記待補</span></div>
+            <h3 class="topic">法商智慧：高客風險破解</h3>
+            <div class="speaker">國旭｜京師律所合夥人、家族財富管理法律專家</div>
+            <div class="note-slot"><b>待整理</b></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="day" id="day2">
+        <div class="day-head">
+          <span>DAY 6 · 2026.07.19</span>
+          <h2>中篇：探求保險新生態之路</h2>
+        </div>
+        <div class="course-list">
+          <article class="session">
+            <div class="session-head"><span class="time">08:20-09:00</span><span class="status">筆記待補</span></div>
+            <h3 class="topic">認知突圍：業績倍增心法</h3>
+            <div class="speaker">李偉彬｜實戰派銷售教練，累計培育百萬學員</div>
+            <div class="note-slot"><b>待整理</b></div>
+          </article>
+          <article class="session">
+            <div class="session-head"><span class="time">09:00-09:45</span><span class="status">筆記待補</span></div>
+            <h3 class="topic">長期主義：20 年保險路，從個人績優到團隊領袖</h3>
+            <div class="speaker">于忠濱｜太平人壽連續二十年營業區、直轄部全省第一</div>
+            <div class="note-slot"><b>待整理</b></div>
+          </article>
+          <article class="session">
+            <div class="session-head"><span class="time">09:45-10:30</span><span class="status">筆記待補</span></div>
+            <h3 class="topic">團隊經營與績優文化建設</h3>
+            <div class="speaker">王利忠｜中國人壽高級區域總監</div>
+            <div class="note-slot"><b>待整理</b></div>
+          </article>
+          <article class="session break">
+            <div class="session-head"><span class="time">10:30-10:40</span><span class="status">休息</span></div>
+            <h3 class="topic">休息</h3>
+          </article>
+          <article class="session featured">
+            <div class="session-head"><span class="time">10:40-11:25</span><span class="status">本團主角</span></div>
+            <h3 class="topic">00 後組織發展：年輕一代的團隊成長密碼</h3>
+            <div class="speaker">吳修毅｜中國台灣金融保險產業新生代領導者，富邦人壽極具代表性的年輕企業家</div>
+            <div class="note-slot"><b>待整理</b></div>
+          </article>
+          <article class="session">
+            <div class="session-head"><span class="time">11:25-12:10</span><span class="status">筆記待補</span></div>
+            <h3 class="topic">投保心理學：洞察人性，經營未來 - AI 保險時代下的破局</h3>
+            <div class="speaker">羅淑瓊｜香港中銀人壽資深總監，PPGroup 創辦人之一</div>
+            <div class="note-slot"><b>待整理</b></div>
+          </article>
+          <article class="session break">
+            <div class="session-head"><span class="time">12:10-13:30</span><span class="status">午餐</span></div>
+            <h3 class="topic">午餐休息</h3>
+          </article>
+          <article class="session">
+            <div class="session-head"><span class="time">13:30-14:20</span><span class="status">筆記待補</span></div>
+            <h3 class="topic">家族保單拓客要領</h3>
+            <div class="speaker">馮瑞霞｜瑞眾持續績優明星</div>
+            <div class="note-slot"><b>待整理</b></div>
+          </article>
+          <article class="session">
+            <div class="session-head"><span class="time">14:20-15:10</span><span class="status">筆記待補</span></div>
+            <h3 class="topic">IP 打造與直播獲客</h3>
+            <div class="speaker">李揚｜明亞北京頂級銷冠、直播億級保費締造者</div>
+            <div class="note-slot"><b>待整理</b></div>
+          </article>
+          <article class="session break">
+            <div class="session-head"><span class="time">15:10-15:30</span><span class="status">休息</span></div>
+            <h3 class="topic">休息</h3>
+          </article>
+          <article class="session">
+            <div class="session-head"><span class="time">15:30-16:20</span><span class="status">筆記待補</span></div>
+            <h3 class="topic">職業轉型與保險從業成長</h3>
+            <div class="speaker">錢文曦｜太平人壽品質新生態代言人</div>
+            <div class="note-slot"><b>待整理</b></div>
+          </article>
+          <article class="session">
+            <div class="session-head"><span class="time">16:20-17:10</span><span class="status">筆記待補</span></div>
+            <h3 class="topic">企業家客戶的銷售邏輯</h3>
+            <div class="speaker">曹紀平｜TMC 千萬圓桌會創始會員，連續二十二年山東省銷售冠軍</div>
+            <div class="note-slot"><b>待整理</b></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="day" id="day3">
+        <div class="day-head">
+          <span>DAY 7 · 2026.07.20</span>
+          <h2>尾篇：探討保險新生態之策</h2>
+        </div>
+        <div class="course-list">
+          <article class="session">
+            <div class="session-head"><span class="time">08:30-09:00</span><span class="status">筆記待補</span></div>
+            <h3 class="topic">內容 IP 獲客：從晨間直播到百萬粉絲，保險人長效私域經營</h3>
+            <div class="speaker">趙大瑋｜國內頂流保險評論，瑋瑋道保主理人</div>
+            <div class="note-slot"><b>待整理</b></div>
+          </article>
+          <article class="session">
+            <div class="session-head"><span class="time">09:00-09:50</span><span class="status">筆記待補</span></div>
+            <h3 class="topic">人生經營三部曲 - 保險的智慧</h3>
+            <div class="speaker">王辰｜清華才子，CMF 特約首席講師</div>
+            <div class="note-slot"><b>待整理</b></div>
+          </article>
+          <article class="session break">
+            <div class="session-head"><span class="time">09:50-10:10</span><span class="status">休息</span></div>
+            <h3 class="topic">休息</h3>
+          </article>
+          <article class="session">
+            <div class="session-head"><span class="time">10:10-11:10</span><span class="status">筆記待補</span></div>
+            <h3 class="topic">持續打造績優與高客深度經營</h3>
+            <div class="speaker">趙楊｜上海分公司資深業務總監、CMF 國際十大保險明星</div>
+            <div class="note-slot"><b>待整理</b></div>
+          </article>
+          <article class="session">
+            <div class="session-head"><span class="time">11:10-12:00</span><span class="status">筆記待補</span></div>
+            <h3 class="topic">如何構建保險新生態</h3>
+            <div class="speaker">CMF 主席團｜劉朝霞、李江紅、盧小美、葉雲燕、吳征宇等</div>
+            <div class="note-slot"><b>待整理</b></div>
+          </article>
+          <article class="session break">
+            <div class="session-head"><span class="time">12:00-13:30</span><span class="status">午餐</span></div>
+            <h3 class="topic">午餐休息</h3>
+          </article>
+          <article class="session">
+            <div class="session-head"><span class="time">13:30-14:10</span><span class="status">筆記待補</span></div>
+            <h3 class="topic">財務視角下的保險本質</h3>
+            <div class="speaker">齊昊｜財務專家、實戰派 CFO、知名講師</div>
+            <div class="note-slot"><b>待整理</b></div>
+          </article>
+          <article class="session">
+            <div class="session-head"><span class="time">14:10-15:10</span><span class="status">筆記待補</span></div>
+            <h3 class="topic">國學與保險營銷</h3>
+            <div class="speaker">趙玉平｜中央電視台《百家講壇》主講人，中國十大國學專家</div>
+            <div class="note-slot"><b>待整理</b></div>
+          </article>
+          <article class="session break">
+            <div class="session-head"><span class="time">15:10-15:50</span><span class="status">休息</span></div>
+            <h3 class="topic">休息</h3>
+          </article>
+          <article class="session">
+            <div class="session-head"><span class="time">15:50-16:40</span><span class="status">筆記待補</span></div>
+            <h3 class="topic">構建保險新生態</h3>
+            <div class="speaker">林海川｜CMF 大會創始人之一，CMF 大會執行秘書長</div>
+            <div class="note-slot"><b>待整理</b></div>
+          </article>
+          <article class="session">
+            <div class="session-head"><span class="time">16:40-17:10</span><span class="status">筆記待補</span></div>
+            <h3 class="topic">柔韌的力量：女性企業家的破局與成長</h3>
+            <div class="speaker">李巍｜新希望集團聯合創始人</div>
+            <div class="note-slot"><b>待整理</b></div>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <div class="footer-space"></div>
+  </main>
+</body>
+</html>

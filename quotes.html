@@ -4,10 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CMF 2026 學習筆記｜金句庫</title>
-  <meta name="description" content="CMF 2026 十六堂課 104 句講師金句彙整，可依日期與講師篩選。">
+  <meta name="description" content="CMF 2026 十七堂課 112 句講師金句彙整，可依日期與講師篩選。">
   <meta property="og:title" content="CMF 2026 學習筆記｜金句庫">
   <meta property="og:description" content="104 句講師金句一頁彙整，可依日期與講師篩選。">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://duduflow.github.io/CMF2026-Learning/quotes.html">
+  <meta property="og:image" content="https://duduflow.github.io/CMF2026-Learning/assets/logo-cmf-official.png">
   <link rel="icon" href="favicon.ico" sizes="any">
   <style>
     :root {
@@ -140,17 +142,6 @@
       color: #fff; background: rgba(255,255,255,.12); font: inherit; font-size: 13px; font-weight: 900; cursor: pointer;
     }
     @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; transition: none; } }
-    /* ===== v3：手機頂欄修正（選單換行成獨立一列，避免被擠出畫面） ===== */
-    @media (max-width: 680px) {
-      .topbar-in { flex-wrap: wrap; height: auto; padding: 10px 0; row-gap: 8px; }
-      .brand { min-width: 0; }
-      .brand img { width: 32px; height: 32px; }
-      .brand b { font-size: 17px; }
-      .brand span { display: none; }
-      .menu { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 2px; }
-      .menu::-webkit-scrollbar { display: none; }
-      .menu a, .menu button.sbtn { flex: none; padding: 8px 13px; font-size: 13.5px; }
-    }
     @media print {
       .topbar, .menu, .s-overlay, .jump, .quick, .daily { display: none !important; }
       body { background: #fff; }
@@ -174,12 +165,12 @@
   <div class="wrap">
     <section class="hero">
       <h1>金句庫</h1>
-      <p>16 堂課、104 句講師金句。<b>點金句一鍵複製</b>（自動帶出處）、點 ♡ 加入「我的收藏」；早會分享、面談話術隨取隨用。</p>
+      <p>17 堂課、112 句講師金句。<b>點金句一鍵複製</b>（自動帶出處）、點 ♡ 加入「我的收藏」；早會分享、面談話術隨取隨用。</p>
     </section>
 
     <div class="filters">
       <button class="chip on" data-f="all">全部</button><button class="chip" data-f="d1">DAY1</button><button class="chip" data-f="d2">DAY2</button><button class="chip" data-f="d3">DAY3</button><button class="chip" data-f="fav">❤ 我的收藏</button>
-      <select id="sp"><option value="all">全部講師</option><option value="尹燁">尹燁</option><option value="張一凡">張一凡</option><option value="褚東東">褚東東</option><option value="余巧琴">余巧琴</option><option value="國旭">國旭</option><option value="李偉彬">李偉彬</option><option value="于忠濱">于忠濱</option><option value="王利忠">王利忠</option><option value="吳修毅">吳修毅</option><option value="羅淑瓊">羅淑瓊</option><option value="曹紀平">曹紀平</option><option value="錢文曦">錢文曦</option><option value="李揚">李揚</option><option value="林海川">林海川</option><option value="趙楊">趙楊</option><option value="齊昊">齊昊</option></select>
+      <select id="sp"><option value="all">全部講師</option><option value="尹燁">尹燁</option><option value="張一凡">張一凡</option><option value="褚東東">褚東東</option><option value="余巧琴">余巧琴</option><option value="國旭">國旭</option><option value="李偉彬">李偉彬</option><option value="于忠濱">于忠濱</option><option value="王利忠">王利忠</option><option value="吳修毅">吳修毅</option><option value="羅淑瓊">羅淑瓊</option><option value="曹紀平">曹紀平</option><option value="錢文曦">錢文曦</option><option value="李揚">李揚</option><option value="林海川">林海川</option><option value="趙楊">趙楊</option><option value="齊昊">齊昊</option><option value="王辰">王辰</option></select>
       <span class="count" id="count"></span>
     </div>
 
@@ -807,6 +798,54 @@
         <blockquote>和氣生財，但要有邊界感——不卑不亢。</blockquote>
         <figcaption>和氣不等於當老好人。</figcaption>
         <a class="src" href="notes/d7-05-qihao.html">齊昊｜四個財務思維</a>
+      </figure>
+      <figure class="q" data-id="q105" data-d="d3" data-s="王辰">
+        <button class="fav" aria-label="收藏" type="button">♡</button>
+        <blockquote>最嚴重的錯誤從來不是答案錯了，真正致命的是一開始就問錯了問題。</blockquote>
+        <figcaption>德魯克之問，也是這堂課的題眼。</figcaption>
+        <a class="src" href="notes/d7-02-wangchen.html">王辰｜保險的智慧</a>
+      </figure>
+      <figure class="q" data-id="q106" data-d="d3" data-s="王辰">
+        <button class="fav" aria-label="收藏" type="button">♡</button>
+        <blockquote>活動率是指標，保費才是目標——所有的目的都是收保費。</blockquote>
+        <figcaption>別把現象當原因、把手段當目的。</figcaption>
+        <a class="src" href="notes/d7-02-wangchen.html">王辰｜保險的智慧</a>
+      </figure>
+      <figure class="q" data-id="q107" data-d="d3" data-s="王辰">
+        <button class="fav" aria-label="收藏" type="button">♡</button>
+        <blockquote>醫療險解決醫療費，重疾險解決生活費。</blockquote>
+        <figcaption>一句話拆掉「百萬醫療夠用了」的誤區。</figcaption>
+        <a class="src" href="notes/d7-02-wangchen.html">王辰｜保險的智慧</a>
+      </figure>
+      <figure class="q" data-id="q108" data-d="d3" data-s="王辰">
+        <button class="fav" aria-label="收藏" type="button">♡</button>
+        <blockquote>短期看產品，中期看營銷，長期看隊伍。</blockquote>
+        <figcaption>沒有隊伍，就沒有未來。</figcaption>
+        <a class="src" href="notes/d7-02-wangchen.html">王辰｜保險的智慧</a>
+      </figure>
+      <figure class="q" data-id="q109" data-d="d3" data-s="王辰">
+        <button class="fav" aria-label="收藏" type="button">♡</button>
+        <blockquote>喊著高質量發展的口號，把公司越做越小。</blockquote>
+        <figcaption>清醒的行業警語——不增員就沒有人，沒有人就沒有未來。</figcaption>
+        <a class="src" href="notes/d7-02-wangchen.html">王辰｜保險的智慧</a>
+      </figure>
+      <figure class="q" data-id="q110" data-d="d3" data-s="王辰">
+        <button class="fav" aria-label="收藏" type="button">♡</button>
+        <blockquote>真誠是最好的技巧。</blockquote>
+        <figcaption>把喜歡你、相信你的人騙完，就走投無路了。</figcaption>
+        <a class="src" href="notes/d7-02-wangchen.html">王辰｜保險的智慧</a>
+      </figure>
+      <figure class="q" data-id="q111" data-d="d3" data-s="王辰">
+        <button class="fav" aria-label="收藏" type="button">♡</button>
+        <blockquote>定位大於努力：工作將就、事業全力以赴、使命不怕犧牲。</blockquote>
+        <figcaption>定位的高度，決定努力的程度。</figcaption>
+        <a class="src" href="notes/d7-02-wangchen.html">王辰｜保險的智慧</a>
+      </figure>
+      <figure class="q" data-id="q112" data-d="d3" data-s="王辰">
+        <button class="fav" aria-label="收藏" type="button">♡</button>
+        <blockquote>形象一定要走在能力前面。</blockquote>
+        <figcaption>無論多大年紀，每天乾乾淨淨整整齊齊。</figcaption>
+        <a class="src" href="notes/d7-02-wangchen.html">王辰｜保險的智慧</a>
       </figure>
     </main>
   </div>

@@ -8,6 +8,8 @@
   <meta property="og:title" content="CMF 2026 學習筆記｜五大主題精讀">
   <meta property="og:description" content="17 堂課交叉重組：高客經營、財富傳承、IP 獲客、團隊組織、週期配置。">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://duduflow.github.io/CMF2026-Learning/themes.html">
+  <meta property="og:image" content="https://duduflow.github.io/CMF2026-Learning/assets/logo-cmf-official.png">
   <link rel="icon" href="favicon.ico" sizes="any">
   <style>
     :root {
@@ -83,47 +85,6 @@
     .syn b { display: block; margin-bottom: 4px; font-size: 15px; letter-spacing: .04em; }
     .syn p { margin: 0; font-size: 15.5px; font-weight: 800; line-height: 1.7; }
 
-    /* ===== 主題內加料：小節標題／對照表／金句／檢核清單 ===== */
-    .xh { grid-column: 1 / -1; display: flex; align-items: center; gap: 12px; margin-top: 10px; }
-    .xh b { color: var(--terra); font-size: 13px; font-weight: 950; letter-spacing: .14em; white-space: nowrap; }
-    .xh::after { content: ""; flex: 1; height: 1px; background: var(--line); }
-
-    .cmp { grid-column: 1 / -1; overflow-x: auto; border: 1px solid rgba(20,89,78,.12); border-radius: 16px; background: rgba(255,253,247,.9); }
-    .cmp table { width: 100%; border-collapse: collapse; min-width: 560px; }
-    .cmp th { padding: 11px 14px; text-align: left; color: #fff; font-size: 13px; letter-spacing: .06em; background: linear-gradient(135deg, var(--jade), #2c6b60); white-space: nowrap; }
-    .cmp td { padding: 11px 14px; border-top: 1px solid rgba(20,89,78,.08); font-size: 13.8px; font-weight: 700; color: var(--ink); vertical-align: top; line-height: 1.6; }
-    .cmp td:first-child a { color: var(--jade); font-weight: 950; white-space: nowrap; border-bottom: 1px dashed rgba(20,89,78,.35); }
-    .cmp td:first-child a:hover { border-bottom-style: solid; }
-    .cmp td.tag { color: var(--terra); font-weight: 900; white-space: nowrap; }
-    .cmp tr:nth-child(even) td { background: rgba(20,89,78,.03); }
-
-    .tq { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .tq a {
-      display: grid; align-content: start; gap: 5px; padding: 14px 16px;
-      border-left: 3px solid var(--gold); border-radius: 12px;
-      background: linear-gradient(135deg, rgba(196,155,82,.1), rgba(255,253,247,.9));
-      transition: transform .16s ease, box-shadow .16s ease;
-    }
-    .tq a:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(23,33,31,.09); }
-    .tq b { font-size: 15.5px; line-height: 1.55; letter-spacing: -.005em; }
-    .tq b::before { content: "「"; color: var(--gold); }
-    .tq b::after { content: "」"; color: var(--gold); }
-    .tq span { color: var(--muted); font-size: 12.5px; font-weight: 900; }
-
-    .check { grid-column: 1 / -1; border: 1px solid rgba(20,89,78,.12); border-radius: 16px; overflow: hidden; background: rgba(255,253,247,.9); }
-    .check-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; background: rgba(20,89,78,.06); }
-    .check-head b { color: var(--jade); font-size: 14px; letter-spacing: .04em; }
-    .check-head em { font-style: normal; color: var(--terra); font-size: 12.5px; font-weight: 950; }
-    .check label { display: flex; align-items: flex-start; gap: 11px; padding: 11px 16px; border-top: 1px solid rgba(20,89,78,.07); cursor: pointer; font-size: 14px; font-weight: 750; line-height: 1.6; transition: background .15s ease; }
-    .check label:hover { background: rgba(20,89,78,.04); }
-    .check input { appearance: none; -webkit-appearance: none; flex: none; width: 19px; height: 19px; margin-top: 2px; border: 2px solid rgba(20,89,78,.4); border-radius: 6px; cursor: pointer; display: grid; place-content: center; transition: all .15s ease; }
-    .check input:checked { border-color: var(--jade); background: var(--jade); }
-    .check input:checked::before { content: "✓"; color: #fff; font-size: 12px; font-weight: 950; line-height: 1; }
-    .check input:checked + span { color: var(--muted); text-decoration: line-through; text-decoration-color: rgba(20,89,78,.35); }
-    .check small { color: var(--terra); font-weight: 900; }
-
-    @media (max-width: 720px) { .tq { grid-template-columns: 1fr; } }
-
     .footer { padding: 44px 0 40px; color: rgba(23,33,31,.5); font-size: 13px; font-weight: 700; text-align: center; }
 
     @media (max-width: 720px) {
@@ -185,18 +146,6 @@
       color: #fff; background: rgba(255,255,255,.12); font: inherit; font-size: 13px; font-weight: 900; cursor: pointer;
     }
     @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; transition: none; } }
-    /* ===== v3：手機頂欄修正（選單換行成獨立一列，避免被擠出畫面） ===== */
-    @media (max-width: 680px) {
-      .topbar-in { flex-wrap: wrap; height: auto; padding: 10px 0; row-gap: 8px; }
-      .brand { min-width: 0; }
-      .brand img { width: 32px; height: 32px; }
-      .brand b { font-size: 17px; }
-      .brand span { display: none; }
-      .menu { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 2px; }
-      .menu::-webkit-scrollbar { display: none; }
-      .menu a, .menu button.sbtn { flex: none; padding: 8px 13px; font-size: 13.5px; }
-      section { scroll-margin-top: 140px; }
-    }
     @media print {
       .topbar, .menu, .s-overlay, .jump, .quick, .daily { display: none !important; }
       body { background: #fff; }
@@ -220,7 +169,7 @@
   <div class="wrap">
     <section class="hero">
       <h1>五大主題精讀</h1>
-      <p>三天 17 堂課，其實反覆在回答五個問題。每個主題除了觀點導讀，還有「一題多解」對照表、本題金句，以及可勾選的自我檢核清單（勾選進度會自動記住）。每則內容都可點回原筆記細讀。</p>
+      <p>三天 17 堂課，其實反覆在回答五個問題。把不同講師對同一件事的答案放在一起看，課才算真正消化。每則觀點都可點回原筆記細讀。</p>
       <nav class="jump">
         <a href="#t1">① 高客經營與銷售</a>
         <a href="#t2">② 財富傳承與架構</a>
@@ -244,35 +193,7 @@
           <a class="view" href="notes/d6-06-caojiping.html"><i>曹紀平｜企業家銷售邏輯</i><b>一步都不能省的六步流程＋七類企業家分類喚起。</b><p>遞送保單面談是兩個關鍵契機：重申價值、索取轉介紹——客戶不轉介紹，業務只會越做越少。</p></a>
           <a class="view" href="notes/d6-07-qianwenxi.html"><i>錢文曦｜高客服務與面談</i><b>先交心，再交易；誰在對接服務最重要。</b><p>每位千萬客戶背後都有一次 3 小時深度面談；三大服務體系把服務做成精準轉介紹的引擎。</p></a>
           <a class="view" href="notes/d7-03-zhaoyang.html"><i>趙楊｜績優與高客深度經營</i><b>沒有進入客戶心智的努力，都是無效努力。</b><p>心智只記得「第一」和「不同」；精準選塘、價值植入、生態共建——4 年轉化 36 位高客。</p></a>
-          <div class="xh"><b>一題多解｜客戶為什麼不買？</b></div>
-          <div class="cmp"><table>
-            <thead><tr><th>講師</th><th>診斷</th><th>解方</th></tr></thead>
-            <tbody>
-              <tr><td><a href="notes/d5-03-chudongdong.html">褚東東</a></td><td class="tag">信任還不夠深</td><td>小單當入口、長期經營；成交是客戶，不成交是朋友</td></tr>
-              <tr><td><a href="notes/d5-04-yuqiaoqin.html">余巧琴</a></td><td class="tag">只看到產品</td><td>先畫家族風險圖，再談工具配置</td></tr>
-              <tr><td><a href="notes/d6-05-luoshuking.html">羅淑瓊</a></td><td class="tag">心理帳戶沒打開</td><td>開放提問、場景還原、對比法，讓需求自己浮出來</td></tr>
-              <tr><td><a href="notes/d6-06-caojiping.html">曹紀平</a></td><td class="tag">流程被省了步驟</td><td>六步流程一步不省，遞送保單面談索取轉介紹</td></tr>
-              <tr><td><a href="notes/d6-07-qianwenxi.html">錢文曦</a></td><td class="tag">服務沒到心坎</td><td>3 小時深度面談＋三大服務體系，先交心再交易</td></tr>
-              <tr><td><a href="notes/d7-03-zhaoyang.html">趙楊</a></td><td class="tag">沒進入心智</td><td>定位「第一」與「不同」，精準選塘、價值植入</td></tr>
-            </tbody>
-          </table></div>
-          <div class="xh"><b>本題金句</b></div>
-          <div class="tq">
-            <a href="notes/d7-03-zhaoyang.html"><b>中低客群在比價，高客一直在尋找那個懂他的人。</b><span>趙楊</span></a>
-            <a href="notes/d6-07-qianwenxi.html"><b>先交心，再交易。</b><span>錢文曦</span></a>
-            <a href="notes/d5-03-chudongdong.html"><b>大單不是等出來的，市場是服務出來的。</b><span>褚東東</span></a>
-            <a href="notes/d6-06-caojiping.html"><b>客戶不給你轉介紹，你的業務只會越做越少。</b><span>曹紀平</span></a>
-          </div>
           <div class="syn"><b>綜合行動</b><p>先回答趙楊的定位三問（核心客戶是誰？我在他心中什麼位置？我的標籤？）→ 用曹紀平的六步流程檢查漏洞 → 用羅淑瓊的三帳戶與提問法做喚起 → 用錢文曦的服務體系與褚東東的長期主義把客戶經營成終身客群。</p></div>
-          <div class="check" data-ck="t1">
-            <div class="check-head"><b>高客面談前 · 自我檢核</b><em></em></div>
-            <label><input type="checkbox"><span>我能一句話說出這位客戶的圈層、身分、最在意的事 <small>趙楊</small></span></label>
-            <label><input type="checkbox"><span>已準備 3 個開放式提問，讓需求自己浮出來 <small>羅淑瓊</small></span></label>
-            <label><input type="checkbox"><span>對照六步流程：目前走到哪一步、缺了哪一步 <small>曹紀平</small></span></label>
-            <label><input type="checkbox"><span>這次面談目標是「交心」還是「交易」，順序想清楚了 <small>錢文曦</small></span></label>
-            <label><input type="checkbox"><span>我在客戶心中的標籤，佔住了「第一」或「不同」嗎 <small>趙楊</small></span></label>
-            <label><input type="checkbox"><span>已設計好遞送保單／服務後索取轉介紹的開口 <small>曹紀平</small></span></label>
-          </div>
         </div>
       </div>
     </section>
@@ -290,33 +211,7 @@
           <a class="view" href="notes/d6-07-qianwenxi.html"><i>錢文曦｜財富流轉五步</i><b>保險是唯一具法律效力、又帶執行功能的工具。</b><p>產權保護 → 落袋為安 → 守護鎖定 → 保值增值 → 如願久安；信託是衣櫃，保單是掛進去的衣服。</p></a>
           <a class="view" href="notes/d7-01-linhaichuan.html"><i>林海川｜金錢與財富</i><b>保險不僅是金錢，更是睡覺時仍在生息的財富。</b><p>底倉資產＝現金＋保險；用一輩子的保險費，解決一輩子的生活費。</p></a>
           <a class="view" href="notes/d6-05-luoshuking.html"><i>羅淑瓊｜傳承的確定性</i><b>有規劃的傳承是幸福，沒有規劃的傳承觸動家庭和諧神經。</b><p>規劃給的不只是錢的安排，更是確定性與家庭關係的保護。</p></a>
-          <div class="xh"><b>一題多解｜傳承該從哪裡切入？</b></div>
-          <div class="cmp"><table>
-            <thead><tr><th>講師</th><th>切入高度</th><th>核心主張</th></tr></thead>
-            <tbody>
-              <tr><td><a href="notes/d5-05-guoxu.html">國旭</a></td><td class="tag">風險隔離</td><td>家企防火牆先建好，預留安全資產，切斷風險傳染</td></tr>
-              <tr><td><a href="notes/d6-06-caojiping.html">曹紀平</a></td><td class="tag">工具組合</td><td>保險＋信託＋遺囑三件套；受益人設計是專業核心</td></tr>
-              <tr><td><a href="notes/d6-07-qianwenxi.html">錢文曦</a></td><td class="tag">規劃邏輯</td><td>財富流轉五步：產權保護到如願久安，一步步鎖定</td></tr>
-              <tr><td><a href="notes/d7-01-linhaichuan.html">林海川</a></td><td class="tag">資產定位</td><td>保險是家庭底倉：睡覺時仍在生息的財富</td></tr>
-              <tr><td><a href="notes/d6-05-luoshuking.html">羅淑瓊</a></td><td class="tag">家庭關係</td><td>規劃給的不只是錢，是確定性與家庭和諧</td></tr>
-            </tbody>
-          </table></div>
-          <div class="xh"><b>本題金句</b></div>
-          <div class="tq">
-            <a href="notes/d5-04-yuqiaoqin.html"><b>有錢人在規劃三代，沒錢人在規劃週末。</b><span>余巧琴</span></a>
-            <a href="notes/d5-05-guoxu.html"><b>春風得意的時候做規劃，四面楚歌的時候才有路。</b><span>國旭</span></a>
-            <a href="notes/d6-07-qianwenxi.html"><b>信託是衣櫃，保單是衣服。</b><span>錢文曦</span></a>
-            <a href="notes/d6-06-caojiping.html"><b>人可能一輩子用不上理賠，但不可能一輩子沒有風險。</b><span>曹紀平</span></a>
-          </div>
           <div class="syn"><b>綜合行動</b><p>給每位高客畫一張「家企風險地圖」（國旭）→ 按七類家庭結構找傳承缺口（曹紀平）→ 用財富流轉五步講清規劃邏輯（錢文曦）→ 把保單放進家庭底倉的位置（林海川），最後用「確定性」收尾（羅淑瓊）。</p></div>
-          <div class="check" data-ck="t2">
-            <div class="check-head"><b>傳承規劃 · 自我檢核</b><em></em></div>
-            <label><input type="checkbox"><span>已為客戶畫出「家企風險地圖」，標出資金互相傳染的通道 <small>國旭</small></span></label>
-            <label><input type="checkbox"><span>確認客戶的家庭結構類型（再婚、隔代、婚外子女…），找出傳承缺口 <small>曹紀平</small></span></label>
-            <label><input type="checkbox"><span>檢視既有保單：投保人、被保險人、受益人設計是否達到隔離目的 <small>曹紀平</small></span></label>
-            <label><input type="checkbox"><span>能不看稿把「財富流轉五步」完整講一遍 <small>錢文曦</small></span></label>
-            <label><input type="checkbox"><span>面談收尾用「確定性」而不是報酬率 <small>羅淑瓊</small></span></label>
-          </div>
         </div>
       </div>
     </section>
@@ -334,33 +229,7 @@
           <a class="view" href="notes/d7-03-zhaoyang.html"><i>趙楊｜揚聲器視頻號</i><b>採訪 100 位創業者：內容本身就是人脈證明。</b><p>邀約、提問、剪輯、流量、堅持五個難——願意看完影片的人，正是你最想結交的人。</p></a>
           <a class="view" href="notes/d6-01-liweibin.html"><i>李偉彬｜認知突圍</i><b>被看見才有點擊，被記住才有業績。</b><p>名字是低成本記憶設計；讓「有溫度的出現」變成系統，客戶想起你才有成交。</p></a>
           <a class="view" href="notes/d7-05-qihao.html"><i>齊昊｜渠道洞察</i><b>賣貨用抖音小紅書，本地服務用大眾點評。</b><p>人人都擠短視頻時，大眾點評的本地生活類目反而是藍海。</p></a>
-          <div class="xh"><b>一題多解｜同樣做自媒體，主戰場在哪？</b></div>
-          <div class="cmp"><table>
-            <thead><tr><th>講師</th><th>主戰場</th><th>核心打法</th></tr></thead>
-            <tbody>
-              <tr><td><a href="notes/d5-02-zhangyifan.html">張一凡</a></td><td class="tag">事件營銷</td><td>真實人生長出故事，再設計成社會願意傳播的樣子</td></tr>
-              <tr><td><a href="notes/d6-08-liyang.html">李揚</a></td><td class="tag">IP＋直播</td><td>內容被看見 → 直播被信任 → 服務被選擇</td></tr>
-              <tr><td><a href="notes/d7-03-zhaoyang.html">趙楊</a></td><td class="tag">訪談視頻號</td><td>採訪 100 位創業者，內容本身就是人脈證明</td></tr>
-              <tr><td><a href="notes/d6-01-liweibin.html">李偉彬</a></td><td class="tag">記憶設計</td><td>名字與標題先被記住，有溫度的出現變成系統</td></tr>
-              <tr><td><a href="notes/d7-05-qihao.html">齊昊</a></td><td class="tag">渠道選擇</td><td>本地服務上大眾點評，避開短視頻紅海</td></tr>
-            </tbody>
-          </table></div>
-          <div class="xh"><b>本題金句</b></div>
-          <div class="tq">
-            <a href="notes/d6-08-liyang.html"><b>以前是我努力去認識更多的人，現在是我努力被更多的人認識。</b><span>李揚</span></a>
-            <a href="notes/d5-02-zhangyifan.html"><b>流量不是目的，流量只是信任被看見的入口。</b><span>張一凡</span></a>
-            <a href="notes/d6-01-liweibin.html"><b>銷售的第一步，不是讓客戶買單，而是讓客戶記住你。</b><span>李偉彬</span></a>
-            <a href="notes/d6-08-liyang.html"><b>好的直播選題，不是你最想講什麼，而是客戶最想聽什麼。</b><span>李揚</span></a>
-          </div>
           <div class="syn"><b>綜合行動</b><p>先定一個不會換的名字與定位（李偉彬＋李揚）→ 用客戶的問題當選題庫，按「共鳴、判斷、行動」產出內容 → 選一個差異化賽道（趙楊的訪談、或在地深耕）→ 記住共同底線：真實勝過包裝，長期勝過爆款。</p></div>
-          <div class="check" data-ck="t3">
-            <div class="check-head"><b>IP 起步 · 自我檢核</b><em></em></div>
-            <label><input type="checkbox"><span>定好一個三年不換的名字與定位 <small>李偉彬＋李揚</small></span></label>
-            <label><input type="checkbox"><span>列出客戶最常問的 10 個問題，當成選題庫 <small>李揚</small></span></label>
-            <label><input type="checkbox"><span>每則內容出手前檢查：有共鳴？給判斷？能行動？ <small>李揚</small></span></label>
-            <label><input type="checkbox"><span>選定一個差異化賽道，而不是模仿當下爆款 <small>趙楊</small></span></label>
-            <label><input type="checkbox"><span>渠道與客群對上了：我的客戶會在這個平台找服務 <small>齊昊</small></span></label>
-          </div>
         </div>
       </div>
     </section>
@@ -376,33 +245,9 @@
           <a class="view" href="notes/d6-02-yuzhongbin.html"><i>于忠濱｜長期主義</i><b>想帶領別人走多遠，自己就要先走到那裡。</b><p>信念、榮譽、擔當、感恩＋頑強意志力；連續 103 個月常青藤，把「不能退」變成日常習慣。</p></a>
           <a class="view" href="notes/d6-03-wanglizhong.html"><i>王利忠｜績優文化</i><b>用長坡厚雪的邏輯，讓組織自己長大。</b><p>使命願景價值觀＋運營五模組＋增員如呼吸；人才不是招來的，是被吸引來的。</p></a>
           <a class="view" href="notes/d6-04-wuxiuyi.html"><i>吳修毅｜00 後組織</i><b>00 後不是不能帶，是不能用舊方法帶。</b><p>用年輕人吃的語言做組織發展，讓他「自己想」把保險做好。</p></a>
+          <a class="view" href="notes/d7-02-wangchen.html"><i>王辰｜守隊伍建設</i><b>短期看產品，中期看營銷，長期看隊伍。</b><p>行業的永恆主題是「找人」；增員要長期經營有工作的優秀者，別「精心選擇無業遊民、努力培養三年」。</p></a>
           <a class="view" href="notes/d7-03-zhaoyang.html"><i>趙楊＋王利忠｜榮譽體系</i><b>追求榮譽就是追求財富的過程。</b><p>兩位講師不約而同：榮譽不是獎狀，是市場上的信任背書、行業裡的通行證。</p></a>
-          <div class="xh"><b>一題多解｜組織長不大，病根在哪？</b></div>
-          <div class="cmp"><table>
-            <thead><tr><th>講師</th><th>診斷</th><th>藥方</th></tr></thead>
-            <tbody>
-              <tr><td><a href="notes/d6-02-yuzhongbin.html">于忠濱</a></td><td class="tag">領袖沒先行</td><td>先感動自己再感動別人；把「不能退」變成日常習慣</td></tr>
-              <tr><td><a href="notes/d6-03-wanglizhong.html">王利忠</a></td><td class="tag">文化系統缺位</td><td>使命願景價值觀＋運營五模組，讓組織自己長大</td></tr>
-              <tr><td><a href="notes/d6-04-wuxiuyi.html">吳修毅</a></td><td class="tag">代際語言錯頻</td><td>用年輕人的語言、給看得見的近願景</td></tr>
-              <tr><td><a href="notes/d7-03-zhaoyang.html">趙楊＋王利忠</a></td><td class="tag">行為沒有校準</td><td>榮譽體系是信任背書，讓對的行為被看見</td></tr>
-            </tbody>
-          </table></div>
-          <div class="xh"><b>本題金句</b></div>
-          <div class="tq">
-            <a href="notes/d6-02-yuzhongbin.html"><b>你想帶領別人走得有多遠，你自己就得先到那裡。</b><span>于忠濱</span></a>
-            <a href="notes/d6-03-wanglizhong.html"><b>人才不是招來的，人才是被吸引來的。</b><span>王利忠</span></a>
-            <a href="notes/d6-04-wuxiuyi.html"><b>不要思考如何讓夥伴把保險做好，要思考如何讓夥伴想把保險做好。</b><span>吳修毅</span></a>
-            <a href="notes/d6-03-wanglizhong.html"><b>追求榮譽就是追求財富的過程。</b><span>王利忠</span></a>
-          </div>
           <div class="syn"><b>綜合行動</b><p>主管先自問于忠濱之問（我走到了嗎？）→ 用王利忠的五模組體檢團隊系統 → 對年輕夥伴改用吳修毅的語言 → 把榮譽體系當成行為校準器，讓對的人被看見、願意留下。</p></div>
-          <div class="check" data-ck="t4">
-            <div class="check-head"><b>團隊主管 · 自我檢核</b><em></em></div>
-            <label><input type="checkbox"><span>我要求夥伴做到的事，自己先做到了 <small>于忠濱</small></span></label>
-            <label><input type="checkbox"><span>團隊每個人都說得出共同的使命、願景、價值觀 <small>王利忠</small></span></label>
-            <label><input type="checkbox"><span>用運營五模組體檢過團隊，知道最弱的是哪一塊 <small>王利忠</small></span></label>
-            <label><input type="checkbox"><span>對 00 後夥伴談的是「近的願景」，不是空泛的未來 <small>吳修毅</small></span></label>
-            <label><input type="checkbox"><span>榮譽體系有在運作：對的行為被看見、被獎勵 <small>趙楊＋王利忠</small></span></label>
-          </div>
         </div>
       </div>
     </section>
@@ -418,33 +263,9 @@
           <a class="view" href="notes/d5-01-baishidai-yinye.html"><i>尹燁｜百歲時代</i><b>長壽不是風險，沒準備的長壽才是。</b><p>健康管理、醫療科技與財富配置正在被全面重寫——保險的需求在換形態，不是在消失。</p></a>
           <a class="view" href="notes/d7-01-linhaichuan.html"><i>林海川｜資產配置</i><b>未來二十年，錢會流向兩個地方：股市和保險。</b><p>底倉（現金＋保險）、核心（賺 β）、衛星（賺 α）三層結構；現金短期是王、長期是垃圾。</p></a>
           <a class="view" href="notes/d7-05-qihao.html"><i>齊昊｜財務思維</i><b>下行期把錢投給自己和保險，把力氣花在老客戶。</b><p>資產減值快於現金；老客戶沒有流量成本——極致性價比時代，確定性最值錢。</p></a>
+          <a class="view" href="notes/d7-02-wangchen.html"><i>王辰｜守正創新</i><b>不變的是「道」，可變的是「術」。</b><p>先問對問題再行動：把現象當原因、把指標當目標是行業三十年的集體錯誤——創新永遠是手段，收保費才是目標。</p></a>
           <a class="view" href="notes/d6-05-luoshuking.html"><i>羅淑瓊｜AI 與人</i><b>AI 加快行業的速度，但替代不了我們的溫度。</b><p>3.2 億銀髮人口的剛需市場裡，共情、信任、陪伴是不可替代的人性價值。</p></a>
-          <div class="xh"><b>一題多解｜同一個時代，三種高度的判斷</b></div>
-          <div class="cmp"><table>
-            <thead><tr><th>講師</th><th>視角</th><th>結論</th></tr></thead>
-            <tbody>
-              <tr><td><a href="notes/d5-01-baishidai-yinye.html">尹燁</a></td><td class="tag">生命科學</td><td>長壽時代改寫醫療與財富配置，保險需求在換形態</td></tr>
-              <tr><td><a href="notes/d7-01-linhaichuan.html">林海川</a></td><td class="tag">宏觀配置</td><td>底倉／核心／衛星三層；未來錢流向股市和保險</td></tr>
-              <tr><td><a href="notes/d7-05-qihao.html">齊昊</a></td><td class="tag">企業財務</td><td>下行期投確定性、深耕零流量成本的老客戶</td></tr>
-              <tr><td><a href="notes/d6-05-luoshuking.html">羅淑瓊</a></td><td class="tag">人性價值</td><td>AI 做速度，人做溫度；銀髮市場的剛需是陪伴</td></tr>
-            </tbody>
-          </table></div>
-          <div class="xh"><b>本題金句</b></div>
-          <div class="tq">
-            <a href="notes/d7-01-linhaichuan.html"><b>現金短期是王，長期是垃圾。</b><span>林海川</span></a>
-            <a href="notes/d7-05-qihao.html"><b>上行期買資產加槓桿，下行期投自己、投確定性。</b><span>齊昊</span></a>
-            <a href="notes/d5-01-baishidai-yinye.html"><b>未來最大的風險，不一定是死得太早，而是活得太久、病得太久。</b><span>尹燁</span></a>
-            <a href="notes/d7-01-linhaichuan.html"><b>過去賣收益，今天賣確定性、賣延遲滿足、賣配置邏輯。</b><span>林海川</span></a>
-          </div>
           <div class="syn"><b>綜合行動</b><p>用林海川的三層結構跟客戶重新談「保險的位置」→ 用齊昊的週期語言與企業主對話 → 用尹燁的百歲時代講長壽準備 → 記住羅淑瓊的提醒：AI 做速度，你做溫度。</p></div>
-          <div class="check" data-ck="t5">
-            <div class="check-head"><b>週期對話 · 自我檢核</b><em></em></div>
-            <label><input type="checkbox"><span>能徒手畫出三層配置結構，說清楚保險在底倉的位置 <small>林海川</small></span></label>
-            <label><input type="checkbox"><span>對企業主客戶，會用「上行期／下行期」的語言開場 <small>齊昊</small></span></label>
-            <label><input type="checkbox"><span>對熟齡客戶，談的是長壽準備而不是報酬率 <small>尹燁</small></span></label>
-            <label><input type="checkbox"><span>每月盤點老客戶名單，找加保與轉介紹機會 <small>齊昊</small></span></label>
-            <label><input type="checkbox"><span>盤點過自己的服務：哪些是 AI 做不到的溫度 <small>羅淑瓊</small></span></label>
-          </div>
         </div>
       </div>
     </section>
@@ -459,27 +280,5 @@
   </div>
   <script src="assets/search-data.js"></script>
   <script src="assets/site.js"></script>
-  <script>
-  /* 檢核清單：勾選進度存 localStorage */
-  (() => {
-    const KEY = "cmf-theme-checks";
-    let saved = {};
-    try { saved = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) {}
-    document.querySelectorAll(".check").forEach((box) => {
-      const id = box.dataset.ck;
-      const inputs = box.querySelectorAll("input[type=checkbox]");
-      const counter = box.querySelector(".check-head em");
-      const update = () => {
-        const done = [...inputs].filter((i) => i.checked).length;
-        counter.textContent = done === inputs.length ? "全部完成 ✓" : done + " / " + inputs.length;
-        saved[id] = [...inputs].map((i) => i.checked ? 1 : 0);
-        try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
-      };
-      (saved[id] || []).forEach((v, i) => { if (inputs[i]) inputs[i].checked = !!v; });
-      inputs.forEach((i) => i.addEventListener("change", update));
-      update();
-    });
-  })();
-  </script>
 </body>
 </html>

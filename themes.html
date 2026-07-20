@@ -185,6 +185,18 @@
       color: #fff; background: rgba(255,255,255,.12); font: inherit; font-size: 13px; font-weight: 900; cursor: pointer;
     }
     @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; transition: none; } }
+    /* ===== v3：手機頂欄修正（選單換行成獨立一列，避免被擠出畫面） ===== */
+    @media (max-width: 680px) {
+      .topbar-in { flex-wrap: wrap; height: auto; padding: 10px 0; row-gap: 8px; }
+      .brand { min-width: 0; }
+      .brand img { width: 32px; height: 32px; }
+      .brand b { font-size: 17px; }
+      .brand span { display: none; }
+      .menu { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 2px; }
+      .menu::-webkit-scrollbar { display: none; }
+      .menu a, .menu button.sbtn { flex: none; padding: 8px 13px; font-size: 13.5px; }
+      section { scroll-margin-top: 140px; }
+    }
     @media print {
       .topbar, .menu, .s-overlay, .jump, .quick, .daily { display: none !important; }
       body { background: #fff; }

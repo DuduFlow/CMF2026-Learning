@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CMF DAY1｜用家辦思維撬動超高淨值客戶</title>
   <meta name="description" content="CMF DAY1 課程筆記：余巧琴｜用家辦思維撬動超高淨值客戶">
+  <meta property="og:title" content="CMF DAY1｜用家辦思維撬動超高淨值客戶">
+  <meta property="og:description" content="CMF DAY1 課程筆記：余巧琴｜用家辦思維撬動超高淨值客戶">
+  <meta property="og:type" content="article">
   <style>
     :root {
       --ink: #17211f;
@@ -516,6 +519,16 @@
       .shell { width: min(100%, 1060px); }
       .insight-grid, .story-grid { grid-template-columns: repeat(3, 1fr); }
       .quote-rail { grid-auto-columns: 31%; }
+    }
+  
+    @view-transition { navigation: auto; }
+    @media print {
+      .topbar, .nav, .pulse-dots, .actions input { display: none !important; }
+      body { background: #fff; padding: 0; }
+      .shell { width: 100%; box-shadow: none; background: #fff; }
+      .card, .insight, .story, figure.quote { box-shadow: none; border-color: #bbb; break-inside: avoid; }
+      .quote-rail { grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: 1fr 1fr; overflow: visible; }
+      .hero-card { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     }
   </style>
 </head>

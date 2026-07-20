@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CMF DAY2｜高客服務與面談的要點解析</title>
   <meta name="description" content="CMF DAY2 課程筆記：錢文曦｜高客服務與面談的要點解析——圈層經營、三大服務體系與三輪面談">
+  <meta property="og:title" content="CMF DAY2｜高客服務與面談的要點解析">
+  <meta property="og:description" content="CMF DAY2 課程筆記：錢文曦｜高客服務與面談的要點解析——圈層經營、三大服務體系與三輪面談">
+  <meta property="og:type" content="article">
   <style>
     :root {
       --ink: #17211f;
@@ -587,6 +590,16 @@
       .shell { width: min(100%, 1060px); }
       .insight-grid, .story-grid { grid-template-columns: repeat(3, 1fr); }
       .quote-rail { grid-auto-columns: 31%; }
+    }
+  
+    @view-transition { navigation: auto; }
+    @media print {
+      .topbar, .nav, .pulse-dots, .actions input { display: none !important; }
+      body { background: #fff; padding: 0; }
+      .shell { width: 100%; box-shadow: none; background: #fff; }
+      .card, .insight, .story, figure.quote { box-shadow: none; border-color: #bbb; break-inside: avoid; }
+      .quote-rail { grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: 1fr 1fr; overflow: visible; }
+      .hero-card { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     }
   </style>
 </head>

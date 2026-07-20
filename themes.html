@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CMF 2026 學習筆記｜五大主題精讀</title>
   <meta name="description" content="CMF 2026 十七堂課交叉重組：高客經營、財富傳承、IP 獲客、團隊組織、週期配置五大主題精讀。">
+  <meta property="og:title" content="CMF 2026 學習筆記｜五大主題精讀">
+  <meta property="og:description" content="17 堂課交叉重組：高客經營、財富傳承、IP 獲客、團隊組織、週期配置。">
+  <meta property="og:type" content="website">
   <link rel="icon" href="favicon.ico" sizes="any">
   <style>
     :root {
@@ -87,6 +90,65 @@
       .brand span { display: none; }
       .menu a { padding: 7px 10px; font-size: 13px; }
     }
+  
+    /* ===== v2：動效與搜尋 ===== */
+    @view-transition { navigation: auto; }
+    .rv { opacity: 0; transform: translateY(18px); transition: opacity .6s cubic-bezier(.2,.7,.2,1), transform .6s cubic-bezier(.2,.7,.2,1); }
+    .rv.in { opacity: 1; transform: none; }
+    .course, .quick a { position: relative; overflow: hidden; }
+    .course::before, .quick a::before {
+      content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,.5) 46%, transparent 60%);
+      transform: translateX(-120%); transition: transform .7s ease;
+    }
+    .course:hover::before, .quick a:hover::before { transform: translateX(120%); }
+    .menu button.sbtn {
+      padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(20,89,78,.16);
+      color: var(--jade); background: rgba(255,253,247,.9); font: inherit; font-size: 14px; font-weight: 900; cursor: pointer; white-space: nowrap;
+    }
+    .menu button.sbtn:hover { background: rgba(20,89,78,.1); }
+    .s-overlay {
+      position: fixed; inset: 0; z-index: 90; display: none; padding: 9vh 18px 18px;
+      background: rgba(13, 23, 24, .45); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    }
+    .s-overlay.show { display: block; }
+    .s-panel {
+      width: min(100%, 680px); max-height: 78vh; margin: 0 auto; display: grid; grid-template-rows: auto 1fr;
+      border-radius: 22px; overflow: hidden; background: var(--card); box-shadow: 0 30px 80px rgba(0,0,0,.3);
+    }
+    .s-panel input {
+      padding: 18px 20px; border: 0; border-bottom: 1px solid var(--line); outline: none;
+      font: inherit; font-size: 17px; font-weight: 800; color: var(--ink); background: transparent;
+    }
+    .s-results { overflow-y: auto; padding: 10px; display: grid; gap: 8px; align-content: start; }
+    .s-hint { padding: 18px 12px; color: var(--muted); font-size: 14px; font-weight: 700; }
+    .s-item { display: grid; gap: 2px; padding: 12px 14px; border-radius: 14px; background: rgba(20,89,78,.05); }
+    .s-item:hover { background: rgba(20,89,78,.1); }
+    .s-item b { color: var(--jade); font-size: 15.5px; }
+    .s-item span { color: var(--terra); font-size: 12px; font-weight: 900; }
+    .s-item p { margin: 2px 0 0; color: var(--muted); font-size: 13px; font-weight: 700; line-height: 1.55; }
+    .s-item mark { background: rgba(196,155,82,.35); color: inherit; border-radius: 3px; padding: 0 1px; }
+    .daily {
+      position: relative; overflow: hidden; margin-top: 16px; padding: 24px 28px; border-radius: 22px; color: #fff;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(196,155,82,.35), transparent 32%),
+        linear-gradient(135deg, #17493f, #25788d);
+      box-shadow: var(--shadow);
+    }
+    .daily i { font-style: normal; color: rgba(255,255,255,.7); font-size: 12px; font-weight: 950; letter-spacing: .14em; }
+    .daily blockquote { margin: 8px 0 6px; font-size: clamp(19px, 2.4vw, 24px); font-weight: 950; line-height: 1.5; letter-spacing: -.01em; }
+    .daily .dq-src { color: rgba(255,255,255,.72); font-size: 13.5px; font-weight: 800; }
+    .daily .dq-ops { display: flex; gap: 10px; margin-top: 12px; }
+    .daily .dq-ops a, .daily .dq-ops button {
+      padding: 7px 13px; border-radius: 999px; border: 1px solid rgba(255,255,255,.3);
+      color: #fff; background: rgba(255,255,255,.12); font: inherit; font-size: 13px; font-weight: 900; cursor: pointer;
+    }
+    @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; transition: none; } }
+    @media print {
+      .topbar, .menu, .s-overlay, .jump, .quick, .daily { display: none !important; }
+      body { background: #fff; }
+      .theme-card, .course, .q { box-shadow: none; border-color: #ccc; break-inside: avoid; }
+    }
   </style>
 </head>
 <body>
@@ -94,6 +156,7 @@
     <div class="wrap topbar-in">
       <a class="brand" href="index.html"><img src="assets/logo-cmf-official.png" alt=""><b>逐浪泉城</b><span>CMF 2026 學習筆記</span></a>
       <nav class="menu">
+        <button class="sbtn" id="searchBtn" aria-label="搜尋">⌘K 搜尋</button>
         <a href="index.html">課程總覽</a>
         <a class="on" href="themes.html">主題精讀</a>
         <a href="quotes.html">金句庫</a>
@@ -205,5 +268,13 @@
   </div>
 
   <footer class="footer">CMF 2026 濟南｜學習筆記網站 · 五大主題精讀</footer>
+  <div class="s-overlay" id="searchOverlay" role="dialog" aria-label="全站搜尋">
+    <div class="s-panel">
+      <input id="searchInput" type="search" placeholder="搜尋全部筆記…（Ctrl/Cmd + K）">
+      <div class="s-results" id="searchResults"></div>
+    </div>
+  </div>
+  <script src="assets/search-data.js"></script>
+  <script src="assets/site.js"></script>
 </body>
 </html>

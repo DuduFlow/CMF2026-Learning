@@ -1,0 +1,882 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CMF DAY2｜00 後組織發展：年輕一代的團隊成長密碼</title>
+  <meta name="description" content="CMF DAY2 課程筆記：吳修毅｜00 後組織發展：年輕一代的團隊成長密碼">
+  <style>
+    :root {
+      --ink: #17211f;
+      --muted: #65736f;
+      --paper: #f7f2e8;
+      --card: #fffdf7;
+      --jade: #11584f;
+      --gold: #c99b43;
+      --terra: #bd633b;
+      --red: #a82934;
+      --blue: #244f88;
+      --line: rgba(23, 33, 31, .12);
+      --shadow: 0 18px 48px rgba(23, 33, 31, .12);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% -8%, rgba(189, 99, 59, .22), transparent 34%),
+        radial-gradient(circle at 92% 0%, rgba(36, 79, 136, .18), transparent 32%),
+        linear-gradient(180deg, #eef7f4 0, var(--paper) 390px, #f4ecdf 100%);
+      font-family: "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", system-ui, sans-serif;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    section { scroll-margin-top: 102px; }
+
+    .shell {
+      width: min(100%, 430px);
+      min-height: 100svh;
+      margin: 0 auto;
+      background:
+        linear-gradient(180deg, rgba(255, 253, 247, .72), rgba(247, 242, 232, .98)),
+        var(--paper);
+      box-shadow: 0 0 60px rgba(0, 0, 0, .22);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 16px;
+      border-bottom: 1px solid rgba(23, 33, 31, .1);
+      background: rgba(255, 253, 247, .9);
+      backdrop-filter: blur(16px) saturate(1.1);
+      -webkit-backdrop-filter: blur(16px) saturate(1.1);
+    }
+
+    .brand { display: grid; gap: 1px; min-width: 0; }
+    .brand span {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .brand b {
+      color: var(--jade);
+      font-size: 16px;
+      line-height: 1.1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .mode-chip {
+      flex: 0 0 auto;
+      padding: 7px 11px;
+      border-radius: 999px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--jade), var(--red));
+      font-size: 12px;
+      font-weight: 950;
+      box-shadow: 0 10px 24px rgba(17, 88, 79, .2);
+    }
+
+    .hero { padding: 22px 16px 14px; }
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      padding: 24px 22px;
+      border-radius: 30px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(255, 255, 255, .18), transparent 26%),
+        radial-gradient(circle at 96% 10%, rgba(201, 155, 67, .28), transparent 28%),
+        linear-gradient(135deg, #10584f 0%, #244f88 52%, #a82934 100%);
+      box-shadow: var(--shadow);
+    }
+    .hero-card::after {
+      content: "00";
+      position: absolute;
+      right: -8px;
+      bottom: -46px;
+      color: rgba(255, 255, 255, .08);
+      font-family: "Songti TC", serif;
+      font-size: 176px;
+      font-weight: 900;
+      line-height: 1;
+      transform: rotate(-6deg);
+    }
+
+    .eyebrow {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      padding: 6px 11px;
+      border: 1px solid rgba(255, 255, 255, .28);
+      border-radius: 999px;
+      color: rgba(255, 255, 255, .78);
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      position: relative;
+      z-index: 1;
+      margin: 20px 0 8px;
+      font-size: clamp(36px, 11vw, 54px);
+      line-height: 1.04;
+      letter-spacing: -.07em;
+      text-wrap: balance;
+    }
+
+    .subtitle {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: rgba(255, 255, 255, .86);
+      font-size: 15px;
+      font-weight: 850;
+      line-height: 1.7;
+    }
+
+    .hero-meta {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .hero-meta div {
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .12);
+    }
+    .hero-meta span {
+      display: block;
+      color: rgba(255, 255, 255, .66);
+      font-size: 11px;
+      font-weight: 950;
+    }
+    .hero-meta b {
+      display: block;
+      margin-top: 4px;
+      color: #fff;
+      font-size: 14px;
+      line-height: 1.42;
+    }
+
+    .nav {
+      position: sticky;
+      top: 62px;
+      z-index: 20;
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: max-content;
+      gap: 8px;
+      margin: 0 16px 16px;
+      padding: 8px;
+      overflow-x: auto;
+      border: 1px solid rgba(23, 33, 31, .1);
+      border-radius: 999px;
+      background: rgba(255, 253, 247, .88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      scrollbar-width: none;
+      box-shadow: 0 12px 30px rgba(23, 33, 31, .08);
+    }
+    .nav::-webkit-scrollbar { display: none; }
+    .nav a {
+      padding: 8px 13px;
+      border-radius: 999px;
+      color: var(--jade);
+      background: rgba(17, 88, 79, .07);
+      font-size: 13px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .hero-card {
+      isolation: isolate;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      z-index: 0;
+      opacity: .28;
+      background:
+        linear-gradient(115deg, transparent 20%, rgba(255,255,255,.36) 30%, transparent 40%),
+        repeating-linear-gradient(90deg, transparent 0 28px, rgba(255,255,255,.08) 29px 30px);
+      animation: signalSweep 7s linear infinite;
+    }
+
+    .pulse-dots {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      gap: 7px;
+      margin-top: 18px;
+    }
+    .pulse-dots i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .82);
+      animation: dotPulse 1.5s ease-in-out infinite;
+    }
+    .pulse-dots i:nth-child(2) { animation-delay: .18s; }
+    .pulse-dots i:nth-child(3) { animation-delay: .36s; }
+
+    .animate-in {
+      opacity: 0;
+      transform: translateY(14px) scale(.985);
+      animation: riseIn .72s cubic-bezier(.2, .7, .2, 1) forwards;
+    }
+    .animate-in:nth-child(2) { animation-delay: .08s; }
+    .animate-in:nth-child(3) { animation-delay: .16s; }
+    .animate-in:nth-child(4) { animation-delay: .24s; }
+
+    .flow-line {
+      position: relative;
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+      padding-left: 18px;
+    }
+    .flow-line::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--terra), var(--gold), var(--jade));
+      animation: flowGlow 2.8s ease-in-out infinite alternate;
+    }
+    .flow-line div {
+      position: relative;
+      padding: 12px 13px;
+      border: 1px solid rgba(17, 88, 79, .12);
+      border-radius: 16px;
+      background: rgba(255,255,255,.62);
+    }
+    .flow-line div::before {
+      content: "";
+      position: absolute;
+      left: -18px;
+      top: 18px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--terra);
+      box-shadow: 0 0 0 5px rgba(189,99,59,.13);
+    }
+    .flow-line b { display:block; color: var(--jade); }
+
+    .formula {
+      display: grid;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .formula span {
+      display: grid;
+      place-items: center;
+      min-height: 48px;
+      padding: 10px;
+      border-radius: 16px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--jade), var(--blue));
+      font-size: 18px;
+      font-weight: 950;
+      box-shadow: 0 12px 28px rgba(17, 88, 79, .14);
+    }
+    .formula i {
+      color: var(--terra);
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 950;
+      text-align: center;
+    }
+
+    @keyframes riseIn {
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes signalSweep {
+      from { transform: translateX(-8%) rotate(0deg); }
+      to { transform: translateX(8%) rotate(360deg); }
+    }
+    @keyframes dotPulse {
+      0%, 100% { opacity: .35; transform: translateY(0) scale(.8); }
+      50% { opacity: 1; transform: translateY(-4px) scale(1.15); }
+    }
+    @keyframes flowGlow {
+      from { filter: saturate(1); opacity: .72; }
+      to { filter: saturate(1.55); opacity: 1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    .section { padding: 0 16px 18px; }
+    .card {
+      margin-bottom: 14px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 253, 247, .95);
+      box-shadow: 0 14px 36px rgba(23, 33, 31, .08);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .num {
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      color: #fff;
+      background: linear-gradient(135deg, var(--gold), var(--red));
+      font-size: 12px;
+      font-weight: 950;
+    }
+    h2 {
+      margin: 0;
+      color: var(--jade);
+      font-size: 23px;
+      line-height: 1.22;
+      letter-spacing: -.02em;
+    }
+    h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+    .lead {
+      margin: 0;
+      color: #24302d;
+      font-size: 16px;
+      font-weight: 760;
+    }
+
+    .insight-grid,
+    .story-grid {
+      display: grid;
+      gap: 10px;
+    }
+    .insight,
+    .story,
+    .quote {
+      padding: 14px;
+      border: 1px solid rgba(17, 88, 79, .12);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(238, 247, 244, .72), rgba(255, 253, 247, .86));
+    }
+    .insight span,
+    .story-tag {
+      display: inline-flex;
+      margin-bottom: 7px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      color: var(--jade);
+      background: rgba(17, 88, 79, .08);
+      font-size: 12px;
+      font-weight: 950;
+    }
+    .insight b {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 17px;
+      line-height: 1.42;
+    }
+    .insight p,
+    .story p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 680;
+    }
+
+    .model {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .model div {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 13px;
+      border-radius: 18px;
+      background: rgba(17, 88, 79, .06);
+      border: 1px solid rgba(17, 88, 79, .1);
+    }
+    .model i {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--jade);
+      font-style: normal;
+      font-weight: 950;
+    }
+    .model span {
+      color: #26322f;
+      font-size: 15px;
+      font-weight: 760;
+    }
+
+    .quote-rail {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 82%;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+    .quote-rail::-webkit-scrollbar { display: none; }
+    figure.quote {
+      position: relative;
+      margin: 0;
+      min-height: 174px;
+      scroll-snap-align: start;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(201, 155, 67, .18), transparent 30%),
+        linear-gradient(180deg, #fffef9, #f3faf7);
+    }
+    blockquote {
+      margin: 0;
+      color: var(--jade);
+      font-size: 21px;
+      line-height: 1.42;
+      font-weight: 950;
+      letter-spacing: -.02em;
+    }
+    figcaption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 760;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .pill-list span {
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--jade);
+      background: rgba(17, 88, 79, .08);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .diagram-grid {
+      display: grid;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .diagram-card {
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid rgba(17, 88, 79, .14);
+      border-radius: 20px;
+      background: rgba(255, 253, 247, .9);
+      box-shadow: 0 12px 30px rgba(23, 33, 31, .08);
+    }
+    .diagram-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .diagram-card figcaption {
+      margin: 0;
+      padding: 12px 14px 14px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+      font-weight: 760;
+    }
+
+    .discussion {
+      margin: 0;
+      padding-left: 22px;
+      color: #273431;
+      font-weight: 760;
+    }
+    .discussion li + li { margin-top: 9px; }
+
+    .actions {
+      display: grid;
+      gap: 10px;
+    }
+    .actions label {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 12px;
+      border: 1px solid rgba(17, 88, 79, .12);
+      border-radius: 16px;
+      background: rgba(255, 253, 247, .82);
+      color: #283531;
+      font-weight: 760;
+    }
+    .actions input { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--jade); }
+
+    .mantra {
+      color: #fff;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(255, 255, 255, .18), transparent 30%),
+        linear-gradient(135deg, var(--jade), var(--blue));
+    }
+    .mantra h2,
+    .mantra p { color: #fff; }
+    .mantra p {
+      margin: 0;
+      font-size: 21px;
+      line-height: 1.56;
+      font-weight: 950;
+      letter-spacing: -.02em;
+    }
+    .footer {
+      padding: 14px 16px 28px;
+      color: rgba(23, 33, 31, .48);
+      font-size: 12px;
+      font-weight: 760;
+      text-align: center;
+    }
+
+    @media (max-width: 360px) {
+      .hero-card { padding: 22px 18px; }
+      h1 { font-size: 38px; }
+      .hero-meta { grid-template-columns: 1fr; }
+      .quote-rail { grid-auto-columns: 90%; }
+    }
+  
+    /* ===== 桌機／平板響應式（獨立學習站） ===== */
+    @media (min-width: 768px) {
+      body { padding: 36px 16px; }
+      .shell { width: min(100%, 920px); min-height: auto; border-radius: 30px; overflow: hidden; }
+      .insight-grid, .story-grid { grid-template-columns: repeat(2, 1fr); }
+      .model { grid-template-columns: repeat(2, 1fr); }
+      .quote-rail { grid-auto-columns: 44%; }
+      h1 { font-size: 52px; }
+      .section { padding: 0 26px 20px; }
+      .hero { padding: 26px 26px 16px; }
+      .nav { margin: 0 26px 18px; }
+    }
+    @media (min-width: 1200px) {
+      .shell { width: min(100%, 1060px); }
+      .insight-grid, .story-grid { grid-template-columns: repeat(3, 1fr); }
+      .quote-rail { grid-auto-columns: 31%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand back-to-notes" href="../index.html" aria-label="返回學習筆記">
+        <span>CMF DAY 2</span>
+        <b>00 後組織</b>
+      </a>
+      <a class="mode-chip back-to-notes" href="../index.html">返回總覽</a>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <span class="eyebrow">Taiwan Representative</span>
+        <h1>00 後組織發展</h1>
+        <p class="subtitle">年輕一代的團隊成長密碼｜吳修毅（中國台灣金融保險產業新生代領導者，富邦人壽極具代表性的年輕企業家）</p>
+        <div class="hero-meta">
+          <div><span>時間</span><b>2026.07.19｜10:40-11:25</b></div>
+          <div><span>核心</span><b>近的願景・認知建立・內部動機</b></div>
+        </div>
+        <div class="pulse-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+    </section>
+
+    <nav class="nav" aria-label="筆記段落">
+      <a href="#review">3分鐘複習</a>
+      <a href="#ai">AI 時代</a>
+      <a href="#recruit">招募</a>
+      <a href="#list">名單</a>
+      <a href="#failure">失敗</a>
+      <a href="#growth">成長</a>
+      <a href="#motivation">內部動機</a>
+      <a href="#family">榮耀家人</a>
+      <a href="#quotes">金句</a>
+      <a href="#discussion">討論</a>
+    </nav>
+
+    <section class="section" id="review">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">01</span><h2>3分鐘複習</h2></div>
+        <p class="lead">吳修毅這堂課的現場感很強：他不是用上一代的管理語言教 00 後，而是把年輕人真正吃的語言拆成一套組織發展方法。核心不是「叫他把保險做好」，而是讓他自己想把保險做好。</p>
+        <div class="formula" aria-label="課程主軸公式">
+          <span>近的願景</span>
+          <i>＋</i>
+          <span>正確認知</span>
+          <i>＋</i>
+          <span>內部動機</span>
+          <i>＝</i>
+          <span>00 後團隊成長密碼</span>
+        </div>
+        <div class="insight-grid" style="margin-top:12px;">
+          <div class="insight"><span>一句話</span><b>AI 可以增加速度，但只有人能創造溫度。</b><p>科技越快，保險人的價值越要回到信任、陪伴、情緒價值與關係經營。</p></div>
+          <div class="insight"><span>核心轉念</span><b>00 後不是不能帶，是不能用舊方法帶。</b><p>他們要被平等對待、要情緒價值、要短期可觸碰的目標，也要被看見。</p></div>
+          <div class="insight"><span>最可學</span><b>名單不是缺人，是缺接觸技術。</b><p>馬路、網路都是名單；真正需要訓練的是如何自然開口、如何建立關係。</p></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="ai">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">02</span><h2>AI 時代：速度更快，但溫度更稀缺</h2></div>
+        <p class="lead">他用無人商店、送餐機器人、無人計程車、AI 影片開場：世界正在飛速改變，年輕人擁有更好的資訊與工具，也更容易被網路上的負面印象影響。</p>
+        <div class="flow-line">
+          <div><b>AI 與網路是敵人</b>因為它們讓部分工作被取代，也讓年輕人更快看到保險業的負面標籤。</div>
+          <div><b>AI 與網路也是朋友</b>因為它們讓我們可以更快接觸人、更快傳遞內容、更快建立影響力。</div>
+          <div><b>保險人的不可取代</b>AI 只能計算價值，保險人要創造價值；AI 增加速度，人增加溫度。</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="recruit">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">03</span><h2>招募 00 後：不要只談遠方，先讓他看到近的願景</h2></div>
+        <p class="lead">00 後不一定會被 20 年後、30 年後的願景打動；他們更在意一兩年內能碰到的成果。主管要做的，是把遠大的未來拆成短期可見、可量化、可追的目標。</p>
+        <div class="model">
+          <div><i>1</i><span><b>問近目標：</b>現階段 1-2 年內，有沒有想完成的事？不要一開始就談太久遠。</span></div>
+          <div><i>2</i><span><b>量化目標：</b>把車子、旅行、收入、生活方式拆成每月需要的時間與金錢。</span></div>
+          <div><i>3</i><span><b>建立落差：</b>反問「為什麼我要錄取你？」讓他說出自己的三個理由。</span></div>
+          <div><i>4</i><span><b>創造被看見：</b>00 後需要被尊重、被看見、被平等對待，這比說教更有吸引力。</span></div>
+        </div>
+        <div class="insight-grid" style="margin-top:12px;">
+          <div class="insight"><span>現場比喻</span><b>手放太近，只看得到困難；目標放遠，才看得到舞台。</b><p>目標要大到足以蓋過困難，才會讓年輕人願意往前。</p></div>
+          <div class="insight"><span>招募語言</span><b>不是「你要不要做保險」，而是「我看見你身上有可被培養的特質」。</b><p>年輕人不是討厭努力，他們討厭無感、無尊重、無回饋的努力。</p></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="list">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">04</span><h2>名單認知：馬路、網路，皆是名單</h2></div>
+        <p class="lead">吳修毅對名單的定義很直接：只要滿 18 歲、能自己決定要不要買保險，都是名單。我們不缺名單，缺的是接觸名單的技術。</p>
+        <div class="insight-grid" style="margin-top:12px;">
+          <div class="insight"><span>馬路</span><b>星巴克、海底撈、飯店、會場保安，都可能是名單。</b><p>重點不是亂搭訕，而是練習自然看見對方、稱讚對方、建立第一個連結。</p></div>
+          <div class="insight"><span>網路</span><b>社群留言、短影片互動、私訊回覆，都是破圈入口。</b><p>00 後熟悉網路，主管更要教會他們如何從流量走向信任。</p></div>
+          <div class="insight"><span>開口</span><b>「我覺得你很有特色，有沒有機會認識你？」</b><p>這句話背後不是技巧而已，是讓對方感覺自己被看見。</p></div>
+          <div class="insight"><span>主管任務</span><b>不要只叫新人列名單，要教新人怎麼開口。</b><p>年輕人不是沒有市場，而是不知道第一句話怎麼說。</p></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="failure">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">05</span><h2>心態認知：把失敗改造成進度條</h2></div>
+        <p class="lead">新人剛入行常以為家人朋友一定會支持，結果最愛的人反而最先拒絕。主管要在新人上戰場前，先替他建立失敗認知。</p>
+        <div class="flow-line">
+          <div><b>接受失敗</b>明白保險成交本來就不是每談必成，拒絕是常態。</div>
+          <div><b>期待失敗</b>如果知道失敗九次會換來一張百萬保單，第十次之前的拒絕都變成累積。</div>
+          <div><b>心態上不會失敗</b>不是「我增員不到」，而是「我還沒增員到」；不是「我成交不了」，而是「我還沒成交」。</div>
+        </div>
+        <div class="insight-grid" style="margin-top:12px;">
+          <div class="insight"><span>故事案例</span><b>高資產婆婆拒絕 9 次，第 10 次成交 100 萬。</b><p>真正強的業務，不是沒有被拒絕，而是知道每一次拒絕都在靠近答案。</p></div>
+          <div class="insight"><span>團隊語言</span><b>「我又累積一次失敗了，我快成功了。」</b><p>這種語言會把新人從挫折感拉回進度感。</p></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="growth">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">06</span><h2>成長認知：不要讓昨天的雨，淋濕今天的自己</h2></div>
+        <p class="lead">成長不是一直往前衝而已，也包含重新理解昨天、今天與明天的關係。昨天的大案、拒絕、離職、挫敗，都不應該傷害今天的自己。</p>
+        <div class="model">
+          <div><i>雨</i><span><b>別讓昨天的雨淋濕今天的自己：</b>過去的 case、拒絕、夥伴離開，都是昨天的事。</span></div>
+          <div><i>板</i><span><b>今天的天花板，是明天的地板：</b>學習後不要自滿，要持續空杯。</span></div>
+          <div><i>心</i><span><b>真正的強者不是不會失敗：</b>而是失敗了，也不懷疑自己。</span></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="motivation">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">07</span><h2>內部動機：不要只教他做，讓他想做</h2></div>
+        <p class="lead">這是整堂最關鍵的一句：不要思考如何讓夥伴把保險做好，要思考如何讓夥伴「想」把保險做好。當人心甘情願想學，學習力才會最大。</p>
+        <div class="insight-grid" style="margin-top:12px;">
+          <div class="insight"><span>領導轉念</span><b>少幫他做，多讓他想做。</b><p>你幫他做得好，他可能覺得你搶成果；做不好，他覺得你不是好主管。</p></div>
+          <div class="insight"><span>學習力</span><b>心甘情願，才是真正有效的教育時機。</b><p>當夥伴主動來問，主管教的東西才會被吸收。</p></div>
+          <div class="insight"><span>心態優先</span><b>心態佔 70-80%，專業佔 20-30%。</b><p>專業要靠 case 與經驗累積；心態不好的人，還沒累積到經驗就離開了。</p></div>
+          <div class="insight"><span>花期</span><b>不是做不到，只是還沒做到。</b><p>組織發展不是寒冬，而是花期還沒開；能不能等到花開，是主管與團隊共同的修行。</p></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="family">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">08</span><h2>最後一成：來自家人的支持</h2></div>
+        <p class="lead">他說，心態與專業兼具，大概已有九成成功把握；最後一成，是領導者給不了的——家人的支持。這也是他設計母親節感恩餐會的原因。</p>
+        <div class="model">
+          <div><i>源</i><span><b>自己的故事：</b>從普通家庭、父親是鐵工、母親早逝，到用保險讓家人過得更好。</span></div>
+          <div><i>憾</i><span><b>最大的遺憾：</b>母親看不到他今天站上國際舞台，因此他不希望夥伴留下同樣遺憾。</span></div>
+          <div><i>儀</i><span><b>感恩餐會：</b>邀請父母走紅毯、接受孩子的回饋，讓家人看見保險業成就孩子。</span></div>
+          <div><i>耀</i><span><b>榮耀父母：</b>年輕人不只是追收入，也需要讓家人理解、支持、以他為榮。</span></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="quotes">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">09</span><h2>金句整理</h2></div>
+        <div class="quote-rail">
+          <figure class="quote"><blockquote>AI 只可以計算價值，只有人可以創造價值。</blockquote><figcaption>科技越快，人的溫度越重要。</figcaption></figure>
+          <figure class="quote"><blockquote>不要只談長遠的未來，先讓他們看見近的願景。</blockquote><figcaption>00 後需要短期可觸碰的目標。</figcaption></figure>
+          <figure class="quote"><blockquote>馬路、網路，皆是名單。</blockquote><figcaption>缺的不是名單，是接觸名單的技術。</figcaption></figure>
+          <figure class="quote"><blockquote>我從未失敗過，我只是還沒成功。</blockquote><figcaption>把拒絕變成進度條。</figcaption></figure>
+          <figure class="quote"><blockquote>別讓昨天的雨，淋濕今天的自己。</blockquote><figcaption>不要用昨天的挫敗污染今天的行動。</figcaption></figure>
+          <figure class="quote"><blockquote>不要思考如何讓夥伴把保險做好，要思考如何讓夥伴想把保險做好。</blockquote><figcaption>這是帶 00 後最重要的領導轉念。</figcaption></figure>
+          <figure class="quote"><blockquote>AI 增加的是速度，不是溫度。</blockquote><figcaption>保險人要用溫度帶年輕人走出寒冬。</figcaption></figure>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="discussion">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">10</span><h2>小組討論題</h2></div>
+        <ol class="discussion">
+          <li>如果要招募 00 後，我們現在的語言是「他聽得懂」還是「我們講得習慣」？</li>
+          <li>我們能不能把新人 1-2 年內的目標，量化成每月需要做到的行動？</li>
+          <li>團隊目前缺的是名單，還是缺接觸名單的技術？</li>
+          <li>我們如何把拒絕重新定義成「成功進度條」？</li>
+          <li>除了教夥伴方法，我們有沒有設計讓他「想學、想做、想成長」的環境？</li>
+          <li>我們是否有讓夥伴的家人看見保險業的價值與榮耀？</li>
+        </ol>
+      </article>
+    </section>
+
+    <section class="section" id="actions">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">11</span><h2>課後行動清單</h2></div>
+        <div class="actions">
+          <label><input type="checkbox" data-action="a1"><span>設計一份 00 後面談三問：近目標、月目標、錄取理由。</span></label>
+          <label><input type="checkbox" data-action="a2"><span>把「馬路／網路皆是名單」整理成新人每日 3 個開口練習。</span></label>
+          <label><input type="checkbox" data-action="a3"><span>建立團隊拒絕紀錄表，把失敗變成成功進度條。</span></label>
+          <label><input type="checkbox" data-action="a4"><span>找一位新人，問他真正想把保險做好的內部原因是什麼。</span></label>
+          <label><input type="checkbox" data-action="a5"><span>規劃一個讓家人看見夥伴成長的儀式或活動。</span></label>
+        </div>
+      </article>
+    </section>
+
+    <section class="section">
+      <article class="card mantra">
+        <div class="section-head"><span class="num">12</span><h2>最後帶走一句話</h2></div>
+        <p>AI 增加的是速度，不是溫度；00 後需要的不是被命令，而是被看見、被點燃、被陪著走向春天。</p>
+      </article>
+    </section>
+
+    <footer class="footer">CMF 2026 學習筆記｜吳修毅課程整理 · 2026.07.19</footer>
+  </main>
+
+  <script>
+    document.querySelectorAll(".back-to-notes").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        if (history.length <= 1) return;
+        event.preventDefault();
+        history.back();
+      });
+    });
+
+    const key = "cmf-note-d6-04-actions";
+    const saved = JSON.parse(localStorage.getItem(key) || "{}");
+    document.querySelectorAll("[data-action]").forEach((input) => {
+      input.checked = Boolean(saved[input.dataset.action]);
+      input.addEventListener("change", () => {
+        saved[input.dataset.action] = input.checked;
+        localStorage.setItem(key, JSON.stringify(saved));
+      });
+    });
+  </script>
+  <script>
+    (() => {
+      if (!("ontouchstart" in window)) return;
+      let startY = 0, pulling = false, fired = false;
+      const THRESHOLD = 80;
+      const bar = document.createElement("div");
+      bar.textContent = "\u2193 \u4e0b\u62c9\u66f4\u65b0";
+      bar.style.cssText = "position:fixed;top:-46px;left:50%;transform:translateX(-50%);z-index:9999;padding:8px 16px;border-radius:999px;background:rgba(17,88,79,.92);color:#fff;font-size:13px;font-weight:700;transition:top .2s;pointer-events:none;box-shadow:0 8px 20px rgba(0,0,0,.18)";
+      document.body.appendChild(bar);
+      window.addEventListener("touchstart", (e) => {
+        if (window.scrollY <= 0) { startY = e.touches[0].clientY; pulling = true; fired = false; }
+        else { pulling = false; }
+      }, { passive: true });
+      window.addEventListener("touchmove", (e) => {
+        if (!pulling || fired) return;
+        const dy = e.touches[0].clientY - startY;
+        if (dy > 12 && window.scrollY <= 0) {
+          bar.style.top = Math.min(14, dy / 4 - 10) + "px";
+          if (dy > THRESHOLD) { bar.textContent = "\u21bb \u653e\u958b\u7acb\u5373\u66f4\u65b0"; bar.dataset.ready = "1"; }
+          else { bar.textContent = "\u2193 \u4e0b\u62c9\u66f4\u65b0"; delete bar.dataset.ready; }
+        } else {
+          bar.style.top = "-46px";
+          delete bar.dataset.ready;
+        }
+      }, { passive: true });
+      window.addEventListener("touchend", async () => {
+        if (!pulling) return;
+        pulling = false;
+        if (bar.dataset.ready && !fired) {
+          fired = true;
+          bar.style.top = "14px";
+          bar.textContent = "\u66f4\u65b0\u4e2d\u2026";
+          try {
+            if (window.caches) { const keys = await caches.keys(); await Promise.all(keys.map((k) => caches.delete(k))); }
+            if (navigator.serviceWorker) { const regs = await navigator.serviceWorker.getRegistrations(); await Promise.all(regs.map((r) => r.update())); }
+          } catch (_) {}
+          const u = new URL(location.href);
+          u.searchParams.set("r", Date.now().toString(36));
+          location.replace(u.toString());
+        } else {
+          bar.style.top = "-46px";
+          delete bar.dataset.ready;
+        }
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,872 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CMF DAY2｜企業家客戶的銷售邏輯</title>
+  <meta name="description" content="CMF DAY2 課程筆記：曹紀平｜企業家客戶的銷售邏輯——需求喚起、傳承架構與專業銷售流程">
+  <style>
+    :root {
+      --ink: #17211f;
+      --muted: #65736f;
+      --paper: #f7f2e8;
+      --card: #fffdf7;
+      --jade: #11584f;
+      --gold: #c99b43;
+      --terra: #bd633b;
+      --red: #a82934;
+      --blue: #244f88;
+      --line: rgba(23, 33, 31, .12);
+      --shadow: 0 18px 48px rgba(23, 33, 31, .12);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% -8%, rgba(201, 155, 67, .24), transparent 34%),
+        radial-gradient(circle at 92% 0%, rgba(168, 41, 52, .14), transparent 32%),
+        linear-gradient(180deg, #f2f5ec 0, var(--paper) 390px, #f4ecdf 100%);
+      font-family: "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", system-ui, sans-serif;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    section { scroll-margin-top: 102px; }
+
+    .shell {
+      width: min(100%, 430px);
+      min-height: 100svh;
+      margin: 0 auto;
+      background:
+        linear-gradient(180deg, rgba(255, 253, 247, .72), rgba(247, 242, 232, .98)),
+        var(--paper);
+      box-shadow: 0 0 60px rgba(0, 0, 0, .22);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 16px;
+      border-bottom: 1px solid rgba(23, 33, 31, .1);
+      background: rgba(255, 253, 247, .9);
+      backdrop-filter: blur(16px) saturate(1.1);
+      -webkit-backdrop-filter: blur(16px) saturate(1.1);
+    }
+
+    .brand { display: grid; gap: 1px; min-width: 0; }
+    .brand span {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .brand b {
+      color: var(--jade);
+      font-size: 16px;
+      line-height: 1.1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .mode-chip {
+      flex: 0 0 auto;
+      padding: 7px 11px;
+      border-radius: 999px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--jade), var(--terra));
+      font-size: 12px;
+      font-weight: 950;
+      box-shadow: 0 10px 24px rgba(17, 88, 79, .2);
+    }
+
+    .hero { padding: 22px 16px 14px; }
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      padding: 24px 22px;
+      border-radius: 30px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(255, 255, 255, .18), transparent 26%),
+        radial-gradient(circle at 96% 10%, rgba(201, 155, 67, .32), transparent 28%),
+        linear-gradient(135deg, #1a4f45 0%, #7c5a1e 55%, #a82934 100%);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+    .hero-card::after {
+      content: "企";
+      position: absolute;
+      right: -8px;
+      bottom: -46px;
+      color: rgba(255, 255, 255, .08);
+      font-family: "Songti TC", serif;
+      font-size: 176px;
+      font-weight: 900;
+      line-height: 1;
+      transform: rotate(-6deg);
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      z-index: 0;
+      opacity: .28;
+      background:
+        linear-gradient(115deg, transparent 20%, rgba(255,255,255,.36) 30%, transparent 40%),
+        repeating-linear-gradient(90deg, transparent 0 28px, rgba(255,255,255,.08) 29px 30px);
+      animation: signalSweep 7s linear infinite;
+    }
+
+    .eyebrow {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      padding: 6px 11px;
+      border: 1px solid rgba(255, 255, 255, .28);
+      border-radius: 999px;
+      color: rgba(255, 255, 255, .78);
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      position: relative;
+      z-index: 1;
+      margin: 20px 0 8px;
+      font-size: clamp(34px, 10vw, 50px);
+      line-height: 1.06;
+      letter-spacing: -.06em;
+      text-wrap: balance;
+    }
+
+    .subtitle {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: rgba(255, 255, 255, .86);
+      font-size: 15px;
+      font-weight: 850;
+      line-height: 1.7;
+    }
+
+    .hero-meta {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .hero-meta div {
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .12);
+    }
+    .hero-meta span {
+      display: block;
+      color: rgba(255, 255, 255, .66);
+      font-size: 11px;
+      font-weight: 950;
+    }
+    .hero-meta b {
+      display: block;
+      margin-top: 4px;
+      color: #fff;
+      font-size: 14px;
+      line-height: 1.42;
+    }
+
+    .pulse-dots {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      gap: 7px;
+      margin-top: 18px;
+    }
+    .pulse-dots i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .82);
+      animation: dotPulse 1.5s ease-in-out infinite;
+    }
+    .pulse-dots i:nth-child(2) { animation-delay: .18s; }
+    .pulse-dots i:nth-child(3) { animation-delay: .36s; }
+
+    .nav {
+      position: sticky;
+      top: 62px;
+      z-index: 20;
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: max-content;
+      gap: 8px;
+      margin: 0 16px 16px;
+      padding: 8px;
+      overflow-x: auto;
+      border: 1px solid rgba(23, 33, 31, .1);
+      border-radius: 999px;
+      background: rgba(255, 253, 247, .88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      scrollbar-width: none;
+      box-shadow: 0 12px 30px rgba(23, 33, 31, .08);
+    }
+    .nav::-webkit-scrollbar { display: none; }
+    .nav a {
+      padding: 8px 13px;
+      border-radius: 999px;
+      color: var(--jade);
+      background: rgba(17, 88, 79, .07);
+      font-size: 13px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .animate-in {
+      opacity: 0;
+      transform: translateY(14px) scale(.985);
+      animation: riseIn .72s cubic-bezier(.2, .7, .2, 1) forwards;
+    }
+    .animate-in:nth-child(2) { animation-delay: .08s; }
+    .animate-in:nth-child(3) { animation-delay: .16s; }
+    .animate-in:nth-child(4) { animation-delay: .24s; }
+
+    .flow-line {
+      position: relative;
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+      padding-left: 18px;
+    }
+    .flow-line::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--terra), var(--gold), var(--jade));
+      animation: flowGlow 2.8s ease-in-out infinite alternate;
+    }
+    .flow-line div {
+      position: relative;
+      padding: 12px 13px;
+      border: 1px solid rgba(17, 88, 79, .12);
+      border-radius: 16px;
+      background: rgba(255,255,255,.62);
+    }
+    .flow-line div::before {
+      content: "";
+      position: absolute;
+      left: -18px;
+      top: 18px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--terra);
+      box-shadow: 0 0 0 5px rgba(189,99,59,.13);
+    }
+    .flow-line b { display:block; color: var(--jade); }
+
+    .formula {
+      display: grid;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .formula span {
+      display: grid;
+      place-items: center;
+      min-height: 48px;
+      padding: 10px;
+      border-radius: 16px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--jade), #7c5a1e);
+      font-size: 18px;
+      font-weight: 950;
+      box-shadow: 0 12px 28px rgba(17, 88, 79, .14);
+    }
+    .formula i {
+      color: var(--terra);
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 950;
+      text-align: center;
+    }
+
+    @keyframes riseIn {
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes signalSweep {
+      from { transform: translateX(-8%) rotate(0deg); }
+      to { transform: translateX(8%) rotate(360deg); }
+    }
+    @keyframes dotPulse {
+      0%, 100% { opacity: .35; transform: translateY(0) scale(.8); }
+      50% { opacity: 1; transform: translateY(-4px) scale(1.15); }
+    }
+    @keyframes flowGlow {
+      from { filter: saturate(1); opacity: .72; }
+      to { filter: saturate(1.55); opacity: 1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    .section { padding: 0 16px 18px; }
+    .card {
+      margin-bottom: 14px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 253, 247, .95);
+      box-shadow: 0 14px 36px rgba(23, 33, 31, .08);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .num {
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      color: #fff;
+      background: linear-gradient(135deg, var(--gold), var(--red));
+      font-size: 12px;
+      font-weight: 950;
+    }
+    h2 {
+      margin: 0;
+      color: var(--jade);
+      font-size: 23px;
+      line-height: 1.22;
+      letter-spacing: -.02em;
+    }
+    h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+    .lead {
+      margin: 0;
+      color: #24302d;
+      font-size: 16px;
+      font-weight: 760;
+    }
+
+    .insight-grid,
+    .story-grid {
+      display: grid;
+      gap: 10px;
+    }
+    .insight,
+    .story,
+    .quote {
+      padding: 14px;
+      border: 1px solid rgba(17, 88, 79, .12);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(238, 247, 244, .72), rgba(255, 253, 247, .86));
+    }
+    .insight span,
+    .story-tag {
+      display: inline-flex;
+      margin-bottom: 7px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      color: var(--jade);
+      background: rgba(17, 88, 79, .08);
+      font-size: 12px;
+      font-weight: 950;
+    }
+    .insight b {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 17px;
+      line-height: 1.42;
+    }
+    .insight p,
+    .story p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 680;
+    }
+
+    .model {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .model div {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 13px;
+      border-radius: 18px;
+      background: rgba(17, 88, 79, .06);
+      border: 1px solid rgba(17, 88, 79, .1);
+    }
+    .model i {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--jade);
+      font-style: normal;
+      font-weight: 950;
+    }
+    .model span {
+      color: #26322f;
+      font-size: 15px;
+      font-weight: 760;
+    }
+
+    .quote-rail {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 82%;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+    .quote-rail::-webkit-scrollbar { display: none; }
+    figure.quote {
+      position: relative;
+      margin: 0;
+      min-height: 174px;
+      scroll-snap-align: start;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(201, 155, 67, .18), transparent 30%),
+        linear-gradient(180deg, #fffef9, #f3faf7);
+    }
+    blockquote {
+      margin: 0;
+      color: var(--jade);
+      font-size: 21px;
+      line-height: 1.42;
+      font-weight: 950;
+      letter-spacing: -.02em;
+    }
+    figcaption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 760;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .pill-list span {
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--jade);
+      background: rgba(17, 88, 79, .08);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .discussion {
+      margin: 0;
+      padding-left: 22px;
+      color: #273431;
+      font-weight: 760;
+    }
+    .discussion li + li { margin-top: 9px; }
+
+    .actions {
+      display: grid;
+      gap: 10px;
+    }
+    .actions label {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 12px;
+      border: 1px solid rgba(17, 88, 79, .12);
+      border-radius: 16px;
+      background: rgba(255, 253, 247, .82);
+      color: #283531;
+      font-weight: 760;
+    }
+    .actions input { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--jade); }
+
+    .mantra {
+      color: #fff;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(255, 255, 255, .18), transparent 30%),
+        linear-gradient(135deg, var(--jade), #7c5a1e);
+    }
+    .mantra h2,
+    .mantra p { color: #fff; }
+    .mantra p {
+      margin: 0;
+      font-size: 21px;
+      line-height: 1.56;
+      font-weight: 950;
+      letter-spacing: -.02em;
+    }
+    .footer {
+      padding: 14px 16px 28px;
+      color: rgba(23, 33, 31, .48);
+      font-size: 12px;
+      font-weight: 760;
+      text-align: center;
+    }
+
+    @media (max-width: 360px) {
+      .hero-card { padding: 22px 18px; }
+      h1 { font-size: 36px; }
+      .hero-meta { grid-template-columns: 1fr; }
+      .quote-rail { grid-auto-columns: 90%; }
+    }
+  
+    /* ===== 桌機／平板響應式（獨立學習站） ===== */
+    @media (min-width: 768px) {
+      body { padding: 36px 16px; }
+      .shell { width: min(100%, 920px); min-height: auto; border-radius: 30px; overflow: hidden; }
+      .insight-grid, .story-grid { grid-template-columns: repeat(2, 1fr); }
+      .model { grid-template-columns: repeat(2, 1fr); }
+      .quote-rail { grid-auto-columns: 44%; }
+      h1 { font-size: 52px; }
+      .section { padding: 0 26px 20px; }
+      .hero { padding: 26px 26px 16px; }
+      .nav { margin: 0 26px 18px; }
+    }
+    @media (min-width: 1200px) {
+      .shell { width: min(100%, 1060px); }
+      .insight-grid, .story-grid { grid-template-columns: repeat(3, 1fr); }
+      .quote-rail { grid-auto-columns: 31%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand back-to-notes" href="../index.html" aria-label="返回學習筆記">
+        <span>CMF DAY 2</span>
+        <b>企業家客戶的銷售邏輯</b>
+      </a>
+      <a class="mode-chip back-to-notes" href="../index.html">返回總覽</a>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <span class="eyebrow">Entrepreneur Clients</span>
+        <h1>企業家客戶的銷售邏輯</h1>
+        <p class="subtitle">曹紀平｜TMC 千萬圓桌會創始會員，連續二十三年山東省銷售冠軍</p>
+        <div class="hero-meta">
+          <div><span>時間</span><b>2026.07.19｜13:30-14:30</b></div>
+          <div><span>核心</span><b>需求喚起・傳承架構・專業流程</b></div>
+        </div>
+        <div class="pulse-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+    </section>
+
+    <nav class="nav" aria-label="筆記段落">
+      <a href="#review">3分鐘複習</a>
+      <a href="#pro">回歸專業</a>
+      <a href="#flow">銷售流程</a>
+      <a href="#source">客戶來源</a>
+      <a href="#cycle">週期與風險</a>
+      <a href="#seven">七類客戶</a>
+      <a href="#steps">資料到促成</a>
+      <a href="#qa">現場問答</a>
+      <a href="#quotes">金句</a>
+      <a href="#discussion">討論</a>
+    </nav>
+
+    <section class="section" id="review">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">01</span><h2>3分鐘複習</h2></div>
+        <p class="lead">曹紀平老師連續二十三年山東省銷冠，這堂課只講一件事：企業家大單不是靠平台、靠話術，而是靠完整的專業銷售流程。核心是「需求喚起」——針對不同類型的企業家，用生命週期、婚姻、傳承、稅務、隔代等切口，讓客戶自己看見風險，再用「保險＋信託＋遺囑」的架構把問題徹底解決。</p>
+        <div class="formula" aria-label="課程主軸公式">
+          <span>專業銷售流程</span>
+          <i>＋</i>
+          <span>分類需求喚起</span>
+          <i>＋</i>
+          <span>保險・信託・遺囑架構</span>
+          <i>＝</i>
+          <span>企業家大單</span>
+        </div>
+        <div class="insight-grid" style="margin-top:12px;">
+          <div class="insight"><span>一句話</span><b>平台不會替你成交，專業才會。</b><p>再依賴平台而丟掉銷售流程與需求喚起，你就只是平台的工具。</p></div>
+          <div class="insight"><span>核心心法</span><b>每一位客戶的需求喚起，都值得花一小時做足。</b><p>從客戶的話題問出新的問題，每一個問題都談到讓客戶覺得非常有感。</p></div>
+          <div class="insight"><span>最硬底氣</span><b>他自己被騙 4,200 萬，人生卻沒有垮。</b><p>因為累積 5,400 多萬保費的保險架構還在——這就是他敢對企業家講風險的底氣。</p></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="pro">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">02</span><h2>回歸專業：別做平台的工具</h2></div>
+        <p class="lead">他先亮出自己的長年業績曲線：年度保費從 2012 年的 800 多萬，2017 年跳升到 3,700 多萬，近年穩定在 6,000 萬以上，FYC 連年破千萬。然後話鋒一轉：現在很多人只能依靠平台，可是平台似乎不出單了——你們還記得銷售流程嗎？還會做需求喚起嗎？</p>
+        <div class="flow-line">
+          <div><b>平台的風險</b>什麼都押在平台上，客戶是平台的、節奏是平台的，你只是個工具而已。</div>
+          <div><b>產品結構的現實</b>健康險撐不起這麼大的保費量；壽險與年金才是高客市場的主戰場。</div>
+          <div><b>老客戶的價值</b>他的大單幾乎都來自老客戶與轉介紹；新客戶第一張往往不會是最大的一張。</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="flow">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">03</span><h2>完整銷售流程六步</h2></div>
+        <p class="lead">對企業家客戶，一步都不能省。很多人成交後保單電子送達就結束了，等於放棄了最後一次面談——那可是兩個關鍵契機。</p>
+        <div class="model">
+          <div><i>1</i><span><b>客戶來源：</b>先有名單，才有後面的一切。</span></div>
+          <div><i>2</i><span><b>需求喚起：</b>整堂課的重心，依客戶類型逐一擊破。</span></div>
+          <div><i>3</i><span><b>索取資料：</b>家庭結構、收入資產、既有保單。</span></div>
+          <div><i>4</i><span><b>設計方案：</b>根據上次面談的需求 1、2、3 對症下藥。</span></div>
+          <div><i>5</i><span><b>方案說明：</b>講清楚架構——投保人、被保險人、受益人，哪個能改、哪個不能改。</span></div>
+          <div><i>6</i><span><b>遞送保單面談：</b>絕不能省略的最後一步。</span></div>
+        </div>
+        <div class="insight-grid" style="margin-top:12px;">
+          <div class="insight"><span>契機一</span><b>再次重申保險價值與現金價值。</b><p>把保障責任復盤一次，並鄭重告訴客戶：除了分紅不確定，其他都是確定的。</p></div>
+          <div class="insight"><span>契機二</span><b>當面索取轉介紹。</b><p>客戶不給你轉介紹，你的業務只會越做越少、越做越沒有。</p></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="source">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">04</span><h2>企業家客戶從哪裡來</h2></div>
+        <p class="lead">陌生開發幾乎不可能了，他的答案是四個管道，其中最主力的一條路：加入各大商會、商學院，長期經營高端圈層。</p>
+        <div class="model">
+          <div><i>緣</i><span><b>緣故：</b>你認識的人、身邊周邊的朋友。</span></div>
+          <div><i>轉</i><span><b>轉介紹：</b>老客戶轉介紹是大單的主要來源。</span></div>
+          <div><i>圈</i><span><b>高端團體：</b>商會、EMBA、校友會——他的主戰場。</span></div>
+          <div><i>線</i><span><b>線上：</b>他坦承自己嘗試過抖音但沒堅持，這條路他不擅長。</span></div>
+        </div>
+        <div class="flow-line">
+          <div><b>圈層投資</b>山大總裁班 5 萬上了半天就發現不對，立刻加碼 20 萬轉讀 EMBA；之後再讀北大 EMBA，至今持續進修。</div>
+          <div><b>經營心法</b>到處去學、到處去玩——學不重要、玩不重要，和誰一起學、和誰一起玩才重要。</div>
+          <div><b>從圈層到講台</b>在團體裡常講繼承案例與時事焦點，講到大家主動邀請他開「私人財富」專題——不是我想講，是大家要我講。</div>
+        </div>
+        <div class="insight-grid" style="margin-top:12px;">
+          <div class="insight"><span>實例</span><b>山東大學校友返校日的專題演講。</b><p>對上百位企業家校友講財富傳承，講完後客戶對保險的認知徹底翻轉：保險不再是生病給錢，而是財富管理、生前掌控與身後傳承。</p></div>
+          <div class="insight"><span>老客戶場景</span><b>旅遊活動的長車程，就講「保單應用場景」。</b><p>講完客戶才發現：原來保單可以這樣用，原來自己買的三百五百萬，對照身價根本不夠，需要進一步加保。</p></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="cycle">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">05</span><h2>需求喚起的底層：週期與五大風險</h2></div>
+        <p class="lead">對一心做企業、心無旁騖的客戶，要先講週期：任何行業、任何企業都和人一樣有生命週期，最旺盛大概就 10 年。經過一輪完整經濟週期，八成以上的企業負責人又回到起點。在最好的時候不為未來做準備，到了衰退期就來不及了。</p>
+        <div class="model">
+          <div><i>欲</i><span><b>慾望大於能力：</b>賺到錢就為所欲為、無限擴張。許家印如果 15 年前收手，今天會過得很好——房地產下行，沒有人全身而退，這就是週期的力量。</span></div>
+          <div><i>誤</i><span><b>誤判自己的階段：</b>以為今天的財富是憑本事，其實是碰上改革開放四十年的瘋狂上升週期。憑運氣賺的錢，最後憑「能力」虧掉。</span></div>
+          <div><i>婚</i><span><b>婚姻變動：</b>婚姻是最重大的財務事件之一，一次婚變可以讓財富近乎歸零。</span></div>
+          <div><i>股</i><span><b>炒股炒期貨：</b>上個世紀歐美驗證過的故事在重演，貪與貧一線之隔，停不下來就是深淵。</span></div>
+          <div><i>賭</i><span><b>賭博與毒品：</b>最後一類，沾上就沒有回頭路。</span></div>
+        </div>
+        <div class="insight-grid" style="margin-top:12px;">
+          <div class="insight"><span>親身案例</span><b>2018 年他單筆投資被騙 4,200 萬，對方判了無期。</b><p>追討多年，去年法院執行回來的只有 118 萬。但他人生沒有問題——因為累積 5,400 多萬保費：太太做投保人交了 1,100 多萬，公司又為他投入 1,600 多萬養老金，保險架構把家庭底盤牢牢接住。</p></div>
+          <div class="insight"><span>上升期企業家的解法</span><b>資金緊、有貸款？先買定額壽險。</b><p>保費很低、槓桿極大，保證你在或不在，家人不必扛債、企業不至崩盤。身體好要趁早買；體況有疑慮更要趕緊做——人可能一輩子用不上理賠，但不可能一輩子沒有風險。</p></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="seven">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">06</span><h2>七類企業家客戶的需求喚起</h2></div>
+        <p class="lead">每個客戶的重點和順序都不一樣，要根據不同情況對症喚起。他用一個個真實案例，把七種典型講透。</p>
+        <div class="flow-line">
+          <div><b>① 想出海、擔心「原罪」的</b>他反著勸：到國外的人沒有一個會說不好，因為說不好只會被人同情。別的國家歡迎你來，也有的是辦法收割你；中國出口的已是芯片、光伏、電池「新三樣」，人民幣在升值通道。與其外逃，不如合規補稅、留在上升的市場——他剛簽的百萬大單，就是勸客戶別把錢轉去香港，客戶反而把 400 多萬美金轉了回來。</div>
+          <div><b>② 只有女兒、擔心傳承風險的</b>財富是雙刃劍：一對夫妻身家 10 億、獨生女，女婿八年不生孩子；父母先後離世後，女兒成唯一繼承人，原本被起訴離婚的女婿立刻反過來提離婚爭產，甚至以人身相逼。教訓：要在風平浪靜時先修水池、築水庫做隔離，別等大水來了才想防洪。</div>
+          <div><b>③ 喪偶再找老伴的</b>70 歲老客戶轉介紹的 64 歲鰥夫：想給再婚對象 3,000 萬，遠在美國的女兒不滿。他給的方案：老伴安排走「聘用制」或「再婚＋婚前財產公證」二選一，再用保單架構把財產權責定清楚——三次面談，簽下年繳 2,700 萬、三年共 8,100 萬的大單。</div>
+          <div><b>④ 婚外子女、多段婚姻的</b>59 歲客戶：前妻一子、現任妻子一幼子、婚外又添一子。四大訴求：給婚外子留一億但不能讓妻子知道、幼子的錢不能被人實際掌控、18 歲前只給生活費、身後誰都不能上法庭鬧。解法是三件套：終身壽險指定受益＋保險金信託分期給付＋遺囑定分止爭，一次全部解決。</div>
+          <div><b>⑤ 擔心遺產稅的</b>死亡電子證明已上線，一旦身故，名下房產存款一目瞭然；遺產稅落地是趨勢，外匯額度也在收緊。唯一辦法是提前規劃：把應稅資產轉入大額保單，受益人清清楚楚，還帶身故槓桿——客戶交 2,000 多萬保費，賠付放大逾一倍，兒子從此不用提心吊膽。</div>
+          <div><b>⑥ 想隔代傳承的</b>民法典之下，孫子女不是法定繼承人（除代位繼承），想留給孫輩只能立遺囑（爭議風險大）或用保單架構。反例：房企老闆給女兒投保年繳千萬，架構設計錯誤，女兒早逝後保險金被當成遺產分割，女婿分走一大塊。正確做法：投保人、被保險人、受益人的設計是專業核心，企業有風險時即時變更投保人即可。</div>
+          <div><b>⑦ 怕「別人娶你媳婦、花你錢」的</b>年長多金的先生、或財富集中在自己名下的女強人：一旦先走，另一半再婚，財富就換了主人。解法是保險金信託——他以自己示範：累積 5,400 萬保費、保額約 1.5 億，保單全部裝入保險金信託，一個管生存品質、一個管身後分配，你在或不在，財產都由自己掌控。</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="steps">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">07</span><h2>從索取資料到促成遞送</h2></div>
+        <p class="lead">需求喚起成功後，後面每一步都要打有準備之仗，不打無準備之仗。</p>
+        <div class="model">
+          <div><i>問</i><span><b>家庭結構：</b>特別要問「父母是否健在」——父母健在就是法定繼承人；兄弟姐妹、配偶的父母也都要問清楚，繼承格局才算得準。</span></div>
+          <div><i>財</i><span><b>收入與資產結構：</b>了解收入和資產全貌，才能非常匹配、非常專業地做針對性建議。</span></div>
+          <div><i>保</i><span><b>既有保單：</b>買過什麼保險必須摸清楚，需求喚起才不會失守。</span></div>
+        </div>
+        <div class="flow-line">
+          <div><b>設計方案</b>根據上一次面談的需求 1、2、3 對症設計；方案說明先講需求，再講架構：投保人是誰、被保險人是誰、受益人是誰，哪個能改、哪個不能改，為什麼要進保險金信託。</div>
+          <div><b>格局要大</b>坦白告訴客戶：保險和信託只是你財產的一小部分。下一步升級家族信託、遺囑信託，用「保險＋信託＋遺囑」三個架構守護全部資產。</div>
+          <div><b>計劃書</b>A4 厚厚一疊，各種情況寫得清清楚楚，客戶自己就看得明白；分紅不確定要單獨鄭重寫明——除了分紅不確定，其他都是確定的。</div>
+          <div><b>促成話術</b>「要不咱走走投保流程，看一看行不行？」——因為買保險要申請、要核保、可能查體況查財務，不一定買得上，反而讓客戶更想買。</div>
+          <div><b>平台的正確用法</b>先把需求喚起和銷售邏輯做扎實，再把客戶帶上平台，臨門一腳才有效；直接帶上去，沒有用。</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="qa">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">08</span><h2>現場問答</h2></div>
+        <div class="insight-grid">
+          <div class="insight"><span>Q1</span><b>再婚家庭、三個女兒的客戶，見了兩次都推不動？</b><p>老師：關鍵是你對他的資產狀況和家庭全貌還不了解，所以還開不出對的方子——先回到「索取資料」，把結構摸清楚再談方案。</p></div>
+          <div class="insight"><span>Q2</span><b>客戶兒子病逝留下 7 歲孫子，客戶對兒媳不放心，保單怎麼設計？</b><p>老師：民法典有代位繼承，孫子可代位其父。設計上讓客戶自己做投保人、被保險人，孫子為受益人，後端接保險金信託：18 歲前每年只領生活費，之後分階段給付本金——錢一定到孫子手上，誰也動不了。</p></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="quotes">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">09</span><h2>金句整理</h2></div>
+        <div class="quote-rail">
+          <figure class="quote"><blockquote>再靠平台不做專業，你就只是平台的工具。</blockquote><figcaption>銷售流程與需求喚起，是壽險顧問的立身之本。</figcaption></figure>
+          <figure class="quote"><blockquote>憑運氣賺的錢，別憑「能力」虧掉。</blockquote><figcaption>看懂週期，才看得懂自己的財富從哪裡來。</figcaption></figure>
+          <figure class="quote"><blockquote>人可能一輩子用不上理賠，但不可能一輩子沒有風險。</blockquote><figcaption>在最好的時候，為最壞的情況做準備。</figcaption></figure>
+          <figure class="quote"><blockquote>先修水池、築水庫，別等大水來了才想防洪。</blockquote><figcaption>傳承隔離要提前做，風險來時已經來不及。</figcaption></figure>
+          <figure class="quote"><blockquote>保險、信託、遺囑，三個工具缺一不可。</blockquote><figcaption>複雜家庭的難題，靠架構組合徹底解決。</figcaption></figure>
+          <figure class="quote"><blockquote>客戶不給你轉介紹，你的業務只會越做越少。</blockquote><figcaption>遞送保單面談，就是索取轉介紹的最好時機。</figcaption></figure>
+          <figure class="quote"><blockquote>學不重要、玩不重要，和誰一起學、和誰一起玩才重要。</blockquote><figcaption>圈層經營的本質，是選擇同行的人。</figcaption></figure>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="discussion">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">10</span><h2>小組討論題</h2></div>
+        <ol class="discussion">
+          <li>你的成交流程裡，六個步驟哪一步最常被省略？省略的代價是什麼？</li>
+          <li>盤點你的客戶名單：七類企業家客戶中，你手上各有幾位？</li>
+          <li>對「一心做企業、心無旁騖」的客戶，你會怎麼用週期和五大風險開場？</li>
+          <li>你所在的城市有哪些商會、校友會或圈層，是你可以長期經營的？</li>
+          <li>挑一位你熟悉的高客，試著畫出他的家庭結構圖：父母是否健在？婚姻與子女狀況？繼承格局如何？</li>
+          <li>「保險＋信託＋遺囑」三件套，你目前能獨立講清楚哪幾件？缺口怎麼補？</li>
+        </ol>
+      </article>
+    </section>
+
+    <section class="section" id="actions">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">11</span><h2>課後行動清單</h2></div>
+        <div class="actions">
+          <label><input type="checkbox" data-action="a1"><span>把自己的銷售流程對照六步檢查一次，補上「遞送保單面談＋索取轉介紹」。</span></label>
+          <label><input type="checkbox" data-action="a2"><span>把手上前 20 位客戶按七類企業家分類，各寫下一句對應的需求喚起切入話術。</span></label>
+          <label><input type="checkbox" data-action="a3"><span>整理一套「週期＋五大風險」的開場素材（含許家印等時事案例）。</span></label>
+          <label><input type="checkbox" data-action="a4"><span>設計一份索取資料的問題清單：家庭結構（含父母）、收入資產、既有保單。</span></label>
+          <label><input type="checkbox" data-action="a5"><span>選一個圈層（商會／校友會／課程）制定半年經營計畫，目標是被邀請上台講「私人財富」。</span></label>
+        </div>
+      </article>
+    </section>
+
+    <section class="section">
+      <article class="card mantra">
+        <div class="section-head"><span class="num">12</span><h2>最後帶走一句話</h2></div>
+        <p>企業家大單不是話術砸出來的，而是用專業流程、人性洞察與傳承架構，一步一步換來的信任。</p>
+      </article>
+    </section>
+
+    <footer class="footer">CMF 2026 學習筆記｜曹紀平課程整理 · 2026.07.19</footer>
+  </main>
+
+  <script>
+    document.querySelectorAll(".back-to-notes").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        if (history.length <= 1) return;
+        event.preventDefault();
+        history.back();
+      });
+    });
+
+    const key = "cmf-note-d6-06-actions";
+    const saved = JSON.parse(localStorage.getItem(key) || "{}");
+    document.querySelectorAll("[data-action]").forEach((input) => {
+      input.checked = Boolean(saved[input.dataset.action]);
+      input.addEventListener("change", () => {
+        saved[input.dataset.action] = input.checked;
+        localStorage.setItem(key, JSON.stringify(saved));
+      });
+    });
+  </script>
+  <script>
+    (() => {
+      if (!("ontouchstart" in window)) return;
+      let startY = 0, pulling = false, fired = false;
+      const THRESHOLD = 80;
+      const bar = document.createElement("div");
+      bar.textContent = "\u2193 \u4e0b\u62c9\u66f4\u65b0";
+      bar.style.cssText = "position:fixed;top:-46px;left:50%;transform:translateX(-50%);z-index:9999;padding:8px 16px;border-radius:999px;background:rgba(17,88,79,.92);color:#fff;font-size:13px;font-weight:700;transition:top .2s;pointer-events:none;box-shadow:0 8px 20px rgba(0,0,0,.18)";
+      document.body.appendChild(bar);
+      window.addEventListener("touchstart", (e) => {
+        if (window.scrollY <= 0) { startY = e.touches[0].clientY; pulling = true; fired = false; }
+        else { pulling = false; }
+      }, { passive: true });
+      window.addEventListener("touchmove", (e) => {
+        if (!pulling || fired) return;
+        const dy = e.touches[0].clientY - startY;
+        if (dy > 12 && window.scrollY <= 0) {
+          bar.style.top = Math.min(14, dy / 4 - 10) + "px";
+          if (dy > THRESHOLD) { bar.textContent = "\u21bb \u653e\u958b\u7acb\u5373\u66f4\u65b0"; bar.dataset.ready = "1"; }
+          else { bar.textContent = "\u2193 \u4e0b\u62c9\u66f4\u65b0"; delete bar.dataset.ready; }
+        } else {
+          bar.style.top = "-46px";
+          delete bar.dataset.ready;
+        }
+      }, { passive: true });
+      window.addEventListener("touchend", async () => {
+        if (!pulling) return;
+        pulling = false;
+        if (bar.dataset.ready && !fired) {
+          fired = true;
+          bar.style.top = "14px";
+          bar.textContent = "\u66f4\u65b0\u4e2d\u2026";
+          try {
+            if (window.caches) { const keys = await caches.keys(); await Promise.all(keys.map((k) => caches.delete(k))); }
+            if (navigator.serviceWorker) { const regs = await navigator.serviceWorker.getRegistrations(); await Promise.all(regs.map((r) => r.update())); }
+          } catch (_) {}
+          const u = new URL(location.href);
+          u.searchParams.set("r", Date.now().toString(36));
+          location.replace(u.toString());
+        } else {
+          bar.style.top = "-46px";
+          delete bar.dataset.ready;
+        }
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>

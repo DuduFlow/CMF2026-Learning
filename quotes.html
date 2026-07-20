@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CMF 2026 學習筆記｜金句庫</title>
+  <meta name="description" content="CMF 2026 十六堂課 104 句講師金句彙整，可依日期與講師篩選。">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <style>
+    :root {
+      --ink: #17211f; --muted: #66736f; --paper: #f7f2e8; --card: #fffdf7;
+      --jade: #14594e; --gold: #c49b52; --terra: #bd6238;
+      --line: rgba(23, 33, 31, .12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink);
+      background:
+        radial-gradient(circle at 15% -5%, rgba(196, 155, 82, .22), transparent 34%),
+        radial-gradient(circle at 90% 0%, rgba(20, 89, 78, .14), transparent 30%),
+        var(--paper);
+      font-family: "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", system-ui, sans-serif;
+      line-height: 1.7; -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(100%, 1120px); margin: 0 auto; padding: 0 20px; }
+    .topbar {
+      position: sticky; top: 0; z-index: 40; border-bottom: 1px solid var(--line);
+      background: rgba(247, 242, 232, .9);
+      backdrop-filter: blur(16px) saturate(1.1); -webkit-backdrop-filter: blur(16px) saturate(1.1);
+    }
+    .topbar-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand img { width: 38px; height: 38px; object-fit: contain; }
+    .brand b { color: #073f3c; font-size: 19px; white-space: nowrap; }
+    .brand span { color: var(--gold); font-weight: 800; font-size: 13px; white-space: nowrap; }
+    .menu { display: flex; gap: 6px; }
+    .menu a { padding: 8px 14px; border-radius: 999px; color: var(--jade); font-size: 14px; font-weight: 900; white-space: nowrap; background: rgba(20,89,78,.07); }
+    .menu a.on { color: #fff; background: linear-gradient(135deg, var(--jade), #25788d); }
+    .hero { padding: 44px 0 6px; }
+    h1 { margin: 0 0 8px; color: var(--jade); font-size: clamp(32px, 4.4vw, 46px); letter-spacing: -.03em; }
+    .hero p { margin: 0; color: var(--muted); font-size: 16px; font-weight: 700; }
+    .filters { position: sticky; top: 64px; z-index: 30; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 14px 0; background: linear-gradient(180deg, var(--paper) 78%, transparent); }
+    .chip {
+      padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(20,89,78,.16);
+      color: var(--jade); background: rgba(255,253,247,.9); font: inherit; font-size: 14px; font-weight: 900; cursor: pointer;
+    }
+    .chip.on { color: #fff; background: linear-gradient(135deg, var(--jade), #25788d); border-color: transparent; }
+    select {
+      padding: 8px 12px; border-radius: 999px; border: 1px solid rgba(20,89,78,.16);
+      color: var(--jade); background: rgba(255,253,247,.9); font: inherit; font-size: 14px; font-weight: 900;
+    }
+    .count { margin-left: auto; color: var(--muted); font-size: 13px; font-weight: 800; }
+    .grid { columns: 3 300px; column-gap: 16px; padding-bottom: 30px; }
+    .q {
+      break-inside: avoid; margin: 0 0 16px; padding: 20px 20px 16px;
+      border: 1px solid var(--line); border-radius: 20px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(196, 155, 82, .14), transparent 32%),
+        var(--card);
+      box-shadow: 0 10px 26px rgba(23,33,31,.06);
+    }
+    .q.hide { display: none; }
+    blockquote { margin: 0 0 8px; color: var(--jade); font-size: 18.5px; line-height: 1.5; font-weight: 950; letter-spacing: -.01em; }
+    figcaption { color: var(--muted); font-size: 13.5px; font-weight: 750; }
+    .src { display: inline-block; margin-top: 10px; padding: 4px 10px; border-radius: 999px; color: var(--terra); background: rgba(189,98,56,.08); font-size: 12px; font-weight: 950; }
+    .footer { padding: 30px 0 40px; color: rgba(23,33,31,.5); font-size: 13px; font-weight: 700; text-align: center; }
+    @media (max-width: 620px) { .brand span { display: none; } .menu a { padding: 7px 10px; font-size: 13px; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-in">
+      <a class="brand" href="index.html"><img src="assets/logo-cmf-official.png" alt=""><b>逐浪泉城</b><span>CMF 2026 學習筆記</span></a>
+      <nav class="menu">
+        <a href="index.html">課程總覽</a>
+        <a href="themes.html">主題精讀</a>
+        <a class="on" href="quotes.html">金句庫</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <section class="hero">
+      <h1>金句庫</h1>
+      <p>16 堂課、104 句講師金句。早會分享、面談話術、朋友圈文案，隨取隨用；點來源可回到原筆記。</p>
+    </section>
+
+    <div class="filters">
+      <button class="chip on" data-f="all">全部</button><button class="chip" data-f="d1">DAY1</button><button class="chip" data-f="d2">DAY2</button><button class="chip" data-f="d3">DAY3</button>
+      <select id="sp"><option value="all">全部講師</option><option value="尹燁">尹燁</option><option value="張一凡">張一凡</option><option value="褚東東">褚東東</option><option value="余巧琴">余巧琴</option><option value="國旭">國旭</option><option value="李偉彬">李偉彬</option><option value="于忠濱">于忠濱</option><option value="王利忠">王利忠</option><option value="吳修毅">吳修毅</option><option value="羅淑瓊">羅淑瓊</option><option value="曹紀平">曹紀平</option><option value="錢文曦">錢文曦</option><option value="李揚">李揚</option><option value="林海川">林海川</option><option value="趙楊">趙楊</option><option value="齊昊">齊昊</option></select>
+      <span class="count" id="count"></span>
+    </div>
+
+    <main class="grid" id="grid">
+      <figure class="q" data-d="d1" data-s="尹燁">
+        <blockquote>真正的長壽，不只是活得久，而是活得健康。</blockquote>
+        <figcaption>壽命不是唯一指標，健康壽命才決定晚年品質。</figcaption>
+        <a class="src" href="notes/d5-01-baishidai-yinye.html">尹燁｜百歲時代</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="尹燁">
+        <blockquote>未來最大的風險，不一定是死得太早，而是活得太久、病得太久。</blockquote>
+        <figcaption>長壽會同時放大退休、醫療與照護缺口。</figcaption>
+        <a class="src" href="notes/d5-01-baishidai-yinye.html">尹燁｜百歲時代</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="尹燁">
+        <blockquote>健康，是人生報酬率最高的一項投資。</blockquote>
+        <figcaption>睡眠、飲食、運動與檢查，都是日常資產配置。</figcaption>
+        <a class="src" href="notes/d5-01-baishidai-yinye.html">尹燁｜百歲時代</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="尹燁">
+        <blockquote>醫療正在從治療疾病，走向管理健康。</blockquote>
+        <figcaption>科技讓健康管理從被動反應，轉為主動預防。</figcaption>
+        <a class="src" href="notes/d5-01-baishidai-yinye.html">尹燁｜百歲時代</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="尹燁">
+        <blockquote>你的生理年齡，不一定等於身分證上的年齡。</blockquote>
+        <figcaption>未來健康評估會更重視個人數據與功能狀態。</figcaption>
+        <a class="src" href="notes/d5-01-baishidai-yinye.html">尹燁｜百歲時代</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="尹燁">
+        <blockquote>財富規劃的終點，不是資產最大化，而是人生選擇權最大化。</blockquote>
+        <figcaption>有健康、有現金流，才有真正的自由。</figcaption>
+        <a class="src" href="notes/d5-01-baishidai-yinye.html">尹燁｜百歲時代</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="張一凡">
+        <blockquote>在事業的戰場上，誰的我最大，誰就是第一責任人。</blockquote>
+        <figcaption>不要把結果交給環境，先把主動權拿回來。</figcaption>
+        <a class="src" href="notes/d5-02-zhangyifan.html">張一凡｜自媒體事件營銷</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="張一凡">
+        <blockquote>人是沒有辦法計畫故事的，但真實的人生會長出故事。</blockquote>
+        <figcaption>最有力量的內容，往往不是包裝，而是真實。</figcaption>
+        <a class="src" href="notes/d5-02-zhangyifan.html">張一凡｜自媒體事件營銷</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="張一凡">
+        <blockquote>你所看到的，都是我想讓你看到的。</blockquote>
+        <figcaption>自媒體不是隨手發，而是設計外界如何理解你。</figcaption>
+        <a class="src" href="notes/d5-02-zhangyifan.html">張一凡｜自媒體事件營銷</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="張一凡">
+        <blockquote>每一個時代，都有這個時代的呈現方式和創業機會。</blockquote>
+        <figcaption>方法會變，價值不變；不變的人會被時代留在原地。</figcaption>
+        <a class="src" href="notes/d5-02-zhangyifan.html">張一凡｜自媒體事件營銷</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="張一凡">
+        <blockquote>所有的成功，都是被設計的。</blockquote>
+        <figcaption>結果不是只靠努力，而是靠努力加上結構化設計。</figcaption>
+        <a class="src" href="notes/d5-02-zhangyifan.html">張一凡｜自媒體事件營銷</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="張一凡">
+        <blockquote>流量不是目的，流量只是信任被看見的入口。</blockquote>
+        <figcaption>保險人要追的不是熱度，而是可信度。</figcaption>
+        <a class="src" href="notes/d5-02-zhangyifan.html">張一凡｜自媒體事件營銷</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="褚東東">
+        <blockquote>目標是給客戶設定的；給他一個目標，他就會努力達成。</blockquote>
+        <figcaption>從「推產品」改成「陪客戶完成家庭配置目標」。</figcaption>
+        <a class="src" href="notes/d5-03-chudongdong.html">褚東東｜壽險常青樹：高淨值銷售</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="褚東東">
+        <blockquote>小單打天下，件數定江山，做多才能做大。</blockquote>
+        <figcaption>大量單不是低價值，而是信任複利的起點。</figcaption>
+        <a class="src" href="notes/d5-03-chudongdong.html">褚東東｜壽險常青樹：高淨值銷售</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="褚東東">
+        <blockquote>拒絕是常態，N 次拒絕等於成功。</blockquote>
+        <figcaption>拒絕不是結束，而是長期經營的一部分。</figcaption>
+        <a class="src" href="notes/d5-03-chudongdong.html">褚東東｜壽險常青樹：高淨值銷售</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="褚東東">
+        <blockquote>情誼無價，服務無價；成交是客戶，不成交是朋友。</blockquote>
+        <figcaption>成交之前先做人，服務之後才有加保與轉介紹。</figcaption>
+        <a class="src" href="notes/d5-03-chudongdong.html">褚東東｜壽險常青樹：高淨值銷售</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="褚東東">
+        <blockquote>最好的銷售是簽單，最好的經營是加保。</blockquote>
+        <figcaption>簽單只是開始，加保才代表關係與需求持續被照顧。</figcaption>
+        <a class="src" href="notes/d5-03-chudongdong.html">褚東東｜壽險常青樹：高淨值銷售</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="褚東東">
+        <blockquote>大單不是等出來的，市場是服務出來的。</blockquote>
+        <figcaption>與其等待完美高客，不如把每個入口經營成長期關係。</figcaption>
+        <a class="src" href="notes/d5-03-chudongdong.html">褚東東｜壽險常青樹：高淨值銷售</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="余巧琴">
+        <blockquote>有錢人在規劃三代，沒錢人在規劃週末。</blockquote>
+        <figcaption>高客不是只看眼前收益，而是看家族長期安全。</figcaption>
+        <a class="src" href="notes/d5-04-yuqiaoqin.html">余巧琴｜家辦思維撬動超高淨值</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="余巧琴">
+        <blockquote>做對的事情，再把事情做對。</blockquote>
+        <figcaption>先選對賽道，再談方法、效率與複製。</figcaption>
+        <a class="src" href="notes/d5-04-yuqiaoqin.html">余巧琴｜家辦思維撬動超高淨值</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="余巧琴">
+        <blockquote>高淨值客戶買的不是保單，是家族風險防火牆。</blockquote>
+        <figcaption>顧問要把商品語言轉成家族安全語言。</figcaption>
+        <a class="src" href="notes/d5-04-yuqiaoqin.html">余巧琴｜家辦思維撬動超高淨值</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="余巧琴">
+        <blockquote>最大風險不是風險本身，而是來不及規劃。</blockquote>
+        <figcaption>高客教育的切入點，是讓風險被提前看見。</figcaption>
+        <a class="src" href="notes/d5-04-yuqiaoqin.html">余巧琴｜家辦思維撬動超高淨值</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="余巧琴">
+        <blockquote>以客戶家族全生命週期安全為唯一中心。</blockquote>
+        <figcaption>家辦顧問的核心不是炫技，而是長期守護。</figcaption>
+        <a class="src" href="notes/d5-04-yuqiaoqin.html">余巧琴｜家辦思維撬動超高淨值</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="國旭">
+        <blockquote>創富固然艱辛，守富更需要智慧。</blockquote>
+        <figcaption>企業家不是只需要賺錢能力，也需要風險結構。</figcaption>
+        <a class="src" href="notes/d5-05-guoxu.html">國旭｜家企風險隔離</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="國旭">
+        <blockquote>春風得意的時候做規劃，四面楚歌的時候才有路。</blockquote>
+        <figcaption>危機爆發後，很多工具已經不能補做。</figcaption>
+        <a class="src" href="notes/d5-05-guoxu.html">國旭｜家企風險隔離</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="國旭">
+        <blockquote>財富保全與傳承，要提前計畫、同步規劃。</blockquote>
+        <figcaption>保全時要想能否傳下去，傳承時要想能否保得住。</figcaption>
+        <a class="src" href="notes/d5-05-guoxu.html">國旭｜家企風險隔離</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="國旭">
+        <blockquote>工具不會離婚、不會欠債，也不會有人性問題。</blockquote>
+        <figcaption>這是保單、信託等制度化工具相對代持的價值。</figcaption>
+        <a class="src" href="notes/d5-05-guoxu.html">國旭｜家企風險隔離</a>
+      </figure>
+      <figure class="q" data-d="d1" data-s="國旭">
+        <blockquote>不靠天賜的運氣活著，而靠策劃的運氣發達。</blockquote>
+        <figcaption>講師以洛克斐勒名言作為規劃精神的總結。</figcaption>
+        <a class="src" href="notes/d5-05-guoxu.html">國旭｜家企風險隔離</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="李偉彬">
+        <blockquote>銷售的第一步，不是讓客戶買單，而是讓客戶記住你。</blockquote>
+        <figcaption>記憶是成交之前的入口。</figcaption>
+        <a class="src" href="notes/d6-01-liweibin.html">李偉彬｜認知突圍</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="李偉彬">
+        <blockquote>凡事結果，必有路徑，必有原因。</blockquote>
+        <figcaption>不要只羨慕結果，要拆解別人怎麼做到。</figcaption>
+        <a class="src" href="notes/d6-01-liweibin.html">李偉彬｜認知突圍</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="李偉彬">
+        <blockquote>好標題，讓內容先被看見；好名字，讓銷售先被認識。</blockquote>
+        <figcaption>被看見，才有下一步互動。</figcaption>
+        <a class="src" href="notes/d6-01-liweibin.html">李偉彬｜認知突圍</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="李偉彬">
+        <blockquote>名字不是玄學，是低成本記憶設計。</blockquote>
+        <figcaption>好的自我定位，本身就是成交槓桿。</figcaption>
+        <a class="src" href="notes/d6-01-liweibin.html">李偉彬｜認知突圍</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="李偉彬">
+        <blockquote>真正決定業績差距的，不是成交能力，而是客戶長期經營能力。</blockquote>
+        <figcaption>一次成交靠技巧，長期業績靠系統。</figcaption>
+        <a class="src" href="notes/d6-01-liweibin.html">李偉彬｜認知突圍</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="李偉彬">
+        <blockquote>把有溫度的出現，變成一套可以長期執行的系統。</blockquote>
+        <figcaption>高客經營需要節奏，不是想到才出現。</figcaption>
+        <a class="src" href="notes/d6-01-liweibin.html">李偉彬｜認知突圍</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="于忠濱">
+        <blockquote>你想帶領別人走得有多遠，你自己就得先到那裡。</blockquote>
+        <figcaption>領導力不是要求別人，而是先活成證明。</figcaption>
+        <a class="src" href="notes/d6-02-yuzhongbin.html">于忠濱｜長期主義</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="于忠濱">
+        <blockquote>付出一定會感動別人，但一定要先感動自己。</blockquote>
+        <figcaption>只有自己先相信，客戶和團隊才可能被感染。</figcaption>
+        <a class="src" href="notes/d6-02-yuzhongbin.html">于忠濱｜長期主義</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="于忠濱">
+        <blockquote>奇蹟就是看似不可能，實際可能。</blockquote>
+        <figcaption>不可能只是起點，實際行動才會驗證答案。</figcaption>
+        <a class="src" href="notes/d6-02-yuzhongbin.html">于忠濱｜長期主義</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="于忠濱">
+        <blockquote>堅持，就是只有開始，沒有結束。</blockquote>
+        <figcaption>不是做一次，而是把重要的事做成生命習慣。</figcaption>
+        <a class="src" href="notes/d6-02-yuzhongbin.html">于忠濱｜長期主義</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="于忠濱">
+        <blockquote>羨慕別人，不如改變自己。</blockquote>
+        <figcaption>聽課真正的成果，是回去後開始行動。</figcaption>
+        <a class="src" href="notes/d6-02-yuzhongbin.html">于忠濱｜長期主義</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="于忠濱">
+        <blockquote>寧可向前一步死，決不後退半步生。</blockquote>
+        <figcaption>他的座右銘，也是這堂課的精神底色。</figcaption>
+        <a class="src" href="notes/d6-02-yuzhongbin.html">于忠濱｜長期主義</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="于忠濱">
+        <blockquote>懷利他之心，何懼之有。</blockquote>
+        <figcaption>從一個人做到千人團隊的答案。</figcaption>
+        <a class="src" href="notes/d6-02-yuzhongbin.html">于忠濱｜長期主義</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="于忠濱">
+        <blockquote>生命無法倒退，唯一選擇就是前進。</blockquote>
+        <figcaption>這是本堂最核心的結尾提醒。</figcaption>
+        <a class="src" href="notes/d6-02-yuzhongbin.html">于忠濱｜長期主義</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="王利忠">
+        <blockquote>團隊文化＝使命、願景、價值觀。</blockquote>
+        <figcaption>文化不是抽象名詞，而是組織共同的方向與判斷標準。</figcaption>
+        <a class="src" href="notes/d6-03-wanglizhong.html">王利忠｜團隊經營與績優文化</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="王利忠">
+        <blockquote>用科學的理論，加上科學的方法，打造績優型大團隊。</blockquote>
+        <figcaption>大型團隊不能只靠感覺，要有方法、有系統。</figcaption>
+        <a class="src" href="notes/d6-03-wanglizhong.html">王利忠｜團隊經營與績優文化</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="王利忠">
+        <blockquote>找到永恆不變的東西，組織就會大起來。</blockquote>
+        <figcaption>長坡來自長期需求，厚雪來自持續迭代的系統。</figcaption>
+        <a class="src" href="notes/d6-03-wanglizhong.html">王利忠｜團隊經營與績優文化</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="王利忠">
+        <blockquote>保險不是做一張保單，而是做人一生的規劃。</blockquote>
+        <figcaption>格局拉高，團隊使命感才會拉高。</figcaption>
+        <a class="src" href="notes/d6-03-wanglizhong.html">王利忠｜團隊經營與績優文化</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="王利忠">
+        <blockquote>人才不是招來的，人才是被吸引來的。</blockquote>
+        <figcaption>文化、平台、專業與成長感，才是高才願意留下的原因。</figcaption>
+        <a class="src" href="notes/d6-03-wanglizhong.html">王利忠｜團隊經營與績優文化</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="王利忠">
+        <blockquote>追求榮譽就是追求財富的過程。</blockquote>
+        <figcaption>榮譽把正確行為變成可被看見、可被追求的標準。</figcaption>
+        <a class="src" href="notes/d6-03-wanglizhong.html">王利忠｜團隊經營與績優文化</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="吳修毅">
+        <blockquote>AI 只可以計算價值，只有人可以創造價值。</blockquote>
+        <figcaption>科技越快，人的溫度越重要。</figcaption>
+        <a class="src" href="notes/d6-04-wuxiuyi.html">吳修毅｜00後組織發展</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="吳修毅">
+        <blockquote>不要只談長遠的未來，先讓他們看見近的願景。</blockquote>
+        <figcaption>00 後需要短期可觸碰的目標。</figcaption>
+        <a class="src" href="notes/d6-04-wuxiuyi.html">吳修毅｜00後組織發展</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="吳修毅">
+        <blockquote>馬路、網路，皆是名單。</blockquote>
+        <figcaption>缺的不是名單，是接觸名單的技術。</figcaption>
+        <a class="src" href="notes/d6-04-wuxiuyi.html">吳修毅｜00後組織發展</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="吳修毅">
+        <blockquote>我從未失敗過，我只是還沒成功。</blockquote>
+        <figcaption>把拒絕變成進度條。</figcaption>
+        <a class="src" href="notes/d6-04-wuxiuyi.html">吳修毅｜00後組織發展</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="吳修毅">
+        <blockquote>別讓昨天的雨，淋濕今天的自己。</blockquote>
+        <figcaption>不要用昨天的挫敗污染今天的行動。</figcaption>
+        <a class="src" href="notes/d6-04-wuxiuyi.html">吳修毅｜00後組織發展</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="吳修毅">
+        <blockquote>不要思考如何讓夥伴把保險做好，要思考如何讓夥伴想把保險做好。</blockquote>
+        <figcaption>這是帶 00 後最重要的領導轉念。</figcaption>
+        <a class="src" href="notes/d6-04-wuxiuyi.html">吳修毅｜00後組織發展</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="吳修毅">
+        <blockquote>AI 增加的是速度，不是溫度。</blockquote>
+        <figcaption>保險人要用溫度帶年輕人走出寒冬。</figcaption>
+        <a class="src" href="notes/d6-04-wuxiuyi.html">吳修毅｜00後組織發展</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="羅淑瓊">
+        <blockquote>保險的根本，是愛與責任。</blockquote>
+        <figcaption>從情感帳戶出發，產品才有位置。</figcaption>
+        <a class="src" href="notes/d6-05-luoshuking.html">羅淑瓊｜投保心理學</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="羅淑瓊">
+        <blockquote>需求不是我告訴客戶有，而是讓客戶自己發現。</blockquote>
+        <figcaption>顧問最重要的能力，是提問。</figcaption>
+        <a class="src" href="notes/d6-05-luoshuking.html">羅淑瓊｜投保心理學</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="羅淑瓊">
+        <blockquote>客戶說得越多，你越知道他的愛在哪裡、責任在哪裡。</blockquote>
+        <figcaption>先聽懂人，再設計方案。</figcaption>
+        <a class="src" href="notes/d6-05-luoshuking.html">羅淑瓊｜投保心理學</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="羅淑瓊">
+        <blockquote>AI 不是我們競爭的對手，是我們的神隊友。</blockquote>
+        <figcaption>AI 做速度，人做溫度。</figcaption>
+        <a class="src" href="notes/d6-05-luoshuking.html">羅淑瓊｜投保心理學</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="羅淑瓊">
+        <blockquote>我們的價值，是人性的價值。</blockquote>
+        <figcaption>共情、信任、陪伴，是不可替代的核心。</figcaption>
+        <a class="src" href="notes/d6-05-luoshuking.html">羅淑瓊｜投保心理學</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="羅淑瓊">
+        <blockquote>有規劃的傳承是幸福，沒有規劃的傳承注定讓家庭不幸福。</blockquote>
+        <figcaption>規劃帶來確定性，也保護家庭關係。</figcaption>
+        <a class="src" href="notes/d6-05-luoshuking.html">羅淑瓊｜投保心理學</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="曹紀平">
+        <blockquote>再靠平台不做專業，你就只是平台的工具。</blockquote>
+        <figcaption>銷售流程與需求喚起，是壽險顧問的立身之本。</figcaption>
+        <a class="src" href="notes/d6-06-caojiping.html">曹紀平｜企業家客戶的銷售邏輯</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="曹紀平">
+        <blockquote>憑運氣賺的錢，別憑「能力」虧掉。</blockquote>
+        <figcaption>看懂週期，才看得懂自己的財富從哪裡來。</figcaption>
+        <a class="src" href="notes/d6-06-caojiping.html">曹紀平｜企業家客戶的銷售邏輯</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="曹紀平">
+        <blockquote>人可能一輩子用不上理賠，但不可能一輩子沒有風險。</blockquote>
+        <figcaption>在最好的時候，為最壞的情況做準備。</figcaption>
+        <a class="src" href="notes/d6-06-caojiping.html">曹紀平｜企業家客戶的銷售邏輯</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="曹紀平">
+        <blockquote>先修水池、築水庫，別等大水來了才想防洪。</blockquote>
+        <figcaption>傳承隔離要提前做，風險來時已經來不及。</figcaption>
+        <a class="src" href="notes/d6-06-caojiping.html">曹紀平｜企業家客戶的銷售邏輯</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="曹紀平">
+        <blockquote>保險、信託、遺囑，三個工具缺一不可。</blockquote>
+        <figcaption>複雜家庭的難題，靠架構組合徹底解決。</figcaption>
+        <a class="src" href="notes/d6-06-caojiping.html">曹紀平｜企業家客戶的銷售邏輯</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="曹紀平">
+        <blockquote>客戶不給你轉介紹，你的業務只會越做越少。</blockquote>
+        <figcaption>遞送保單面談，就是索取轉介紹的最好時機。</figcaption>
+        <a class="src" href="notes/d6-06-caojiping.html">曹紀平｜企業家客戶的銷售邏輯</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="曹紀平">
+        <blockquote>學不重要、玩不重要，和誰一起學、和誰一起玩才重要。</blockquote>
+        <figcaption>圈層經營的本質，是選擇同行的人。</figcaption>
+        <a class="src" href="notes/d6-06-caojiping.html">曹紀平｜企業家客戶的銷售邏輯</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="錢文曦">
+        <blockquote>認知決定高度，圈層決定廣度。</blockquote>
+        <figcaption>先跟高客活在同一個世界裡。</figcaption>
+        <a class="src" href="notes/d6-07-qianwenxi.html">錢文曦｜高客服務與面談</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="錢文曦">
+        <blockquote>我喜歡什麼不重要，客戶喜歡什麼才重要。</blockquote>
+        <figcaption>圈層經營的第一步是改認知。</figcaption>
+        <a class="src" href="notes/d6-07-qianwenxi.html">錢文曦｜高客服務與面談</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="錢文曦">
+        <blockquote>保險是信任資產變現的行業，別低估信任的力量。</blockquote>
+        <figcaption>轉介紹的信任成本最低。</figcaption>
+        <a class="src" href="notes/d6-07-qianwenxi.html">錢文曦｜高客服務與面談</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="錢文曦">
+        <blockquote>先交心，再交易。</blockquote>
+        <figcaption>每位千萬客戶背後，都有一次 3 小時以上的深度面談。</figcaption>
+        <a class="src" href="notes/d6-07-qianwenxi.html">錢文曦｜高客服務與面談</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="錢文曦">
+        <blockquote>誰在提供服務不重要，誰在對接服務最重要。</blockquote>
+        <figcaption>能對接到極致的人，就是不可替代的人。</figcaption>
+        <a class="src" href="notes/d6-07-qianwenxi.html">錢文曦｜高客服務與面談</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="錢文曦">
+        <blockquote>信託是衣櫃，保單是衣服。</blockquote>
+        <figcaption>先有資產裝進去，架構才有意義。</figcaption>
+        <a class="src" href="notes/d6-07-qianwenxi.html">錢文曦｜高客服務與面談</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="錢文曦">
+        <blockquote>AI 加快了行業的速度，但替代不了我們的溫度。</blockquote>
+        <figcaption>珍惜每一次可以面對面拜訪的機會。</figcaption>
+        <a class="src" href="notes/d6-07-qianwenxi.html">錢文曦｜高客服務與面談</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="李揚">
+        <blockquote>以前是我努力去認識更多的人，現在是我努力被更多的人認識。</blockquote>
+        <figcaption>IP 打造的本質轉變。</figcaption>
+        <a class="src" href="notes/d6-08-liyang.html">李揚｜IP 打造與直播獲客</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="李揚">
+        <blockquote>IP 不是做一個帳號，IP 是做信任。</blockquote>
+        <figcaption>帳號只是載體，信任才是資產。</figcaption>
+        <a class="src" href="notes/d6-08-liyang.html">李揚｜IP 打造與直播獲客</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="李揚">
+        <blockquote>問題不在你夠不夠努力，而在努力有沒有被積累下來。</blockquote>
+        <figcaption>把一次性的拜訪，變成可複利的內容。</figcaption>
+        <a class="src" href="notes/d6-08-liyang.html">李揚｜IP 打造與直播獲客</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="李揚">
+        <blockquote>客戶不缺保險知識，缺的是做決定的底氣。</blockquote>
+        <figcaption>好內容給的是底氣，不是知識量。</figcaption>
+        <a class="src" href="notes/d6-08-liyang.html">李揚｜IP 打造與直播獲客</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="李揚">
+        <blockquote>好的直播選題，不是你最想講什麼，而是客戶最想聽什麼。</blockquote>
+        <figcaption>客戶為「與自己有關的問題」停留。</figcaption>
+        <a class="src" href="notes/d6-08-liyang.html">李揚｜IP 打造與直播獲客</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="李揚">
+        <blockquote>直播的目的不是當場成交，是獲得一次深入溝通的機會。</blockquote>
+        <figcaption>公開內容解決共性問題，個性需求回到一對一。</figcaption>
+        <a class="src" href="notes/d6-08-liyang.html">李揚｜IP 打造與直播獲客</a>
+      </figure>
+      <figure class="q" data-d="d2" data-s="李揚">
+        <blockquote>保險人最值得經營的資產，是被客戶持續信任的能力。</blockquote>
+        <figcaption>IP 讓客戶認識你、直播讓客戶理解你、服務讓客戶選擇你。</figcaption>
+        <a class="src" href="notes/d6-08-liyang.html">李揚｜IP 打造與直播獲客</a>
+      </figure>
+      <figure class="q" data-d="d3" data-s="林海川">
+        <blockquote>常懷清零之心，方有向上之力。</blockquote>
+        <figcaption>裝滿過去成功經驗的大腦，聽不進新東西。</figcaption>
+        <a class="src" href="notes/d7-01-linhaichuan.html">林海川｜2026 資產配置底層邏輯</a>
+      </figure>
+      <figure class="q" data-d="d3" data-s="林海川">
+        <blockquote>錢是隨時可以花掉的東西，財富是睡覺時仍在替你賺錢的東西。</blockquote>
+        <figcaption>要追求財富，而非金錢。</figcaption>
+        <a class="src" href="notes/d7-01-linhaichuan.html">林海川｜2026 資產配置底層邏輯</a>
+      </figure>
+      <figure class="q" data-d="d3" data-s="林海川">
+        <blockquote>過去賣收益，今天賣確定性、賣延遲滿足、賣配置邏輯。</blockquote>
+        <figcaption>1.7% 時代的銷售升級。</figcaption>
+        <a class="src" href="notes/d7-01-linhaichuan.html">林海川｜2026 資產配置底層邏輯</a>
+      </figure>
+      <figure class="q" data-d="d3" data-s="林海川">
+        <blockquote>現金短期是王，長期是垃圾。</blockquote>
+        <figcaption>流動性歸現金，確定性歸保險，增長歸核心與衛星。</figcaption>
+        <a class="src" href="notes/d7-01-linhaichuan.html">林海川｜2026 資產配置底層邏輯</a>
+      </figure>
+      <figure class="q" data-d="d3" data-s="林海川">
+        <blockquote>多一點少一點，多多少少買一點；買一點是一點，以後可不是一點點。</blockquote>
+        <figcaption>全場跟讀的配置口訣。</figcaption>
+        <a class="src" href="notes/d7-01-linhaichuan.html">林海川｜2026 資產配置底層邏輯</a>
+      </figure>
+      <figure class="q" data-d="d3" data-s="林海川">
+        <blockquote>別人降息我加息，別人消費我存錢；別人沒錢我有錢，別人錢少我錢多。</blockquote>
+        <figcaption>逆週期的紀律。</figcaption>
+        <a class="src" href="notes/d7-01-linhaichuan.html">林海川｜2026 資產配置底層邏輯</a>
+      </figure>
+      <figure class="q" data-d="d3" data-s="林海川">
+        <blockquote>退休不是停止工作，而是不再被虛無的明天，犧牲當下的快樂。</blockquote>
+        <figcaption>被動收入覆蓋日常開銷，才是財富自由。</figcaption>
+        <a class="src" href="notes/d7-01-linhaichuan.html">林海川｜2026 資產配置底層邏輯</a>
+      </figure>
+      <figure class="q" data-d="d3" data-s="趙楊">
+        <blockquote>產品、價格、服務只是入場券，不是決勝券。</blockquote>
+        <figcaption>決勝在客戶的心智，不在報價單。</figcaption>
+        <a class="src" href="notes/d7-03-zhaoyang.html">趙楊｜績優與高客深度經營</a>
+      </figure>
+      <figure class="q" data-d="d3" data-s="趙楊">
+        <blockquote>在客戶的心裡，只記得「第一」和「不同」。</blockquote>
+        <figcaption>一堆優點等於沒有優點。</figcaption>
+        <a class="src" href="notes/d7-03-zhaoyang.html">趙楊｜績優與高客深度經營</a>
+      </figure>
+      <figure class="q" data-d="d3" data-s="趙楊">
+        <blockquote>沒有進入用戶心智的努力，做得再好都是無效努力。</blockquote>
+        <figcaption>別再當客戶的中轉站。</figcaption>
+        <a class="src" href="notes/d7-03-zhaoyang.html">趙楊｜績優與高客深度經營</a>
+      </figure>
+      <figure class="q" data-d="d3" data-s="趙楊">
+        <blockquote>有目標的人，把每一次「不」都算進達成的路徑。</blockquote>
+        <figcaption>沒目標的人，被拒絕一次就懷疑人生。</figcaption>
+        <a class="src" href="notes/d7-03-zhaoyang.html">趙楊｜績優與高客深度經營</a>
+      </figure>
+      <figure class="q" data-d="d3" data-s="趙楊">
+        <blockquote>中低客群在比價，高客一直在尋找那個懂他的人。</blockquote>
+        <figcaption>懂他，是最稀缺的能力。</figcaption>
+        <a class="src" href="notes/d7-03-zhaoyang.html">趙楊｜績優與高客深度經營</a>
+      </figure>
+      <figure class="q" data-d="d3" data-s="趙楊">
+        <blockquote>我有什麼？我要什麼？我要為此付出什麼？</blockquote>
+        <figcaption>每一次轉型前的自我三問。</figcaption>
+        <a class="src" href="notes/d7-03-zhaoyang.html">趙楊｜績優與高客深度經營</a>
+      </figure>
+      <figure class="q" data-d="d3" data-s="趙楊">
+        <blockquote>高手都在高價值領域，持續做難而正確的事。</blockquote>
+        <figcaption>想收穫長期利益，就要放棄眼前利益。</figcaption>
+        <a class="src" href="notes/d7-03-zhaoyang.html">趙楊｜績優與高客深度經營</a>
+      </figure>
+      <figure class="q" data-d="d3" data-s="趙楊">
+        <blockquote>人無遠慮必有近憂——第一曲線穩定時，就要想好第二增長曲線。</blockquote>
+        <figcaption>否則只剩四個字：疲於奔命。</figcaption>
+        <a class="src" href="notes/d7-03-zhaoyang.html">趙楊｜績優與高客深度經營</a>
+      </figure>
+      <figure class="q" data-d="d3" data-s="齊昊">
+        <blockquote>創業沒學過財務、稅務、法務，等於無照駕駛。</blockquote>
+        <figcaption>開車要先考科目一，創業更要先學財商。</figcaption>
+        <a class="src" href="notes/d7-05-qihao.html">齊昊｜四個財務思維</a>
+      </figure>
+      <figure class="q" data-d="d3" data-s="齊昊">
+        <blockquote>上行期買資產加槓桿，下行期投自己、投確定性。</blockquote>
+        <figcaption>兩套週期，兩套打法，不能用反。</figcaption>
+        <a class="src" href="notes/d7-05-qihao.html">齊昊｜四個財務思維</a>
+      </figure>
+      <figure class="q" data-d="d3" data-s="齊昊">
+        <blockquote>高頻、剛需、海量——三個字看懂一門生意。</blockquote>
+        <figcaption>再加上現金流和毛利率，就是完整的判斷。</figcaption>
+        <a class="src" href="notes/d7-05-qihao.html">齊昊｜四個財務思維</a>
+      </figure>
+      <figure class="q" data-d="d3" data-s="齊昊">
+        <blockquote>老客戶沒有流量成本。</blockquote>
+        <figcaption>下行期，激活老客戶比砸錢拉新更重要。</figcaption>
+        <a class="src" href="notes/d7-05-qihao.html">齊昊｜四個財務思維</a>
+      </figure>
+      <figure class="q" data-d="d3" data-s="齊昊">
+        <blockquote>創業的開始是先有訂單，不是先開公司。</blockquote>
+        <figcaption>他和稻盛和夫的第一家公司，設備全是二手的。</figcaption>
+        <a class="src" href="notes/d7-05-qihao.html">齊昊｜四個財務思維</a>
+      </figure>
+      <figure class="q" data-d="d3" data-s="齊昊">
+        <blockquote>情緒穩定，是發財的第一心法。</blockquote>
+        <figcaption>要吵架前先問自己：捨得損失這筆錢嗎？</figcaption>
+        <a class="src" href="notes/d7-05-qihao.html">齊昊｜四個財務思維</a>
+      </figure>
+      <figure class="q" data-d="d3" data-s="齊昊">
+        <blockquote>和氣生財，但要有邊界感——不卑不亢。</blockquote>
+        <figcaption>和氣不等於當老好人。</figcaption>
+        <a class="src" href="notes/d7-05-qihao.html">齊昊｜四個財務思維</a>
+      </figure>
+    </main>
+  </div>
+
+  <footer class="footer">CMF 2026 濟南｜學習筆記網站 · 金句庫</footer>
+
+  <script>
+    const chips = document.querySelectorAll(".chip");
+    const sp = document.getElementById("sp");
+    const items = Array.from(document.querySelectorAll(".q"));
+    const count = document.getElementById("count");
+    let day = "all";
+    const apply = () => {
+      let n = 0;
+      items.forEach((el) => {
+        const ok = (day === "all" || el.dataset.d === day) && (sp.value === "all" || el.dataset.s === sp.value);
+        el.classList.toggle("hide", !ok);
+        if (ok) n++;
+      });
+      count.textContent = "顯示 " + n + " 句";
+    };
+    chips.forEach((c) => c.addEventListener("click", () => {
+      chips.forEach((x) => x.classList.remove("on"));
+      c.classList.add("on");
+      day = c.dataset.f;
+      apply();
+    }));
+    sp.addEventListener("change", apply);
+    apply();
+  </script>
+</body>
+</html>

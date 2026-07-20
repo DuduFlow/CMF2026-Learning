@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CMF 2026 學習筆記｜五大主題精讀</title>
+  <meta name="description" content="CMF 2026 十七堂課交叉重組：高客經營、財富傳承、IP 獲客、團隊組織、週期配置五大主題精讀。">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <style>
+    :root {
+      --ink: #17211f; --muted: #66736f; --paper: #f7f2e8; --card: #fffdf7;
+      --jade: #14594e; --gold: #c49b52; --terra: #bd6238; --blue: #244f88; --red: #a82934;
+      --line: rgba(23, 33, 31, .12); --shadow: 0 18px 48px rgba(23, 33, 31, .1);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--ink);
+      background:
+        radial-gradient(circle at 15% -5%, rgba(196, 155, 82, .22), transparent 34%),
+        radial-gradient(circle at 90% 0%, rgba(20, 89, 78, .14), transparent 30%),
+        var(--paper);
+      font-family: "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", system-ui, sans-serif;
+      line-height: 1.72; -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(100%, 1020px); margin: 0 auto; padding: 0 20px; }
+    section { scroll-margin-top: 120px; }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 40; border-bottom: 1px solid var(--line);
+      background: rgba(247, 242, 232, .9);
+      backdrop-filter: blur(16px) saturate(1.1); -webkit-backdrop-filter: blur(16px) saturate(1.1);
+    }
+    .topbar-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand img { width: 38px; height: 38px; object-fit: contain; }
+    .brand b { color: #073f3c; font-size: 19px; white-space: nowrap; }
+    .brand span { color: var(--gold); font-weight: 800; font-size: 13px; white-space: nowrap; }
+    .menu { display: flex; gap: 6px; }
+    .menu a { padding: 8px 14px; border-radius: 999px; color: var(--jade); font-size: 14px; font-weight: 900; white-space: nowrap; background: rgba(20,89,78,.07); }
+    .menu a.on { color: #fff; background: linear-gradient(135deg, var(--jade), #25788d); }
+
+    .hero { padding: 44px 0 10px; }
+    h1 { margin: 0 0 8px; color: var(--jade); font-size: clamp(32px, 4.4vw, 46px); letter-spacing: -.03em; line-height: 1.1; }
+    .hero p { margin: 0; max-width: 760px; color: var(--muted); font-size: 16px; font-weight: 700; }
+
+    .jump { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 8px; }
+    .jump a { padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 900; color: var(--jade); background: rgba(20,89,78,.08); border: 1px solid rgba(20,89,78,.12); }
+
+    .theme { margin: 30px 0 6px; }
+    .theme-card {
+      border: 1px solid var(--line); border-radius: 26px; overflow: hidden;
+      background: var(--card); box-shadow: var(--shadow);
+    }
+    .theme-head { padding: 26px 30px 22px; color: #fff; }
+    .t1 .theme-head { background: linear-gradient(135deg, #14594e, #25788d); }
+    .t2 .theme-head { background: linear-gradient(135deg, #6d4a12, #14594e); }
+    .t3 .theme-head { background: linear-gradient(135deg, #a82934, #bd6238); }
+    .t4 .theme-head { background: linear-gradient(135deg, #244f88, #6a4c93); }
+    .t5 .theme-head { background: linear-gradient(135deg, #3d5a28, #7c5a1e); }
+    .theme-head small { display: inline-flex; padding: 4px 10px; border: 1px solid rgba(255,255,255,.3); border-radius: 999px; font-size: 11.5px; font-weight: 900; letter-spacing: .12em; color: rgba(255,255,255,.85); }
+    .theme-head h2 { margin: 10px 0 6px; font-size: 28px; letter-spacing: -.02em; }
+    .theme-head p { margin: 0; max-width: 760px; color: rgba(255,255,255,.85); font-size: 15px; font-weight: 750; }
+    .theme-body { padding: 22px 24px 24px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .view {
+      display: grid; align-content: start; gap: 6px; padding: 16px;
+      border: 1px solid rgba(20,89,78,.12); border-radius: 18px;
+      background: linear-gradient(180deg, rgba(238,247,244,.6), rgba(255,253,247,.9));
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+    .view:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(23,33,31,.1); }
+    .view i { font-style: normal; color: var(--terra); font-size: 12.5px; font-weight: 950; }
+    .view b { font-size: 16.5px; line-height: 1.45; }
+    .view p { margin: 0; color: var(--muted); font-size: 13.8px; font-weight: 700; }
+    .syn {
+      grid-column: 1 / -1; padding: 18px 20px; border-radius: 18px; color: #fff;
+      background: linear-gradient(135deg, var(--jade), #2c6b60);
+    }
+    .syn b { display: block; margin-bottom: 4px; font-size: 15px; letter-spacing: .04em; }
+    .syn p { margin: 0; font-size: 15.5px; font-weight: 800; line-height: 1.7; }
+
+    .footer { padding: 44px 0 40px; color: rgba(23,33,31,.5); font-size: 13px; font-weight: 700; text-align: center; }
+
+    @media (max-width: 720px) {
+      .theme-body { grid-template-columns: 1fr; }
+      .brand span { display: none; }
+      .menu a { padding: 7px 10px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-in">
+      <a class="brand" href="index.html"><img src="assets/logo-cmf-official.png" alt=""><b>逐浪泉城</b><span>CMF 2026 學習筆記</span></a>
+      <nav class="menu">
+        <a href="index.html">課程總覽</a>
+        <a class="on" href="themes.html">主題精讀</a>
+        <a href="quotes.html">金句庫</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <section class="hero">
+      <h1>五大主題精讀</h1>
+      <p>三天 17 堂課，其實反覆在回答五個問題。把不同講師對同一件事的答案放在一起看，課才算真正消化。每則觀點都可點回原筆記細讀。</p>
+      <nav class="jump">
+        <a href="#t1">① 高客經營與銷售</a>
+        <a href="#t2">② 財富傳承與架構</a>
+        <a href="#t3">③ IP・獲客與自媒體</a>
+        <a href="#t4">④ 團隊與組織經營</a>
+        <a href="#t5">⑤ 週期・趨勢與配置</a>
+      </nav>
+    </section>
+
+    <section class="theme t1" id="t1">
+      <div class="theme-card">
+        <div class="theme-head">
+          <small>THEME 01</small>
+          <h2>高客經營與銷售：高客不缺產品，缺懂他的人</h2>
+          <p>六位講師從不同切口講同一件事：高客市場不是話術戰場，是信任與認知的戰場。共同骨架是一條閉環——選對圈層 → 需求喚起 → 深度面談 → 極致服務 → 轉介紹。</p>
+        </div>
+        <div class="theme-body">
+          <a class="view" href="notes/d5-03-chudongdong.html"><i>褚東東｜壽險常青樹</i><b>高客不是被篩出來的，是被長期經營出來的。</b><p>小單是信任入口，大單是關係深耕；成交是客戶，不成交是朋友——把客群當一支團隊經營。</p></a>
+          <a class="view" href="notes/d5-04-yuqiaoqin.html"><i>余巧琴｜家辦思維</i><b>高淨值客戶買的不是保單，是家族風險防火牆。</b><p>先看家族風險，再談工具配置；從賣產品升級為家庭全生命週期安全顧問。</p></a>
+          <a class="view" href="notes/d6-05-luoshuking.html"><i>羅淑瓊｜投保心理學</i><b>客戶不是不需要，是心理帳戶沒打開。</b><p>樂觀僥倖、厭惡損失、即時滿足三大帳戶；用開放提問、場景還原、對比法讓需求自己浮出來。</p></a>
+          <a class="view" href="notes/d6-06-caojiping.html"><i>曹紀平｜企業家銷售邏輯</i><b>一步都不能省的六步流程＋七類企業家分類喚起。</b><p>遞送保單面談是兩個關鍵契機：重申價值、索取轉介紹——客戶不轉介紹，業務只會越做越少。</p></a>
+          <a class="view" href="notes/d6-07-qianwenxi.html"><i>錢文曦｜高客服務與面談</i><b>先交心，再交易；誰在對接服務最重要。</b><p>每位千萬客戶背後都有一次 3 小時深度面談；三大服務體系把服務做成精準轉介紹的引擎。</p></a>
+          <a class="view" href="notes/d7-03-zhaoyang.html"><i>趙楊｜績優與高客深度經營</i><b>沒有進入客戶心智的努力，都是無效努力。</b><p>心智只記得「第一」和「不同」；精準選塘、價值植入、生態共建——4 年轉化 36 位高客。</p></a>
+          <div class="syn"><b>綜合行動</b><p>先回答趙楊的定位三問（核心客戶是誰？我在他心中什麼位置？我的標籤？）→ 用曹紀平的六步流程檢查漏洞 → 用羅淑瓊的三帳戶與提問法做喚起 → 用錢文曦的服務體系與褚東東的長期主義把客戶經營成終身客群。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="theme t2" id="t2">
+      <div class="theme-card">
+        <div class="theme-head">
+          <small>THEME 02</small>
+          <h2>財富傳承與架構：創富靠能力，守富靠結構</h2>
+          <p>五位講師共同指向一套組合拳：保險＋信託＋遺囑。傳承要在風平浪靜時做，等風險來了，一切都來不及。</p>
+        </div>
+        <div class="theme-body">
+          <a class="view" href="notes/d5-05-guoxu.html"><i>國旭｜家企風險隔離</i><b>企業風險與家庭風險會互相傳染。</b><p>春風得意時先設防火牆、預留安全資產、把家與企業切開——四面楚歌時才有退路。</p></a>
+          <a class="view" href="notes/d6-06-caojiping.html"><i>曹紀平｜三件套實戰</i><b>保險、信託、遺囑，三個工具缺一不可。</b><p>婚外子女、隔代傳承、再婚家庭——每一種複雜家庭，都有對應的架構解法；投保人、被保險人、受益人的設計是專業核心。</p></a>
+          <a class="view" href="notes/d6-07-qianwenxi.html"><i>錢文曦｜財富流轉五步</i><b>保險是唯一具法律效力、又帶執行功能的工具。</b><p>產權保護 → 落袋為安 → 守護鎖定 → 保值增值 → 如願久安；信託是衣櫃，保單是掛進去的衣服。</p></a>
+          <a class="view" href="notes/d7-01-linhaichuan.html"><i>林海川｜金錢與財富</i><b>保險不僅是金錢，更是睡覺時仍在生息的財富。</b><p>底倉資產＝現金＋保險；用一輩子的保險費，解決一輩子的生活費。</p></a>
+          <a class="view" href="notes/d6-05-luoshuking.html"><i>羅淑瓊｜傳承的確定性</i><b>有規劃的傳承是幸福，沒有規劃的傳承觸動家庭和諧神經。</b><p>規劃給的不只是錢的安排，更是確定性與家庭關係的保護。</p></a>
+          <div class="syn"><b>綜合行動</b><p>給每位高客畫一張「家企風險地圖」（國旭）→ 按七類家庭結構找傳承缺口（曹紀平）→ 用財富流轉五步講清規劃邏輯（錢文曦）→ 把保單放進家庭底倉的位置（林海川），最後用「確定性」收尾（羅淑瓊）。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="theme t3" id="t3">
+      <div class="theme-card">
+        <div class="theme-head">
+          <small>THEME 03</small>
+          <h2>IP・獲客與自媒體：從「我找客戶」到「客戶找我」</h2>
+          <p>四位講師殊途同歸：真實勝過包裝、內容就是客戶的問題、信任才是資產。自媒體不是年輕人的專利，是效率與複利的革命。</p>
+        </div>
+        <div class="theme-body">
+          <a class="view" href="notes/d5-02-zhangyifan.html"><i>張一凡｜事件營銷</i><b>把真實的人與價值，設計成社會願意傳播的故事。</b><p>事件營銷不是炒作；會傳播的內容，都踩在真實與共鳴上。</p></a>
+          <a class="view" href="notes/d6-08-liyang.html"><i>李揚｜IP 與直播</i><b>IP 不是做帳號，是做信任。</b><p>內容被看見 → 直播被信任 → 服務被選擇；一場直播同時「拜訪」3,000 人，轉介紹率三年做到 50%。</p></a>
+          <a class="view" href="notes/d7-03-zhaoyang.html"><i>趙楊｜揚聲器視頻號</i><b>採訪 100 位創業者：內容本身就是人脈證明。</b><p>邀約、提問、剪輯、流量、堅持五個難——願意看完影片的人，正是你最想結交的人。</p></a>
+          <a class="view" href="notes/d6-01-liweibin.html"><i>李偉彬｜認知突圍</i><b>被看見才有點擊，被記住才有業績。</b><p>名字是低成本記憶設計；讓「有溫度的出現」變成系統，客戶想起你才有成交。</p></a>
+          <a class="view" href="notes/d7-05-qihao.html"><i>齊昊｜渠道洞察</i><b>賣貨用抖音小紅書，本地服務用大眾點評。</b><p>人人都擠短視頻時，大眾點評的本地生活類目反而是藍海。</p></a>
+          <div class="syn"><b>綜合行動</b><p>先定一個不會換的名字與定位（李偉彬＋李揚）→ 用客戶的問題當選題庫，按「共鳴、判斷、行動」產出內容 → 選一個差異化賽道（趙楊的訪談、或在地深耕）→ 記住共同底線：真實勝過包裝，長期勝過爆款。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="theme t4" id="t4">
+      <div class="theme-card">
+        <div class="theme-head">
+          <small>THEME 04</small>
+          <h2>團隊與組織經營：文化定方向，系統定路徑</h2>
+          <p>四位講師拼出組織發展的完整拼圖：領袖先行、文化為魂、系統為骨、代際為新。留存比增員更能檢驗一個團隊。</p>
+        </div>
+        <div class="theme-body">
+          <a class="view" href="notes/d6-02-yuzhongbin.html"><i>于忠濱｜長期主義</i><b>想帶領別人走多遠，自己就要先走到那裡。</b><p>信念、榮譽、擔當、感恩＋頑強意志力；連續 103 個月常青藤，把「不能退」變成日常習慣。</p></a>
+          <a class="view" href="notes/d6-03-wanglizhong.html"><i>王利忠｜績優文化</i><b>用長坡厚雪的邏輯，讓組織自己長大。</b><p>使命願景價值觀＋運營五模組＋增員如呼吸；人才不是招來的，是被吸引來的。</p></a>
+          <a class="view" href="notes/d6-04-wuxiuyi.html"><i>吳修毅｜00 後組織</i><b>00 後不是不能帶，是不能用舊方法帶。</b><p>用年輕人吃的語言做組織發展，讓他「自己想」把保險做好。</p></a>
+          <a class="view" href="notes/d7-03-zhaoyang.html"><i>趙楊＋王利忠｜榮譽體系</i><b>追求榮譽就是追求財富的過程。</b><p>兩位講師不約而同：榮譽不是獎狀，是市場上的信任背書、行業裡的通行證。</p></a>
+          <div class="syn"><b>綜合行動</b><p>主管先自問于忠濱之問（我走到了嗎？）→ 用王利忠的五模組體檢團隊系統 → 對年輕夥伴改用吳修毅的語言 → 把榮譽體系當成行為校準器，讓對的人被看見、願意留下。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="theme t5" id="t5">
+      <div class="theme-card">
+        <div class="theme-head">
+          <small>THEME 05</small>
+          <h2>週期・趨勢與配置：下行期，正是保險的順風期</h2>
+          <p>三位講師從生命科學、宏觀經濟、企業財務三個高度看同一個結論：長壽時代＋低利率時代＋AI 時代，確定性變成最稀缺的資產。</p>
+        </div>
+        <div class="theme-body">
+          <a class="view" href="notes/d5-01-baishidai-yinye.html"><i>尹燁｜百歲時代</i><b>長壽不是風險，沒準備的長壽才是。</b><p>健康管理、醫療科技與財富配置正在被全面重寫——保險的需求在換形態，不是在消失。</p></a>
+          <a class="view" href="notes/d7-01-linhaichuan.html"><i>林海川｜資產配置</i><b>未來二十年，錢會流向兩個地方：股市和保險。</b><p>底倉（現金＋保險）、核心（賺 β）、衛星（賺 α）三層結構；現金短期是王、長期是垃圾。</p></a>
+          <a class="view" href="notes/d7-05-qihao.html"><i>齊昊｜財務思維</i><b>下行期把錢投給自己和保險，把力氣花在老客戶。</b><p>資產減值快於現金；老客戶沒有流量成本——極致性價比時代，確定性最值錢。</p></a>
+          <a class="view" href="notes/d6-05-luoshuking.html"><i>羅淑瓊｜AI 與人</i><b>AI 加快行業的速度，但替代不了我們的溫度。</b><p>3.2 億銀髮人口的剛需市場裡，共情、信任、陪伴是不可替代的人性價值。</p></a>
+          <div class="syn"><b>綜合行動</b><p>用林海川的三層結構跟客戶重新談「保險的位置」→ 用齊昊的週期語言與企業主對話 → 用尹燁的百歲時代講長壽準備 → 記住羅淑瓊的提醒：AI 做速度，你做溫度。</p></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">CMF 2026 濟南｜學習筆記網站 · 五大主題精讀</footer>
+</body>
+</html>

@@ -1,0 +1,831 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CMF DAY2｜IP 打造與直播獲客</title>
+  <meta name="description" content="CMF DAY2 課程筆記：李揚｜IP 打造與直播獲客——把信任做成增長">
+  <style>
+    :root {
+      --ink: #17211f;
+      --muted: #65736f;
+      --paper: #f7f2e8;
+      --card: #fffdf7;
+      --jade: #11584f;
+      --gold: #c99b43;
+      --terra: #bd633b;
+      --red: #a82934;
+      --blue: #244f88;
+      --line: rgba(23, 33, 31, .12);
+      --shadow: 0 18px 48px rgba(23, 33, 31, .12);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% -8%, rgba(168, 41, 52, .18), transparent 34%),
+        radial-gradient(circle at 92% 0%, rgba(201, 155, 67, .22), transparent 32%),
+        linear-gradient(180deg, #f6efee 0, var(--paper) 390px, #f4ecdf 100%);
+      font-family: "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", system-ui, sans-serif;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    section { scroll-margin-top: 102px; }
+
+    .shell {
+      width: min(100%, 430px);
+      min-height: 100svh;
+      margin: 0 auto;
+      background:
+        linear-gradient(180deg, rgba(255, 253, 247, .72), rgba(247, 242, 232, .98)),
+        var(--paper);
+      box-shadow: 0 0 60px rgba(0, 0, 0, .22);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 16px;
+      border-bottom: 1px solid rgba(23, 33, 31, .1);
+      background: rgba(255, 253, 247, .9);
+      backdrop-filter: blur(16px) saturate(1.1);
+      -webkit-backdrop-filter: blur(16px) saturate(1.1);
+    }
+
+    .brand { display: grid; gap: 1px; min-width: 0; }
+    .brand span {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .brand b {
+      color: var(--jade);
+      font-size: 16px;
+      line-height: 1.1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .mode-chip {
+      flex: 0 0 auto;
+      padding: 7px 11px;
+      border-radius: 999px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--red), var(--terra));
+      font-size: 12px;
+      font-weight: 950;
+      box-shadow: 0 10px 24px rgba(168, 41, 52, .2);
+    }
+
+    .hero { padding: 22px 16px 14px; }
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      padding: 24px 22px;
+      border-radius: 30px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(255, 255, 255, .18), transparent 26%),
+        radial-gradient(circle at 96% 10%, rgba(201, 155, 67, .3), transparent 28%),
+        linear-gradient(135deg, #7c1f28 0%, #b05024 52%, #11584f 100%);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+    .hero-card::after {
+      content: "信";
+      position: absolute;
+      right: -8px;
+      bottom: -46px;
+      color: rgba(255, 255, 255, .08);
+      font-family: "Songti TC", serif;
+      font-size: 176px;
+      font-weight: 900;
+      line-height: 1;
+      transform: rotate(-6deg);
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      z-index: 0;
+      opacity: .28;
+      background:
+        linear-gradient(115deg, transparent 20%, rgba(255,255,255,.36) 30%, transparent 40%),
+        repeating-linear-gradient(90deg, transparent 0 28px, rgba(255,255,255,.08) 29px 30px);
+      animation: signalSweep 7s linear infinite;
+    }
+
+    .eyebrow {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      padding: 6px 11px;
+      border: 1px solid rgba(255, 255, 255, .28);
+      border-radius: 999px;
+      color: rgba(255, 255, 255, .78);
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      position: relative;
+      z-index: 1;
+      margin: 20px 0 8px;
+      font-size: clamp(34px, 10vw, 50px);
+      line-height: 1.06;
+      letter-spacing: -.06em;
+      text-wrap: balance;
+    }
+
+    .subtitle {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: rgba(255, 255, 255, .86);
+      font-size: 15px;
+      font-weight: 850;
+      line-height: 1.7;
+    }
+
+    .hero-meta {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .hero-meta div {
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .12);
+    }
+    .hero-meta span {
+      display: block;
+      color: rgba(255, 255, 255, .66);
+      font-size: 11px;
+      font-weight: 950;
+    }
+    .hero-meta b {
+      display: block;
+      margin-top: 4px;
+      color: #fff;
+      font-size: 14px;
+      line-height: 1.42;
+    }
+
+    .pulse-dots {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      gap: 7px;
+      margin-top: 18px;
+    }
+    .pulse-dots i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .82);
+      animation: dotPulse 1.5s ease-in-out infinite;
+    }
+    .pulse-dots i:nth-child(2) { animation-delay: .18s; }
+    .pulse-dots i:nth-child(3) { animation-delay: .36s; }
+
+    .nav {
+      position: sticky;
+      top: 62px;
+      z-index: 20;
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: max-content;
+      gap: 8px;
+      margin: 0 16px 16px;
+      padding: 8px;
+      overflow-x: auto;
+      border: 1px solid rgba(23, 33, 31, .1);
+      border-radius: 999px;
+      background: rgba(255, 253, 247, .88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      scrollbar-width: none;
+      box-shadow: 0 12px 30px rgba(23, 33, 31, .08);
+    }
+    .nav::-webkit-scrollbar { display: none; }
+    .nav a {
+      padding: 8px 13px;
+      border-radius: 999px;
+      color: var(--jade);
+      background: rgba(17, 88, 79, .07);
+      font-size: 13px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .animate-in {
+      opacity: 0;
+      transform: translateY(14px) scale(.985);
+      animation: riseIn .72s cubic-bezier(.2, .7, .2, 1) forwards;
+    }
+    .animate-in:nth-child(2) { animation-delay: .08s; }
+    .animate-in:nth-child(3) { animation-delay: .16s; }
+    .animate-in:nth-child(4) { animation-delay: .24s; }
+
+    .flow-line {
+      position: relative;
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+      padding-left: 18px;
+    }
+    .flow-line::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--red), var(--gold), var(--jade));
+      animation: flowGlow 2.8s ease-in-out infinite alternate;
+    }
+    .flow-line div {
+      position: relative;
+      padding: 12px 13px;
+      border: 1px solid rgba(17, 88, 79, .12);
+      border-radius: 16px;
+      background: rgba(255,255,255,.62);
+    }
+    .flow-line div::before {
+      content: "";
+      position: absolute;
+      left: -18px;
+      top: 18px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 0 5px rgba(168,41,52,.13);
+    }
+    .flow-line b { display:block; color: var(--jade); }
+
+    .formula {
+      display: grid;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .formula span {
+      display: grid;
+      place-items: center;
+      min-height: 48px;
+      padding: 10px;
+      border-radius: 16px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--red), var(--terra));
+      font-size: 18px;
+      font-weight: 950;
+      box-shadow: 0 12px 28px rgba(168, 41, 52, .14);
+    }
+    .formula i {
+      color: var(--terra);
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 950;
+      text-align: center;
+    }
+
+    @keyframes riseIn {
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes signalSweep {
+      from { transform: translateX(-8%) rotate(0deg); }
+      to { transform: translateX(8%) rotate(360deg); }
+    }
+    @keyframes dotPulse {
+      0%, 100% { opacity: .35; transform: translateY(0) scale(.8); }
+      50% { opacity: 1; transform: translateY(-4px) scale(1.15); }
+    }
+    @keyframes flowGlow {
+      from { filter: saturate(1); opacity: .72; }
+      to { filter: saturate(1.55); opacity: 1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    .section { padding: 0 16px 18px; }
+    .card {
+      margin-bottom: 14px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 253, 247, .95);
+      box-shadow: 0 14px 36px rgba(23, 33, 31, .08);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .num {
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      color: #fff;
+      background: linear-gradient(135deg, var(--gold), var(--red));
+      font-size: 12px;
+      font-weight: 950;
+    }
+    h2 {
+      margin: 0;
+      color: var(--jade);
+      font-size: 23px;
+      line-height: 1.22;
+      letter-spacing: -.02em;
+    }
+    h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+    .lead {
+      margin: 0;
+      color: #24302d;
+      font-size: 16px;
+      font-weight: 760;
+    }
+
+    .insight-grid,
+    .story-grid {
+      display: grid;
+      gap: 10px;
+    }
+    .insight,
+    .story,
+    .quote {
+      padding: 14px;
+      border: 1px solid rgba(17, 88, 79, .12);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(250, 240, 238, .72), rgba(255, 253, 247, .86));
+    }
+    .insight span,
+    .story-tag {
+      display: inline-flex;
+      margin-bottom: 7px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      color: var(--red);
+      background: rgba(168, 41, 52, .08);
+      font-size: 12px;
+      font-weight: 950;
+    }
+    .insight b {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 17px;
+      line-height: 1.42;
+    }
+    .insight p,
+    .story p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 680;
+    }
+
+    .model {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .model div {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 13px;
+      border-radius: 18px;
+      background: rgba(17, 88, 79, .06);
+      border: 1px solid rgba(17, 88, 79, .1);
+    }
+    .model i {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--jade);
+      font-style: normal;
+      font-weight: 950;
+    }
+    .model span {
+      color: #26322f;
+      font-size: 15px;
+      font-weight: 760;
+    }
+
+    .quote-rail {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 82%;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+    .quote-rail::-webkit-scrollbar { display: none; }
+    figure.quote {
+      position: relative;
+      margin: 0;
+      min-height: 174px;
+      scroll-snap-align: start;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(201, 155, 67, .18), transparent 30%),
+        linear-gradient(180deg, #fffef9, #faf3f2);
+    }
+    blockquote {
+      margin: 0;
+      color: var(--jade);
+      font-size: 21px;
+      line-height: 1.42;
+      font-weight: 950;
+      letter-spacing: -.02em;
+    }
+    figcaption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 760;
+    }
+
+    .discussion {
+      margin: 0;
+      padding-left: 22px;
+      color: #273431;
+      font-weight: 760;
+    }
+    .discussion li + li { margin-top: 9px; }
+
+    .actions {
+      display: grid;
+      gap: 10px;
+    }
+    .actions label {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 12px;
+      border: 1px solid rgba(17, 88, 79, .12);
+      border-radius: 16px;
+      background: rgba(255, 253, 247, .82);
+      color: #283531;
+      font-weight: 760;
+    }
+    .actions input { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--jade); }
+
+    .mantra {
+      color: #fff;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(255, 255, 255, .18), transparent 30%),
+        linear-gradient(135deg, var(--red), var(--jade));
+    }
+    .mantra h2,
+    .mantra p { color: #fff; }
+    .mantra p {
+      margin: 0;
+      font-size: 21px;
+      line-height: 1.56;
+      font-weight: 950;
+      letter-spacing: -.02em;
+    }
+    .footer {
+      padding: 14px 16px 28px;
+      color: rgba(23, 33, 31, .48);
+      font-size: 12px;
+      font-weight: 760;
+      text-align: center;
+    }
+
+    @media (max-width: 360px) {
+      .hero-card { padding: 22px 18px; }
+      h1 { font-size: 36px; }
+      .hero-meta { grid-template-columns: 1fr; }
+      .quote-rail { grid-auto-columns: 90%; }
+    }
+  
+    /* ===== 桌機／平板響應式（獨立學習站） ===== */
+    @media (min-width: 768px) {
+      body { padding: 36px 16px; }
+      .shell { width: min(100%, 920px); min-height: auto; border-radius: 30px; overflow: hidden; }
+      .insight-grid, .story-grid { grid-template-columns: repeat(2, 1fr); }
+      .model { grid-template-columns: repeat(2, 1fr); }
+      .quote-rail { grid-auto-columns: 44%; }
+      h1 { font-size: 52px; }
+      .section { padding: 0 26px 20px; }
+      .hero { padding: 26px 26px 16px; }
+      .nav { margin: 0 26px 18px; }
+    }
+    @media (min-width: 1200px) {
+      .shell { width: min(100%, 1060px); }
+      .insight-grid, .story-grid { grid-template-columns: repeat(3, 1fr); }
+      .quote-rail { grid-auto-columns: 31%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand back-to-notes" href="../index.html" aria-label="返回學習筆記">
+        <span>CMF DAY 2</span>
+        <b>IP 打造與直播獲客</b>
+      </a>
+      <a class="mode-chip back-to-notes" href="../index.html">返回總覽</a>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <span class="eyebrow">IP &amp; Livestream</span>
+        <h1>IP 打造與直播獲客</h1>
+        <p class="subtitle">把信任做成增長｜李揚「靠譜的揚仔」（明亞北京頂級銷冠、直播億級保費締造者、連續雙倍 TOT）</p>
+        <div class="hero-meta">
+          <div><span>時間</span><b>2026.07.19｜15:50-16:50</b></div>
+          <div><span>核心</span><b>信任資產・直播獲客・私域閉環</b></div>
+        </div>
+        <div class="pulse-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+    </section>
+
+    <nav class="nav" aria-label="筆記段落">
+      <a href="#review">3分鐘複習</a>
+      <a href="#why">為什麼做IP</a>
+      <a href="#trust">信任三要素</a>
+      <a href="#content">內容選題</a>
+      <a href="#diff">差異化</a>
+      <a href="#live">直播方法</a>
+      <a href="#loop">信任閉環</a>
+      <a href="#quotes">金句</a>
+      <a href="#discussion">討論</a>
+    </nav>
+
+    <section class="section" id="review">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">01</span><h2>3分鐘複習</h2></div>
+        <p class="lead">李揚 2018 年才入行，靠「靠譜的揚仔」這個 IP 做到全網 12 萬粉絲、自媒體簽約保費 1.5 億、100 多人自媒體團隊、連續兩年雙倍 TOT。整堂課只有一個核心：IP 不是做帳號，是做信任——帳號只是載體，信任才是資產。</p>
+        <div class="formula" aria-label="課程主軸公式">
+          <span>內容被看見</span>
+          <i>＋</i>
+          <span>直播被信任</span>
+          <i>＋</i>
+          <span>服務被選擇</span>
+          <i>＝</i>
+          <span>源源不斷的精準客戶</span>
+        </div>
+        <div class="insight-grid" style="margin-top:12px;">
+          <div class="insight"><span>一句話</span><b>以前是我努力去認識更多的人；現在是我努力被更多的人認識。</b><p>從「我去找別人」，到「別人因為信任而來找我」——找你的理由只有兩個詞：信任＋價值。</p></div>
+          <div class="insight"><span>效率革命</span><b>一日三訪 → 一場直播同時訪 3,000 人。</b><p>線下一個月見 30 人可能成交 1 個；直播間進來的每個人，都是大數據篩過、對保險有需求的精準客戶。</p></div>
+          <div class="insight"><span>複利邏輯</span><b>問題不在你夠不夠努力，而在努力有沒有被積累下來。</b><p>線下拜訪的信任會隨時間流失；300 多條影片、500 多場直播，每一條都在替未來的你累積信任。</p></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="why">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">02</span><h2>為什麼要打造 IP</h2></div>
+        <p class="lead">「今天三訪，明天不知道該找誰」——客戶源不穩定，是傳統代理人最深的焦慮。IP 解決的正是這件事：讓客戶主動來找你，而且每一天的輸出都被積累下來。</p>
+        <div class="flow-line">
+          <div><b>信任會流失</b>花一下午建立的好感，一個月後客戶可能就忘了你是誰；另一個保險人一出現，單就到別人手上了。</div>
+          <div><b>內容是名片</b>一個發了 300 多條內容的帳號，客戶點開的第一瞬間就完成了自我介紹：你是誰、能提供什麼、為什麼值得信任。</div>
+          <div><b>IP 也是行業入場券</b>他入行時仰望的 CMF 講師，如今因為 IP 成了同台分享的同行——影響力會讓世界對你變友好。</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="trust">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">03</span><h2>客戶為什麼相信一個陌生保險人</h2></div>
+        <p class="lead">1.5 億保費全部來自陌生人，沒有一個是原本認識的。底層邏輯是三個字組：讓看到你的人覺得——你懂他、你專業、你靠得住。</p>
+        <div class="model">
+          <div><i>懂</i><span><b>你懂我：</b>真誠、沒有套路，講的內容跟我有關；從「這個人懂我」開始的信任最扎實。</span></div>
+          <div><i>專</i><span><b>懂專業：</b>利他、給出清晰判斷；再信任你，沒有專業也給不出對的配置。</span></div>
+          <div><i>靠</i><span><b>靠得住：</b>服務能兌現。他的帳號名「靠譜的揚仔」從沒換過——客戶見面第一句常是「你真的人如其名」。</span></div>
+        </div>
+        <div class="insight-grid" style="margin-top:12px;">
+          <div class="insight"><span>真實＞包裝</span><b>打造 IP 最重要的兩個字：真實。</b><p>包裝出來的人設總有一天演不下去；做真實的自己，才能吸引到同頻的人。粉絲認的是你這個人、你的三觀、你的經歷。</p></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="content">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">04</span><h2>內容做什麼：客戶的問題就是選題庫</h2></div>
+        <p class="lead">不知道拍什麼？客戶關心什麼，你就講什麼。客戶無非四種狀態：怕什麼、不懂什麼、在比較什麼、為什麼遲遲不行動——圍繞這四點去拍去寫，就是最好的內容。</p>
+        <div class="model">
+          <div><i>鳴</i><span><b>共鳴：</b>讓客戶覺得「你懂我，而且很真實」。</span></div>
+          <div><i>判</i><span><b>判斷：</b>告訴他「我應該怎麼選」。</span></div>
+          <div><i>動</i><span><b>行動：</b>指出「下一步該做什麼」。</span></div>
+        </div>
+        <div class="insight-grid" style="margin-top:12px;">
+          <div class="insight"><span>關鍵區別</span><b>客戶不缺保險知識，缺的是做決定的底氣。</b><p>科普重疾險有幾種類型很難換來信任；但「我如何幫客戶從拒賠到申請到 30 萬理賠款」的真實故事，客戶會想聽、想找你。</p></div>
+          <div class="insight"><span>內容心法</span><b>好內容不是展示你知道得多，而是給客戶選擇的底氣。</b><p>真實、有溫度的人，勝過冷冰冰念稿的「專家」。</p></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="diff">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">05</span><h2>差異化：普通人也有機會</h2></div>
+        <p class="lead">擔心大咖壟斷流量？客戶要的不只是專業，還要「能連結到、能見到、能觸碰到」的人。直播獲客是百花齊放，不會像李佳琦的口紅直播間那樣贏家通吃——客戶會想：這個人太忙了，不一定能服務好我。</p>
+        <div class="flow-line">
+          <div><b>輸出個人差異化形象</b>每個人的風格、經歷、愛好都不一樣；把你不一樣的那面充分展示出來，就有自己的粉絲。</div>
+          <div><b>在地深耕</b>五線小縣城也能做：有人專注「保險理賠」一件事、服務上萬人，成為當地保險領域的頭部——你不需要跟全國競爭，深耕所在城市就是差異化。</div>
+          <div><b>公平的賽場</b>在直播間裡，大咖和新人都只是一個保險顧問：誰能幫客戶更好地解決問題，客戶就選誰。</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="live">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">06</span><h2>直播方法論：決策輔導，不是產品介紹</h2></div>
+        <p class="lead">直播是效率最高的獲客方式：哪怕 5 人在線就是一日五訪；他一場直播平均在線數千人、每天有百人停留超過一個半小時。但保單不能當場賣——直播的目的不是成交，是獲得一次深入溝通的機會。</p>
+        <div class="model">
+          <div><i>答</i><span><b>天天做答疑：</b>每場兩小時以上，互動問題三四百個——客戶真正關心什麼，問出來的才算數。剛起步沒人提問？去看有人的直播間在問什麼，講那些問題就好。</span></div>
+          <div><i>題</i><span><b>選題原則：</b>不是你最想講什麼，而是客戶最想聽什麼；客戶不是為保險直播停留，是為「與自己有關的問題」停留。</span></div>
+          <div><i>輔</i><span><b>決策輔導：</b>客戶不需要你替他做決定，但需要你幫他把糾結和猶豫想清楚。</span></div>
+          <div><i>互</i><span><b>互動的意義：</b>不是為了熱鬧，而是聽見真實需求。兩三百人在線可能只有二三十人提問，但所有人都在聽——別人的問題就是大家的保險課。</span></div>
+          <div><i>時</i><span><b>時間紅利:</b>晚上九點開播,正是客戶最空閒、躺在床上滑手機的碎片時間——佔用客戶的時間，就是保險最簡單的邏輯。</span></div>
+        </div>
+        <div class="insight-grid" style="margin-top:12px;">
+          <div class="insight"><span>顛覆認知</span><b>線上的優質客戶不是年輕人，是 50-60 歲的準退休族。</b><p>80、90 後直接在互聯網平台下單；有時間看直播、認真研究再託付的，恰恰是最優質的高齡客群。他的客均保費約 57 萬。</p></div>
+          <div class="insight"><span>撬動私域</span><b>約不出來的朋友，會自己走進你的直播間。</b><p>線下難約是怕被推銷；直播沒有心理負擔——想買就提問，不想買就離開。私域因此被重新激活。</p></div>
+          <div class="insight"><span>真實故事</span><b>凌晨三點的留言，一週成交近千萬保費。</b><p>客戶看了他一年直播，見證了他的成長、堅持與專業，鼓足勇氣交出全部家庭資訊：「你一定會客觀給出我想要的答案。」高淨值客戶就在直播間裡。</p></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="loop">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">07</span><h2>信任系統：從公域到私域的閉環</h2></div>
+        <p class="lead">他做的不是帳號矩陣，是一整套信任系統：視頻號 9.4 萬粉絲（公私域閉環）、抖音 1.5 萬（公域破圈）、小紅書 4 千（行業影響力），全網播放量超 2,000 萬——短視頻觸達公域、直播長停留獲取信任、私域長期服務轉化。</p>
+        <div class="flow-line">
+          <div><b>內容被看見</b>2,000 萬播放中哪怕只有 0.1% 來聊，也是 2 萬個潛在客戶。</div>
+          <div><b>直播被信任</b>反覆收聽累積信任；有客戶聽了一整年才開口，第一句就是「我一定會找你買保險」。</div>
+          <div><b>服務被選擇</b>線上來的客戶用線下標準服務；400 多人的客戶群本身就是社會證明——新客戶看到群，戒備心自然下降。</div>
+          <div><b>轉介紹裂變</b>客戶把直播間轉發到家人群、朋友群，不用強推薦。轉介紹率：2024 年全新客戶起步 → 2025 年 20% → 2026 年 50%——越做越不用做。</div>
+        </div>
+        <div class="insight-grid" style="margin-top:12px;">
+          <div class="insight"><span>消耗 vs 新增</span><b>線下經營是不斷消耗，線上經營是不斷新增。</b><p>做到後來他已經開始「篩選」客戶：是否優質、是否同頻、是否認可專業——越做越輕鬆。</p></div>
+          <div class="insight"><span>與線下互補</span><b>線上客戶來之前，信任已經建立完成。</b><p>線下每個客戶都要從零建信任，可能服務一年還不知道會不會成交；線上客戶進到微信時，直接開口就是需求。</p></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="quotes">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">08</span><h2>金句整理</h2></div>
+        <div class="quote-rail">
+          <figure class="quote"><blockquote>以前是我努力去認識更多的人，現在是我努力被更多的人認識。</blockquote><figcaption>IP 打造的本質轉變。</figcaption></figure>
+          <figure class="quote"><blockquote>IP 不是做一個帳號，IP 是做信任。</blockquote><figcaption>帳號只是載體，信任才是資產。</figcaption></figure>
+          <figure class="quote"><blockquote>問題不在你夠不夠努力，而在努力有沒有被積累下來。</blockquote><figcaption>把一次性的拜訪，變成可複利的內容。</figcaption></figure>
+          <figure class="quote"><blockquote>客戶不缺保險知識，缺的是做決定的底氣。</blockquote><figcaption>好內容給的是底氣，不是知識量。</figcaption></figure>
+          <figure class="quote"><blockquote>好的直播選題，不是你最想講什麼，而是客戶最想聽什麼。</blockquote><figcaption>客戶為「與自己有關的問題」停留。</figcaption></figure>
+          <figure class="quote"><blockquote>直播的目的不是當場成交，是獲得一次深入溝通的機會。</blockquote><figcaption>公開內容解決共性問題，個性需求回到一對一。</figcaption></figure>
+          <figure class="quote"><blockquote>保險人最值得經營的資產，是被客戶持續信任的能力。</blockquote><figcaption>IP 讓客戶認識你、直播讓客戶理解你、服務讓客戶選擇你。</figcaption></figure>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="discussion">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">09</span><h2>小組討論題</h2></div>
+        <ol class="discussion">
+          <li>你的客戶最常問你的 10 個問題是什麼？哪幾個可以立刻變成內容選題？</li>
+          <li>對照「你懂我、懂專業、靠得住」，你的線上形象目前傳達了哪一個？缺哪一個？</li>
+          <li>你的差異化是什麼——經歷、專長，還是你所在的城市？能不能一句話說清楚？</li>
+          <li>如果明天開第一場直播，你會選什麼主題？為什麼客戶會停留？</li>
+          <li>你的私域裡有多少「約不出來」的朋友？直播能不能成為他們無壓力接觸你的方式？</li>
+          <li>台灣的法規與平台環境下，哪些做法可以直接用？哪些需要轉化（如以講座、Podcast、社群經營替代）？</li>
+        </ol>
+      </article>
+    </section>
+
+    <section class="section" id="actions">
+      <article class="card animate-in">
+        <div class="section-head"><span class="num">10</span><h2>課後行動清單</h2></div>
+        <div class="actions">
+          <label><input type="checkbox" data-action="a1"><span>整理客戶最常問的 20 個問題，按「怕／不懂／比較／猶豫」分類建立選題庫。</span></label>
+          <label><input type="checkbox" data-action="a2"><span>給自己定一個像「靠譜的揚仔」一樣不會換的帳號名與定位。</span></label>
+          <label><input type="checkbox" data-action="a3"><span>用「共鳴＋判斷＋行動」框架寫出第一條內容腳本（真實案例優先）。</span></label>
+          <label><input type="checkbox" data-action="a4"><span>連續 30 天每天輸出一條內容，先求真實穩定、不求爆款。</span></label>
+          <label><input type="checkbox" data-action="a5"><span>規劃一場線上分享或直播試水：晚上時段、答疑形式、不賣產品只做決策輔導。</span></label>
+        </div>
+      </article>
+    </section>
+
+    <section class="section">
+      <article class="card mantra">
+        <div class="section-head"><span class="num">11</span><h2>最後帶走一句話</h2></div>
+        <p>IP 讓客戶認識你，直播讓客戶理解你，服務讓客戶選擇你——把信任做成增長。</p>
+      </article>
+    </section>
+
+    <footer class="footer">CMF 2026 學習筆記｜李揚課程整理 · 2026.07.19</footer>
+  </main>
+
+  <script>
+    document.querySelectorAll(".back-to-notes").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        if (history.length <= 1) return;
+        event.preventDefault();
+        history.back();
+      });
+    });
+
+    const key = "cmf-note-d6-08-actions";
+    const saved = JSON.parse(localStorage.getItem(key) || "{}");
+    document.querySelectorAll("[data-action]").forEach((input) => {
+      input.checked = Boolean(saved[input.dataset.action]);
+      input.addEventListener("change", () => {
+        saved[input.dataset.action] = input.checked;
+        localStorage.setItem(key, JSON.stringify(saved));
+      });
+    });
+  </script>
+  <script>
+    (() => {
+      if (!("ontouchstart" in window)) return;
+      let startY = 0, pulling = false, fired = false;
+      const THRESHOLD = 80;
+      const bar = document.createElement("div");
+      bar.textContent = "\u2193 \u4e0b\u62c9\u66f4\u65b0";
+      bar.style.cssText = "position:fixed;top:-46px;left:50%;transform:translateX(-50%);z-index:9999;padding:8px 16px;border-radius:999px;background:rgba(17,88,79,.92);color:#fff;font-size:13px;font-weight:700;transition:top .2s;pointer-events:none;box-shadow:0 8px 20px rgba(0,0,0,.18)";
+      document.body.appendChild(bar);
+      window.addEventListener("touchstart", (e) => {
+        if (window.scrollY <= 0) { startY = e.touches[0].clientY; pulling = true; fired = false; }
+        else { pulling = false; }
+      }, { passive: true });
+      window.addEventListener("touchmove", (e) => {
+        if (!pulling || fired) return;
+        const dy = e.touches[0].clientY - startY;
+        if (dy > 12 && window.scrollY <= 0) {
+          bar.style.top = Math.min(14, dy / 4 - 10) + "px";
+          if (dy > THRESHOLD) { bar.textContent = "\u21bb \u653e\u958b\u7acb\u5373\u66f4\u65b0"; bar.dataset.ready = "1"; }
+          else { bar.textContent = "\u2193 \u4e0b\u62c9\u66f4\u65b0"; delete bar.dataset.ready; }
+        } else {
+          bar.style.top = "-46px";
+          delete bar.dataset.ready;
+        }
+      }, { passive: true });
+      window.addEventListener("touchend", async () => {
+        if (!pulling) return;
+        pulling = false;
+        if (bar.dataset.ready && !fired) {
+          fired = true;
+          bar.style.top = "14px";
+          bar.textContent = "\u66f4\u65b0\u4e2d\u2026";
+          try {
+            if (window.caches) { const keys = await caches.keys(); await Promise.all(keys.map((k) => caches.delete(k))); }
+            if (navigator.serviceWorker) { const regs = await navigator.serviceWorker.getRegistrations(); await Promise.all(regs.map((r) => r.update())); }
+          } catch (_) {}
+          const u = new URL(location.href);
+          u.searchParams.set("r", Date.now().toString(36));
+          location.replace(u.toString());
+        } else {
+          bar.style.top = "-46px";
+          delete bar.dataset.ready;
+        }
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>
